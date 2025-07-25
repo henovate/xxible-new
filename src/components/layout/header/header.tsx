@@ -7,6 +7,16 @@ import signUpIcon from "../../../../public/assets/icons/signuplogo.png";
 import "../../../../public/styles/main.css";
 import { gsap } from "gsap";  
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+	Select,
+	SelectContent,
+	SelectGroup,
+	SelectItem,
+	SelectLabel,
+	SelectTrigger,
+	SelectValue,
+  } from "@/components/ui/select";
+  
 
 
 
@@ -37,15 +47,46 @@ const Header = () => {
 	
 		
 			<div className="search-wrapper">
-				<div className="search-container">
-					<input type="text" name="search" id="username" autoComplete="search" className="search-input" />
+				<form className="search-container">
+					<div className="search-icon-cont ml-3">
+						<Image src={searchIcon} alt="search icon" className="search-icon"/>
+					</div>
+					<input type="text" name="search" id="username" autoComplete="search" className="search-input" placeholder=''/> |
+					{/* <select name="" id="" className='search-option'>
+						<option value="">Lagos, NG</option>
+						<option value="">Parties</option>
+						<option value="">Concerts</option>
+						<option value="">Festivals</option>
+						<option value="">Clubs</option>
+						<option value="">Bars</option>
+					</select> */}
+
+					<div className='search-option'>
+						<Select> 
+							<SelectTrigger className="w-[180px]">
+								<SelectValue placeholder="Select Location" />
+							</SelectTrigger>
+							<SelectContent>
+								<SelectGroup className='search-option-content'>
+									<SelectLabel>Location</SelectLabel>
+
+									<SelectItem value="apple">Lagos, NG</SelectItem>
+									<SelectItem value="banana">Banana</SelectItem>
+									<SelectItem value="blueberry">Blueberry</SelectItem>
+									<SelectItem value="grapes">Grapes</SelectItem>
+									<SelectItem value="pineapple">Pineapple</SelectItem>
+									</SelectGroup>
+							</SelectContent>
+						</Select>
+					</div>
+					
 					<button className="flex justify-between align-middle search-btn">
 					<div className="search-icon-cont">
 						<Image src={searchIcon} alt="search icon" className="search-icon"/>
 					</div>
 					<span>Search</span>
 					</button>
-				</div>
+				</form>
 			</div>
 		
 		
