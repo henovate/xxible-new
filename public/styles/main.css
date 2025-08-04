@@ -11,15 +11,24 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url(https://db.onlinewebfonts.com/c/805ac7139ad8a6c0f4a1c62397c15ede?family=Post+Grotesk);
+@import url(https://db.onlinewebfonts.com/c/e9376501e69339f019d03488b68510a1?family=LilGrotesk);
 @import url(https://db.onlinewebfonts.com/c/aa6084f30c284e6052b3998e7c83f32b?family=Neo+Helvetica);
 
 @import url('https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap');
 @import url(https://db.onlinewebfonts.com/c/6ceeb648a14d9da2997e04d6021ad0f5?family=BodoniICG);
+@import url(https://db.onlinewebfonts.com/c/1ee3df488c48f3e9f92a3e961449c621?family=Palatino);
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url(https://db.onlinewebfonts.com/c/98944f96ac3faf2ad29a08fdde0deeab?family=Geist);
 
 *{
 	margin: 0px;
 	padding: 0px;
 	box-sizing: border-box;
+}
+
+.layout-cont{
+	font-family: "Object Sans";
 }
 
 .main-tool-bar {
@@ -65,13 +74,12 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 14px;
 	gap: 10px;
 }
 
 
 .search-input{
-	width: 40%;
+	width: 35%;
 	height: 100%;
 	padding-left: 10px;
 	border: none;
@@ -112,38 +120,23 @@ input:focus {
 	background-color: #353535;
 	padding: 6px 20px;
 	border-radius: 30px;
-	font-size: 12px;
+	font-size: 16px;
 }
 
 .signup-btn{
-	background-color: #fff;
+	background: linear-gradient(271.95deg, #7B0093 -30.8%, #F3DAFF 92.81%);
 	color: #212121;
 	margin-left: 20px;
 	padding: 9px 15px;
-	font-size: 12px;
-	font-weight: 600;
-	font-weight: 500;
+	font-family: "Geist";
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	border-radius: 10px;
+	border-radius: 20px;
 }
 
 .login{
-	font-weight: 600;
-	font-size: 15px;
-}
-
-.search-icon-cont{
-	width: 17px;
-	height: 17px;
-	margin-right: 10px;
-}
-
-.search-icon{
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
+	font-family: "Geist";
 }
 
 .brand-logo-cont{
@@ -181,17 +174,28 @@ input:focus {
   	font-weight: 400;
 	font-size: 14px;
 	color: rgb(128, 128, 128);
-	/* text-transform: uppercase; */
 }
 
 .hero-summary{
 	/* font-family: "Poppins", sans-serif; */
-	font-family: "Post Grotesk";
+	/* font-family: "Post Grotesk"; */
 	/* font-family: "Neo Helvetica"; */
 	/* font-family: "Object Sans"; */
-  	font-weight: 700;
-	font-size: 19px;
-	line-height: 18px;
+	font-family: "Bebas Neue", sans-serif;
+	transform: scaleY(1.2);
+}
+
+.hero-summary span{
+	font-family: "BodoniICG";
+	font-style: italic;
+}
+
+.diveInto{
+	font-family: "Helvetica Neue LT W01 83 Hv Ex";
+}
+
+.partyHard{
+	font-family: "Helvetica Neue LT W01 83 Hv Ex";
 }
 
 .num{
@@ -201,12 +205,8 @@ input:focus {
 
 .night{
 	font-family: "Special Gothic Expanded One", sans-serif;
-	font-weight: 600;
-	font-style: normal;
-	font-size: 14vw;
-	line-height: 14vw;
-	transform: scaleY(1.3); 
-  	display: inline-block;
+	transform: scalex(1.1); 
+	transform: scaleY(1.3);
 }
 
 .life{
@@ -221,19 +221,18 @@ input:focus {
 .circular-text {
 	margin: 0 auto;
 	border-radius: 50%;
-	width: 200px;
+	width: 250px;
 	position: relative;
-	height: 200px;
+	height: 250px;
 	font-weight: bold;
-	color: #fff;
 	font-weight: 900;
 	text-align: center;
 	cursor: pointer;
 	transform-origin: 50% 50%;
 	-webkit-transform-origin: 50% 50%;
-  }
+}
   
-  .circular-text span {
+.circular-text span {
 	position: absolute;
 	display: inline-block;
 	left: 0;
@@ -241,6 +240,85 @@ input:focus {
 	top: 0;
 	bottom: 0;
 	font-size: 24px;
+	/* font-family: "Object Sans"; */
+	font-family: "Poppins", sans-serif;
+	font-weight: 700;
 	transition: all 0.5s cubic-bezier(0, 0, 0, 1);
+}
+
+.exclusive{
+	font-family: "BodoniICG";
+	font-style: italic;
+	/* color: #F3DAFF; */
+}
+
+.updates{
+	font-family: "Helvetica Neue LT W01 83 Hv Ex";
+	/* transform: scaleY(1.5);  */
+	font-weight: 700;
+	font-style: normal;
+	text-transform: uppercase;
+}
+
+.allInOne{
+	font-family: "Bebas Neue", sans-serif;
+	font-weight: 300;
+	font-style: normal;
+	text-transform: uppercase;
+	transform: scaleY(1.2); 
+}
+
+.catGroup{
+	font-family: "Poppins", sans-serif;
+}
+
+
+/* Card 1 */
+.card1{
+	border: 5px solid #242424;
+	font-family: "Inter", sans-serif;
+}
+
+.card-info{
+	font-family: "Object Sans";
+}
+
+.topdetails{
+	font-family: "Helvetica Neue Regular";
+}
+
+
+/* Card 2 */
+.card2{
+	font-family: "Inter", sans-serif;
+}
+
+.card-info .details2 .cat{
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 12px;
+}
+
+.card-info .details2 .type{
+	font-weight: 600;
+}
+
+.cardNum{
+	/* font-family: "Bebas Neue", sans-serif; */
+	font-family: "Special Gothic Expanded One", sans-serif;
+}
+
+
+.eventHeading{
+	font-family: "Object Sans";
+}
+
+
+.swiper-slide:nth-child(4n) {
+	width: 60%;
   }
+  
+.swiper-slide:nth-child(5n) {
+	width: 40%;
+}
 

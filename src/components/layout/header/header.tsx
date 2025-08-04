@@ -47,27 +47,19 @@ const Header = () => {
 	
 		
 			<div className="search-wrapper">
-				<form className="search-container">
-					<div className="search-icon-cont ml-3">
-						<Image src={searchIcon} alt="search icon" className="search-icon"/>
+				<form className="search-container font-[400] text-[16px]">
+					<div className="search-icon-cont ml-3 w-[17px] h-[17px] mr-[10px]">
+						<Image src={searchIcon} alt="search icon" className="search-icon w-full h-full object-cover"/>
 					</div>
-					<input type="text" name="search" id="username" autoComplete="search" className="search-input" placeholder=''/> |
-					{/* <select name="" id="" className='search-option'>
-						<option value="">Lagos, NG</option>
-						<option value="">Parties</option>
-						<option value="">Concerts</option>
-						<option value="">Festivals</option>
-						<option value="">Clubs</option>
-						<option value="">Bars</option>
-					</select> */}
+					<input type="text" name="search" id="username" autoComplete="search" className="search-input" /> |
 
 					<div className='search-option'>
 						<Select> 
-							<SelectTrigger className="w-[180px]">
+							<SelectTrigger className="w-[170px]">
 								<SelectValue placeholder="Select Location" />
 							</SelectTrigger>
 							<SelectContent>
-								<SelectGroup className='search-option-content'>
+								<SelectGroup className='search-option-content text-[16px]'>
 									<SelectLabel>Location</SelectLabel>
 
 									<SelectItem value="apple">Lagos, NG</SelectItem>
@@ -75,13 +67,13 @@ const Header = () => {
 									<SelectItem value="blueberry">Blueberry</SelectItem>
 									<SelectItem value="grapes">Grapes</SelectItem>
 									<SelectItem value="pineapple">Pineapple</SelectItem>
-									</SelectGroup>
+								</SelectGroup>
 							</SelectContent>
 						</Select>
 					</div>
 					
 					<button className="flex justify-between align-middle search-btn">
-					<div className="search-icon-cont">
+					<div className="search-icon-cont w-[17px] h-[17px] mr-[10px] mt-[3px]">
 						<Image src={searchIcon} alt="search icon" className="search-icon"/>
 					</div>
 					<span>Search</span>
@@ -90,7 +82,7 @@ const Header = () => {
 			</div>
 		
 		
-			<div className="logIn-signUp-cont">     
+			<div className="logIn-signUp-cont font-[500] text-[16px]">     
 				<div>
 					<span className="login">Log in</span>
 				</div>
