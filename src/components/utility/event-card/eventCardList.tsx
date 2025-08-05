@@ -18,6 +18,30 @@ const EventCardList = ({cards}:EventCardListProps) => {
 		delay: 2500,
 		disableOnInteraction: false,
 	  }}
+	  breakpoints={{
+		// when window width is >= 1536px
+		1536: {
+			slidesPerView: 4,
+		},
+		 // when window width is >= 1024px
+		1028: {
+			slidesPerView: 3,
+			spaceBetween: 50
+		},
+        // when window width is >= 1024px
+        1024: {
+          slidesPerView: 3,
+		  spaceBetween: 20
+        },
+        // when window width is >= 768px
+        640: {
+          slidesPerView: 2,
+        },
+        // when window width is >= 0px
+        0: {
+          slidesPerView: 1,
+        },
+      }}
 	  modules={[Autoplay]}
 	  className="grid grid-cols-3 items-center h-[428px] w-full"
     >
