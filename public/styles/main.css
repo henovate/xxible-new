@@ -272,11 +272,14 @@ input:focus {
 	font-family: "Poppins", sans-serif;
 }
 
+.card1, .card2, .card3, .card4{
+	font-family: "Inter", sans-serif;
+}
+
 
 /* Card 1 */
 .card1{
 	border: 5px solid #242424;
-	font-family: "Inter", sans-serif;
 }
 
 .card-info{
@@ -289,9 +292,6 @@ input:focus {
 
 
 /* Card 2 */
-.card2{
-	font-family: "Inter", sans-serif;
-}
 
 .card-info .details2 .cat{
 	font-weight: 700;
@@ -313,10 +313,6 @@ input:focus {
 	font-family: "Object Sans";
 }
 
-.card3{
-	font-family: "Inter", sans-serif;
-}
-
 .card3 .p-6{
 	padding: 0px;
 }
@@ -329,3 +325,11 @@ input:focus {
 	width: 40%;
 }
 
+.line{
+	border-color: linear-gradient(271.95deg, #7B0093 -30.8%, #F3DAFF 92.81%);
+	border-top-width: 5px;
+}
+
+.createBrand{
+	font-family: "Poppins", sans-serif;
+}

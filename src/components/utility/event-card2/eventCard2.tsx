@@ -17,7 +17,7 @@ interface EventCardProps {
   className?: string
 }
 
-const EventCard = ({ event, className = "" }: EventCardProps) => {
+const EventCard2 = ({ event, className = "" }: EventCardProps) => {
   const [isFavorited, setIsFavorited] = useState(false)
 
   const handleFavoriteToggle = () => {
@@ -131,4 +131,4 @@ const EventCard = ({ event, className = "" }: EventCardProps) => {
   )
 }
 
-export default EventCard
+export default EventCard2

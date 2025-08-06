@@ -1,23 +1,21 @@
 "use client";
 
 import React from 'react';
-import { Ticket, Calendar, Search, MapPin } from 'lucide-react';
+import { Globe } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import Layout from '@/components/layout/layout';
 import CircularText from '../../src/components/circularText/circularText';
 import arrow from "../../public/assets/img/rightarrow.png";
-import arrow2 from "../../public/assets/img/rightarrow2.png";
-import like from "../../public/assets/img/like.png";
-import blackLike from "../../public/assets/img/like1.png";
-import likegray from "../../public/assets/img/likeg.png";
 import graphUp from "../../public/assets/img/graphUp.png";
 import star from "../../public/assets/img/star.png";
-import dash from "../../public/assets/img/line.png";
-import avatar1 from "../../public/assets/avatars/avatar1.png";
 import Image from 'next/image';
 import SwiperSlider from '@/components/swiper/swiper';
-import EventCard from '@/components/utility/event-card2/eventCard';
+import EventCard2 from '@/components/utility/event-card2/eventCard2';
 import { eventsData } from '@/components/utility/event-card2/events';
+import ClubCard from '@/components/utility/club-card/clubCard';
+import { clubsData } from '@/components/utility/club-card/clubData';
+import { cardContents } from '@/components/utility/event-card3/content';
+import EventCard3 from '@/components/utility/event-card3/eventCard3';
 
 
 
@@ -101,7 +99,7 @@ const handleLoad = () => {
                       </div>
                       
 
-                      <div className='topdetails text-center sm:text-start text-[1.5rem] leading-[1.5rem] sm:text-[30px] sm:leading-[30px] xl:text-[48px] font-[500] mt-4'>
+                      <div className='topdetails text-center sm:text-start text-[1.5rem] leading-[1.7rem] sm:text-[30px] sm:leading-[35px] xl:text-[48px] xl:leading-[53px] font-[500] mt-4  text-transparent bg-clip-text bg-gradient-to-r from-[#FFFFFF] via-pink-500 to-[#FF00EA] overflow-visible'>
                         <p>Top 10 Upcoming events in Lagos</p>
                       </div>
                     </div>
@@ -157,14 +155,14 @@ const handleLoad = () => {
 
               <div className='sec3 px-5 xl:px-16 pt-[10px] bg-[#EDEDED] w-full text-[#212121] pb-10'>
                 <div className='eventHeading'>
-                  <div className='discover flex items-center py-2 lg:py-3 px-5 bg-[#242424]/40 rounded-xl w-fit mt-[83px]'>
+                  <div className='discover flex items-center py-1 lg:py-3 px-5 bg-[#242424]/40 rounded-xl w-fit mt-[83px]'>
                     <div className='h-[13px] w-[13px] lg:h-[15px] lg:w-[15px] mr-1 mt-[2.5px] lg:mb-[3.5px]'>
                       <Image src={star} alt="right arrow" className="w-full h-full"/>
                     </div>
                     <p className='text-[12px] lg:text-[14px] font-[400] uppercase explore mt-[8px] text-[#212121]'>Featured</p>
                   </div>
 
-                  <div className='topdetails text-[1.5rem] leading-[1.5rem] sm:text-[30px] sm:leading-[30px] xl:text-[48px] font-[500] mt-4'>
+                  <div className='topdetails text-[1.5rem] leading-[1.7rem] sm:text-[30px] sm:leading-[35px] xl:text-[48px] xl:leading-[53px] font-[500] mt-4  text-transparent bg-clip-text bg-gradient-to-r from-[#000000] via-pink-500 to-[#FF00EA] overflow-visible'>
                     <p>Events Featured In Lagos</p>
                   </div>
                 </div>
@@ -197,35 +195,80 @@ const handleLoad = () => {
                 <div className='mt-[32px] grid sm:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-4'>
                   
                   {eventsData.map((_event) => (
-                       <EventCard event={_event}/>
+                       <EventCard2 event={_event}/>
                   ) )}
                  
                 </div>
 
-                <div className='flex justify-end mt-14'>
+                <div className='flex justify-center sm:justify-end mt-14'>
                   <div className='flex items-center py-[1px] xl:py-[8px] px-3 xl:px-6 rounded-[15px] xl:rounded-[40px] w-fit border-2'>
                     <p>SEE MORE</p>
                   </div>
                 </div>
-              </div>
-              
 
-              <div>
-                  <div className='eventHeading lg:ml-16'>
+
+
+
+                <div className='line pt-[72px] mt-[43px] border-t bg-[#EDEDED]'>
+                  <div className='eventHeading'>
                     <div className='flex justify-center sm:justify-start'>
-                      <div className='discover flex items-center py-3 px-5 bg-[#242424]/40 rounded-xl w-fit'>
-                        <div className='h-[13px] w-[13px] lg:h-[15px] lg:w-[15px] mr-1 mt-[2.5px] lg:mb-[3.5px]'>
-                          <Image src={graphUp} alt="right arrow" className="w-full h-full"/>
-                        </div>
-                        <p className='text-[12px] lg:text-[14px] font-[400] uppercase explore text-stone-100 mt-[8px]'>Discover What's Trending in Lagos</p>
+                      <div className='discover flex items-center py-3 px-5 bg-[#242424]/40 rounded-[24px] w-fit'>
+                        <Globe className='h-[13px] w-[13px] lg:h-[15px] lg:w-[15px] mr-1 mt-[2.5px] lg:mt-[3.5px] text-stone-100'/>
+                        <p className='text-[12px] lg:text-[14px] font-[400] uppercase explore text-stone-100 mt-[8px]'>Brands</p>
                       </div>
                     </div>
                     
 
-                    <div className='topdetails text-center sm:text-start text-[1.5rem] leading-[1.5rem] sm:text-[30px] sm:leading-[30px] xl:text-[48px] font-[500] mt-4'>
-                      <p>Top 10 Upcoming events in Lagos</p>
+                    <div className='topdetails text-center sm:text-start text-[1.5rem] leading-[1.7rem] sm:text-[30px] sm:leading-[35px] xl:text-[48px] xl:leading-[53px] font-[500] mt-4 text-transparent bg-clip-text bg-gradient-to-r from-[#000000] via-pink-500 to-[#FF00EA] overflow-visible'>
+                      <p>Popular Brands to Follow</p>
+                    </div>
+
+                    <div className='mt-16 grid grid-cols-2 gap-4'>
+                      {clubsData.map((club, index) => (
+                        <ClubCard key={index} club={club}/>
+                      ))}
                     </div>
                   </div>
+                </div>
+
+
+                <div className='flex justify-center sm:justify-end mt-14'>
+                  <div className='flex items-center py-[1px] xl:py-[8px] px-3 xl:px-6 rounded-[15px] xl:rounded-[40px] w-fit border-2'>
+                    <p>SEE MORE</p>
+                  </div>
+                </div>
+
+
+
+                <div className='createBrand bg-[#000000] rounded-[32px] mt-[72px] pt-[113px] pb-[112.14px] w-full px-8'>
+                  <div className='w-[50%]'>
+                    <p className='text-[48px] leading-[47px] py-3 font-[600] text-transparent bg-clip-text bg-gradient-to-r from-[#FFFFFF] via-pink-500 to-[#e28edb] overflow-visible'>Create Your brand Claim Your Spotlight!</p>
+                    <p className='text-[24px] leading-[34px] font-[400] my-8 text-[#ffffff]'>
+                      Build your presence, host unforgettable nights, and connect directly with your crowd, 
+                      whether you're a buzzing lounge, a rooftop bar, or an underground party brand.
+                    </p>                  
+                    <button className='bg-[#FFFFFF] text-[#212121] text-[16px] font-[600] px-6 py-[12px] rounded-[12px] mt-4 hover:bg-stone-200 transition-colors'>
+                      Create Your Brand
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div className='pt-[99px] bg-black px-20 pb-[36px]'>
+                <div className='flex justify-center'>
+                  <div className='w-[50%]'>
+                    <p className='text-center text-[48px] leading-[47px] py-3 font-[600] text-transparent bg-clip-text bg-gradient-to-r from-[#FFFFFF] via-pink-500 to-[#e28edb] overflow-visible'>Talk Before You Party!</p>
+                    <p className='text-center text-[24px] leading-[34px] font-[400] mt-8 text-[#ffffff]'>
+                      start gisting with other guests, ask questions, or link up before the night begins.
+                    </p>                  
+                  </div>
+                </div>
+                
+                <div className='grid sm:grid-cols-2 xl:grid-cols-4 gap-8 mt-[74px]'>
+                  {cardContents.map((cardContent, index) => (
+                    <EventCard3 key={index} cardData={cardContent}/>
+                  ))}
+                </div>
               </div>
             </div>
           </div> 
