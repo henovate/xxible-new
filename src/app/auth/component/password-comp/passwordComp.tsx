@@ -26,7 +26,7 @@ const PasswordComp = ({  placeholder, value, name, onChange, classes = "" }: Pas
 				value={value}
 				onChange={onChange}
 				name={name}
-				className="block w-full pl-10 pr-10 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-colors placeholder:text-[14px] text-[13px] text-[#898989]"
+				className="block w-full pl-10 pr-10 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F800E9] focus:border-transparent outline-none transition-colors placeholder:text-[14px] text-[13px] text-[#898989]"
 				required
 				/>
 				<button

@@ -11,7 +11,6 @@ import PasswordComp from '../component/password-comp/passwordComp';
 import FormInput from '../component/input-comp/formInput';
 
 const Page = () => {
-  const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -45,7 +44,7 @@ const Page = () => {
     <div className="sign-up-cont min-h-screen flex items-center justify-center p-4 lg:p-0">
       <div className="w-full max-w-[600px] bg-white rounded-2xl shadow-xl p-8 lg:py-[50.23px] lg:px-[55.43px]">
         {/* Header */}
-        <div className="text-center mb-[40px]">
+        <div className="text-center mb-[35px]">
           <h1 className="text-[20px] font-semibold text-gray-900 mb-2">
             Create Your Account
           </h1>
@@ -99,10 +98,10 @@ const Page = () => {
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-[24px]">
+        <form onSubmit={handleSubmit} className="space-y-[20px]">
 
           {/* Name Input */}
-          <FormInput icon={User} type='text' name='email' value={formData.name} onChange={handleInputChange} placeholder='Enter your name' />
+          <FormInput icon={User} type='text' name='name' value={formData.name} onChange={handleInputChange} placeholder='Enter your name' />
           
           {/* Email Input */}
           <div>
@@ -129,24 +128,19 @@ const Page = () => {
           </div>
           
           {/* Age Confirmation */}
-          <div className="flex items-center">
-          <input
-            type="checkbox"
-            name="ageConfirmed"
-            checked={formData.ageConfirmed}
-            onChange={handleInputChange}
-            className="h-4 w-4 accent-[#F800E9] focus:ring-[#F800E9] border-gray-300 rounded"
-            required
+          <FormInput 
+                type="checkbox"
+                name="ageConfirmed"
+                checked={formData.ageConfirmed}
+                onChange={handleInputChange}
+                label='I am 18 years of age or older.'
+                required
           />
-            <label className="ml-2 text-sm text-gray-700">
-              I am 18 years of age or older.
-            </label>
-          </div>
 
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full bg-gray-900 text-white py-3 px-4 rounded-lg font-medium hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 outline-none"
+            className="w-full text-[14px] bg-gray-900 text-white py-2.5 px-4 rounded-lg font-medium hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 outline-none"
           >
             Sign up
           </button>
@@ -154,7 +148,7 @@ const Page = () => {
 
         {/* Footer Links */}
         <div className="mt-6 text-center">
-          <p className="text-[13px] text-gray-600">
+          <p className="text-[12px] text-gray-600">
             Already have an account?{' '}
             <Link href="/login" className="text-[#231F20] hover:text-[#595757] font-medium">
               Log in
@@ -162,8 +156,8 @@ const Page = () => {
           </p>
         </div>
 
-        <div className="mt-4 text-center xl:flex justify-center">
-          <p className="text-sm text-black w-full xl:w-[60%]">
+        <div className="mt-8 text-center xl:flex justify-center">
+          <p className="text-[13px] text-black w-full xl:w-[60%]">
             By signing up, you agree to{' '}
             <Link href="/terms" className="text-[#007AFF] hover:text-blue-500">
               Terms of Service
