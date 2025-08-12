@@ -8,7 +8,6 @@ export interface ClubDataType {
 	imageUrl: string
 	imageAlt: string
 	primaryTags: string[]
-	secondaryTags: string[]
 	location?: string
   }
   

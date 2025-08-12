@@ -104,8 +104,8 @@ const EventCard2 = ({ event, className = "" }: EventCardProps) => {
 
         {/* Brand Section */}
         <div className="relative flex items-center gap-3 pt-3 sm:pt-4 border-t-2 border-dashed border-gray-300">
-			<div className='absolute left-0 top-[-14px] rounded-full h-8 w-8 bg-[#EDEDED] ml-[-30px]'></div>
-			<div className='absolute right-0 top-[-14px] rounded-full h-8 w-8 bg-[#EDEDED] mr-[-30px]'></div>
+          <div className='absolute left-0 top-[-14px] rounded-full h-8 w-8 bg-[#EDEDED] ml-[-30px]'></div>
+          <div className='absolute right-0 top-[-14px] rounded-full h-8 w-8 bg-[#EDEDED] mr-[-30px]'></div>
           <div className="w-8 h-8 sm:w-10 sm:h-10 bg-black rounded-full flex items-center justify-center flex-shrink-0">
             {event?.brand.logo ? (
               <Image

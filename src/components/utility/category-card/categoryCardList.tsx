@@ -1,6 +1,5 @@
 "use client";
 import CategoryCard, {CardPropType} from "./categoryCard";
-// import { Splide } from "@splidejs/react-splide";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay} from 'swiper/modules';
 import "swiper/css";
