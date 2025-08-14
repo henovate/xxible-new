@@ -61,15 +61,15 @@ const EventCard2 = ({ event, className = "" }: EventCardProps) => {
       <CardContent className="space-y-4 sm:space-y-5">
         {/* Event Title and Location */}
         <div>
-          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold xl:text-[22px] xl:leading-[26px] mt-2 text-[#212121]">{event?.title}</h2>
+          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold xl:text-[22px] xl:leading-[26px] 2xl:text-[24px] 2xl:leading-[28px] mt-2 text-[#212121]">{event?.title}</h2>
           <div className="flex items-center gap-1 text-gray-600 mt-3">
             <MapPin className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0 mb-[2px]" />
-            <p className="cat text-[14px] leading-[14px]">{event?.location}</p>
+            <p className="cat text-[14px] leading-[14px] 2xl:text-[16px] 2xl:leading-[20px]">{event?.location}</p>
           </div>
         </div>
 
         {/* Event Details */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 text-sm sm:text-[12px] mt-4 font-[600] text-[#696B6F]">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 text-sm sm:text-[12px] 2xl:text-[14px] 2xl:leading-[18px] mt-4 font-[600] text-[#696B6F]">
           <div className="flex items-center gap-1">
             <Clock className="w-4 h-4 flex-shrink-0" />
             <span>
@@ -78,10 +78,10 @@ const EventCard2 = ({ event, className = "" }: EventCardProps) => {
           </div>
 
           <div className="flex items-center justify-between sm:justify-end gap-4 sm:mr-7">
-			<div className="flex items-center gap-1">
-				<Ticket className="w-4 h-4 text-[#696B6F] mb-1" />
-				<div>{formatPrice(event?.price, event?.currency)}</div>
-			</div>
+            <div className="flex items-center gap-1">
+              <Ticket className="w-4 h-4 text-[#696B6F] mb-1 2xl:mb-0" />
+              <div>{formatPrice(event?.price, event?.currency)}</div>
+            </div>
             <div className="flex items-center gap-1">
               <Users className="w-4 h-4 flex-shrink-0" />
               <span>{event?.interestedCount} Interested</span>
@@ -90,12 +90,12 @@ const EventCard2 = ({ event, className = "" }: EventCardProps) => {
         </div>
 
         {/* Category Tags */}
-        <div className="flex flex-wrap gap-2 text-[11px] font-[500] mt-3">
-          {event?.categories.map((category, index) => (
+        <div className="flex flex-wrap gap-2 font-[500] mt-3">
+          {event?.categories.map((category, index) => ( 
             <Badge
               key={index}
               variant="secondary"
-              className="explore rounded-[20px] text-[#898989] bg-[#EDEDED] hover:bg-gray-200 text-xs sm:text-sm px-2 py-1 sm:px-3 sm:py-1"
+              className="explore rounded-[20px] text-[#898989] bg-[#EDEDED] hover:bg-gray-200 text-xs sm:text-sm 2xl:text-[15px] px-2 py-1 sm:px-3 sm:py-1"
             >
               {category}
             </Badge>

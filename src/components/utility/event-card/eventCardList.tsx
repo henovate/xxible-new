@@ -22,6 +22,7 @@ const EventCardList = ({cards}:EventCardListProps) => {
 		// when window width is >= 1536px
 		1536: {
 			slidesPerView: 4,
+			spaceBetween: 20
 		},
 		 // when window width is >= 1024px
 		1028: {
@@ -43,7 +44,7 @@ const EventCardList = ({cards}:EventCardListProps) => {
         },
       }}
 	  modules={[Autoplay]}
-	  className="grid grid-cols-3 items-center h-[428px] w-full"
+	  className="grid grid-cols-3 items-center h-[428px] 2xl:h-[33rem] w-full"
     >
       	{cards.map((item, index) => (
 			<SwiperSlide>

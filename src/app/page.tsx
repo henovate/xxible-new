@@ -40,11 +40,11 @@ const secondtoLastClubItem = clubsData.length - 1
 
   return ( 
       <Layout>
-          <div className='h-full w-full bg-black layout-cont'>
+          <div className='container h-full w-full bg-black layout-cont'>
             <div className='h-full w-full'>
               <div className='relative w-full'>
                 {/* Video Section */}
-                <div className='video-container h-[390px] w-full overflow-hidden bg-black bg-blend-overlay rounded-br-[400px] rounded-bl-[100px]'>
+                <div className='video-container h-[390px] 2xl:h-[550px] w-full overflow-hidden bg-black bg-blend-overlay rounded-br-[400px] rounded-bl-[100px]'>
                   <video className='w-full h-full min-w-full scale-150 rounded-br-[400px] rounded-bl-[100px]' muted autoPlay loop>
                     <source onLoad={()=> handleLoad()} src='https://videos.pexels.com/video-files/6225458/6225458-hd_1920_1080_30fps.mp4' type='video/mp4' />
                   </video>
@@ -67,21 +67,21 @@ const secondtoLastClubItem = clubsData.length - 1
               </div>
 
               <div className='sec1 h-full px-6 lg:px-8 mt-4 sm:mt-16 lg:mt-10'>
-                <div className='pl-0 ml-0 flex justify-center sm:justify-start items-center bg-black w-full'>
-                  <p className='night text-[13vw] leading-[12vw] sm:text-[14.5vw] sm:leading-[13vw] lg:leading-[14.5vw] xl:text-[14.7vw] xl:leading-[14.7vw] font-[600]'>NIGHT LIFE</p>
+                <div className='pl-0 ml-0 flex items-center bg-black w-full'>
+                  <p className='night text-[13vw] leading-[12vw] sm:text-[14.5vw] sm:leading-[13vw] lg:leading-[14.5vw] xl:text-[14.7vw] xl:leading-[14.7vw] 2xl:text-[14.8rem] 2xl:leading-[14.8rem] font-[600]'>NIGHT LIFE</p>
                 </div>
 
-                <div className='w-full sm:flex lg:items-center justify-between lg:justify-around mt-14 lg:mt-6 text-center sm:text-start'>             
-                    <div className='w-[70% sm:w-[45%] md:w-[44vw] lg:w-[32vw]'>
-                      <p className='hero-summary text-[19px] leading-[17px] sm:text-[25px] sm:leading-[23px] font-[500]'>Find The Hottest Nightlife Events, Vibes And Meet New People. Cruise with Leisure.</p>
-                      <p className='diveInto uppercase mt-2 text-[19px] leading-[17px] sm:text-[25px] sm:leading-[25px]'>Dive into An Experience</p>
+                <div className='w-full flex lg:items-center justify-between lg:justify-around mt-14 lg:mt-6'>             
+                    <div className='w-[45%] md:w-[44vw] lg:w-[32vw]'>
+                      <p className='hero-summary text-[19px] leading-[17px] sm:text-[25px] sm:leading-[23px] 2xl:text-[32px] 2xl:leading-[30px] font-[500]'>Find The Hottest Nightlife Events, Vibes And Meet New People. Cruise with Leisure.</p>
+                      <p className='diveInto uppercase mt-2 text-[19px] leading-[17px] sm:text-[25px] sm:leading-[25px] 2xl:text-[32px] 2xl:leading-[32px]'>Dive into An Experience</p>
                       {/* <p className='partyHard mt-2 text-[17px] leading-[17px] font-[400] text- uppercase'>Party Hard</p> */}
                     </div>               
 
-                  <div className='sum w-[70% sm:w-[45%] md:w-[44vw] lg:w-[34vw] mt-16 sm:mt-0 text-center sm:text-start'>
-                    <p className='exclusive text-stone-50 text-[19px] leading-[17px] sm:text-[25px] sm:leading-[25px]'>All Exclusive</p>
-                    <p className='updates  mt-1 text-stone-100 text-[19px] leading-[17px] sm:text-[25px] sm:leading-[24px]'>Updates on exclusive parties, night clubs, and the coolest crowd</p>
-                    <p className='allInOne mt-2 text-stone-100 text-[16px] leading-[16px] sm:text-[23px] sm:leading-[23px]'>All in one place!</p>
+                  <div className='sum w-[45%] md:w-[44vw] lg:w-[34vw] mt-16 sm:mt-0'>
+                    <p className='exclusive text-stone-50 text-[19px] leading-[17px] sm:text-[25px] sm:leading-[25px] 2xl:text-[32px] 2xl:leading-[30px]'>All Exclusive</p>
+                    <p className='updates  mt-1 text-stone-100 text-[19px] leading-[17px] sm:text-[25px] sm:leading-[24px] 2xl:text-[32px] 2xl:leading-[31px]'>Updates on exclusive parties, night clubs, and the coolest crowd</p>
+                    <p className='allInOne mt-2 text-stone-100 text-[16px] leading-[16px] sm:text-[23px] sm:leading-[23px] 2xl:text-[30px] 2xl:leading-[30px]'>All in one place!</p>
                   </div>
                 </div>
               </div>
@@ -96,7 +96,7 @@ const secondtoLastClubItem = clubsData.length - 1
                   </div>
 
 
-                  <div className='px-8 md:mt-[20px] xl:mt-[139px]'>
+                  <div className='px-8 md:mt-[20px] xl:mt-[139px] 2xl:mt-[173px]'>
                     <div className='eventHeading lg:ml-16'>
                       <div className='flex justify-center sm:justify-start'>
                         <div className='discover flex items-center py-3 px-5 bg-[#242424]/40 rounded-xl w-fit'>
@@ -134,7 +134,7 @@ const secondtoLastClubItem = clubsData.length - 1
                   </div>
 
 
-                  <div className='px-6 lg:px-8 md:mt-[20px] mt-[100px] xl:mt-[139px]'>
+                  <div className='px-6 lg:px-8 md:mt-[20px] mt-[100px] xl:mt-[139px] 2xl:mt-[173px]'>
                     <div className='eventHeading lg:ml-16'>
                       <div className='flex justify-center sm:justify-start'>
                         <div className='discover flex items-center py-3 px-5 bg-[#242424]/40 rounded-xl w-fit'>
@@ -146,7 +146,7 @@ const secondtoLastClubItem = clubsData.length - 1
                       </div>
                       
 
-                      <div className='topdetails text-center sm:text-start text-[1.5rem] leading-[1.5rem] sm:text-[30px] sm:leading-[30px] xl:text-[48px] font-[500] mt-4'>
+                      <div className='topdetails text-center sm:text-start text-[1.5rem] leading-[1.5rem] sm:text-[30px] sm:leading-[30px] xl:text-[48px] xl:leading-[53px] font-[500] mt-4 text-transparent bg-clip-text bg-gradient-to-r from-[#fbd0f7] via-[#FFFFFF] to-[#FF00EA] overflow-visible'>
                         <p>Top 10 Upcoming events in Lagos</p>
                       </div>
                     </div>
@@ -168,7 +168,7 @@ const secondtoLastClubItem = clubsData.length - 1
                     <div className='h-[13px] w-[13px] lg:h-[15px] lg:w-[15px] mr-1 mt-[2.5px] lg:mb-[3.5px]'>
                       <Image src={star} alt="right arrow" className="w-full h-full"/>
                     </div>
-                    <p className='text-[12px] lg:text-[14px] font-[400] uppercase explore mt-[8px] text-[#212121]'>Featured</p>
+                    <p className='text-[12px] lg:text-[14px] 2xl:text-[16px] font-[400] uppercase explore mt-[8px] text-[#212121]'>Featured</p>
                   </div>
 
                   <div className='topdetails text-[1.5rem] leading-[1.7rem] sm:text-[30px] sm:leading-[35px] xl:text-[48px] xl:leading-[53px] font-[500] mt-4  text-transparent bg-clip-text bg-gradient-to-r from-[#000000] via-pink-500 to-[#FF00EA] overflow-visible'>
@@ -220,19 +220,19 @@ const secondtoLastClubItem = clubsData.length - 1
 
                 <div className='line pt-[72px] mt-[43px] border-t bg-[#EDEDED]'>
                   <div className='eventHeading'>
-                    <div className='flex justify-center sm:justify-start'>
-                      <div className='discover flex items-center py-3 px-5 bg-[#242424]/40 rounded-[24px] w-fit'>
+                    <div>
+                      <div className='discover flex items-center  py-1 lg:py-3 px-5 bg-[#242424]/40 rounded-[24px] w-fit'>
                         <Globe className='h-[13px] w-[13px] lg:h-[15px] lg:w-[15px] mr-1 mt-[2.5px] lg:mt-[3.5px] text-stone-100'/>
-                        <p className='text-[12px] lg:text-[14px] font-[400] uppercase explore text-stone-100 mt-[8px]'>Brands</p>
+                        <p className='text-[12px] lg:text-[14px] 2xl:text-[16px] font-[400] uppercase explore text-stone-100 mt-[8px]'>Brands</p>
                       </div>
                     </div>
                     
 
-                    <div className='topdetails text-center sm:text-start text-[1.5rem] leading-[1.7rem] sm:text-[30px] sm:leading-[35px] xl:text-[48px] xl:leading-[53px] font-[500] mt-4 text-transparent bg-clip-text bg-gradient-to-r from-[#000000] via-pink-500 to-[#FF00EA] overflow-visible'>
+                    <div className='topdetails text-[1.5rem] leading-[1.7rem] sm:text-[30px] sm:leading-[35px] xl:text-[48px] xl:leading-[53px] font-[500] mt-4 text-transparent bg-clip-text bg-gradient-to-r from-[#000000] via-pink-500 to-[#FF00EA] overflow-visible'>
                       <p>Popular Brands to Follow</p>
                     </div>
 
-                    <div className='mt-16 grid grid-cols-1 sm:grid-cols-2 gap-x-5'>
+                    <div className='mt-16 grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-3 2xl:gap-y-0'>
                       {clubsData.map((club, index) => (
                         <ClubCard key={index} club={club} lastItem={lastClubItem} secondToLastItem={secondtoLastClubItem}/>
                       ))}
@@ -250,7 +250,7 @@ const secondtoLastClubItem = clubsData.length - 1
 
 
                 <div className='createBrand bg-[#000000] bg-[url("/assets/bg.png")] bg-cover bg-no-repeat bg-center rounded-[32px] mt-[72px] pt-[70px] xl:pt-[113px] pb-[69px] xl:pb-[112.14px] w-full px-8 sm:px-14'>
-                  <div className='w-full xl:w-[50%]'>
+                  <div className='w-full sm:w-[70%] xl:w-[50%]'>
                     <p className='text-[30px] leading-[35px] xl:text-[48px] xl:leading-[47px] py-3 font-[600] text-transparent bg-clip-text bg-gradient-to-r from-[#FFFFFF] via-pink-500 to-[#e28edb] overflow-visible'>Create Your brand Claim Your Spotlight!</p>
                     <p className='text-[16px] leading-[20px] sm:leading-[22px] xl:text-[24px] xl:leading-[34px] font-[400] my-8 text-[#ffffff] lg:w-[70%] xl:w-full'>
                       Build your presence, host unforgettable nights, and connect directly with your crowd, 
@@ -294,7 +294,7 @@ const secondtoLastClubItem = clubsData.length - 1
 
                 <div className='mt-[139px] pb-[180px]'>
                   <Marquee autoFill={true} pauseOnHover={true}>
-                    <div className='flex items-center gap-8'>
+                    <div className='flex items-center'>
                       {data.map((item, i) => (
                         <EventCard4 key={i} cardData={item} />
                       ))}
@@ -303,10 +303,6 @@ const secondtoLastClubItem = clubsData.length - 1
                 </div>
               </div>
 
-
-              <div>
-                <Footer />
-              </div>
             </div>
           </div> 
       </Layout>

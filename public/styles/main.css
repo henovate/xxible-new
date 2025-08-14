@@ -101,6 +101,7 @@ input:focus {
 
 .data-\[placeholder\]\:text-muted-foreground[data-placeholder] {
     color: white;
+	font-size: 16px;
 }
 
 .search-option .border{
@@ -124,15 +125,7 @@ input:focus {
 }
 
 .signup-btn{
-	background: linear-gradient(271.95deg, #7B0093 -30.8%, #F3DAFF 92.81%);
-	color: #212121;
-	margin-left: 20px;
-	padding: 9px 15px;
 	font-family: "Geist";
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	border-radius: 20px;
 }
 
 .login{
@@ -342,7 +335,6 @@ footer{
 }
 
 
-
 /* Sign Up Form */
 
 .sign-up-cont{
@@ -352,5 +344,9 @@ footer{
 .dob .dark\:bg-input\/30:is(.dark *) {
 	background-color: #FFFFFF;
 	color: #212121;
+}
+
+.container{
+	@apply max-w-[1900px] mx-auto
 }
   

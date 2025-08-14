@@ -11,10 +11,10 @@ const Footer = () => {
       <footer className="bg-[#131313] text-white">
         {/* Newsletter Section */}
         <div>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6 pt-[60px]">
+          <div className=" mx-auto px-4 sm:px-6 lg:px-8 pb-6 pt-[60px]">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div className="flex-1">
-                <h3 className="text-[24px] leading-[26px] font-medium lg:w-[60%]">
+                <h3 className="text-[24px] leading-[26px] font-medium lg:w-[60%] 2xl:w-[50%]">
                   Join Our Newsletter to Keep Up to Date With Us
                 </h3>
               </div>
@@ -35,7 +35,7 @@ const Footer = () => {
         </div>
 
         {/* Main Footer Content */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className=" mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[50%_1fr_1fr_1fr] gap-8">
             {/* Brand Column */}
             <div className="lg:col-span-1">
@@ -139,7 +139,7 @@ const Footer = () => {
 
         {/* Bottom Footer */}
         <div className="border-t border-gray-700">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div className="text-sm text-gray-400">
                 © 2025, XXible

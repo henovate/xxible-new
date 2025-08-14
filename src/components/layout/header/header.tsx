@@ -156,12 +156,12 @@ const Header = () => {
     return (
         <div className="w-full">
             {/* Desktop Header */}
-            <div className="hidden lg:flex main-tool-bar fixed top-0 left-0 right-0 z-40 bg-transparent px-4 pt-5 pb-3 items-center justify-between">
+            <div className="hidden lg:flex main-tool-bar fixed top-0 left-0 right-0 z-40 bg-transparent px-4 pt-5 items-center justify-between">
                 {/* Logo */}
                 <Link className="flex items-center gap-1 flex-shrink-0" href="/">
-                    <div className="h-[30px] w-[80px]">
+                    <div>
                         <div className="w-full h-full flex items-center">
-							<div className="h-[30px] w-[80px]">
+							<div className="h-[30px] w-[80px] 2xl:h-[43px] 2xl:w-[111px]">
 			 					<Image src={brandLogo} alt="brand Logo" className="brand-logo w-full h-full bg-cover"/>
 			 				</div>
                         </div>
@@ -169,19 +169,19 @@ const Header = () => {
                 </Link>
 
                 {/* Search Bar */}
-                <div className="search-wrapper flex-1 max-w-2xl mx-8 rounded-full">
+                <div className="search-wrapper flex-1 max-w-2xl mx-20 rounded-full">
                     <form className="search-container flex items-center bg-gray-800 rounded-full px-4 py-2 border border-gray-700">
                         <Search className="w-4 h-4 text-gray-400 mr-3" />
                         <input 
                             type="text" 
                             name="search" 
                             placeholder="Beach Party"
-                            className="flex-1 bg-transparent text-white placeholder-gray-400 outline-none text-sm"
+                            className="flex-1 bg-transparent text-white placeholder-gray-400 outline-none text-sm 2xl:text-base"
                         />
                         <div className="w-px h-4 bg-gray-600 mx-3"></div>
                         <div className="min-w-[140px]">
                             <Select>
-                                <SelectTrigger className="border-none bg-transparent text-white text-sm h-auto p-0 focus:ring-0">
+                                <SelectTrigger className="border-none bg-transparent text-white text-sm 2xl:text-base h-auto p-0 focus:ring-0">
                                     <SelectValue placeholder="Lagos, NG" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -197,7 +197,7 @@ const Header = () => {
                         </div>
                         <button 
                             type="submit"
-                            className="ml-3 bg-white text-gray-900 px-4 py-1.5 rounded-full text-sm font-medium hover:bg-gray-100 transition-colors flex items-center gap-2"
+                            className="ml-3 bg-white text-gray-900 px-4 py-1.5 rounded-full text-sm font-medium 2xl:text-base hover:bg-gray-100 transition-colors flex items-center gap-2"
                         >
                             <Search className="w-4 h-4" />
                             Search
@@ -207,10 +207,10 @@ const Header = () => {
 
                 {/* Auth Buttons */}
                 <div className="flex items-center gap-4 flex-shrink-0">
-                    <Link href="/login" className="text-white hover:text-gray-300 transition-colors text-sm font-medium">
+                    <Link href="/login" className="text-white hover:text-gray-300 transition-colors text-sm 2xl:text-base font-medium">
                         Log in
                     </Link>
-                    <button className="bg-white text-gray-900 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-100 transition-colors flex items-center gap-2">
+                    <button className="bg-white text-gray-900 px-4 py-2 rounded-full text-sm 2xl:text-base font-medium hover:bg-gray-100 transition-colors flex items-center gap-2">
                         Sign Up
                         <div className="w-4 h-4 bg-gray-900 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs">+</span>
@@ -250,7 +250,7 @@ const Header = () => {
                                         type="text" 
                                         name="search" 
                                         placeholder="Beach Party"
-                                        className="flex-1 bg-transparent text-white placeholder-gray-400 outline-none text-sm"
+                                        className="flex-1 bg-transparent text-white placeholder-gray-400 outline-none text-sm 2xl:text-base"
                                     />
                                 </div>
                                 <div className="w-full">
@@ -283,7 +283,7 @@ const Header = () => {
                         <div className="space-y-3 pt-3 border-t border-gray-700">
                             <Link 
                                 href="/login" 
-                                className="block text-white hover:text-gray-300 transition-colors text-sm font-medium py-2"
+                                className="block text-white hover:text-gray-300 transition-colors text-sm 2xl:text-base font-medium py-2"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 Log in
@@ -294,7 +294,7 @@ const Header = () => {
                             >
                                 Sign Up
                                 <div className="w-4 h-4 bg-gray-900 rounded-full flex items-center justify-center">
-                                    <span className="text-white text-xs">+</span>
+                                    <span className="text-white text-xs 2xl:text-base">+</span>
                                 </div>
                             </button>
                         </div>

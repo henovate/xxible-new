@@ -20,11 +20,22 @@ const ClubCard = ({ club, secondToLastItem, lastItem, className = "" }: ClubCard
     return num.toLocaleString()
   }
 
+  console.log("item:", lastItem, secondToLastItem)
+
   return (
     <Card
-      className={`w-full overflow-hidden bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 border-none ${Number(club.id) == 1 || Number(club.id) == 2? "rounded-t-[20px]" : null} ${Number(club.id) == secondToLastItem || Number(club.id) == lastItem? "rounded-b-[20px]" : null} ${className}`}
+      className={`card4 rounded-none w-full overflow-hidden bg-white shadow-lg 
+                  hover:shadow-xl transition-shadow duration-300 border-none 
+                  ${Number(club.id) !== secondToLastItem && Number(club.id) !== lastItem? "bg-[url('/assets/img/bg7.png')] bg-cover bg-center bg-no-repeat" : "bg-white"} 
+                  ${Number(club.id) == 1 || Number(club.id) == 2? "rounded-t-[20px]" : null} 
+                  ${Number(club.id) == secondToLastItem || Number(club.id) == lastItem? "rounded-b-[20px]" : null}
+                  ${Number(club.id) == 1? "rounded-t-[20px]" : null}  
+                  ${Number(club.id) == 2? "rounded-none sm:rounded-t-[20px]" : null}
+                  ${Number(club.id) == secondToLastItem? "rounded-none sm:rounded-b-[20px]" : null}
+                  ${Number(club.id) == lastItem? "rounded-b-[20px]" : null}
+                  ${className}`}
     >
-      <CardContent className="relative pl-[22px] pr-[27px] pt-[24px] pb-[70px]">
+      <CardContent className="relative pl-[22px] pr-[27px] pt-[24px] pb-[24px] 2xl:pb-[70px]">
         <div className="flex h-full gap-3 flex-col sm:flex-row">
           {/* Image Section */}
           <div className="img-cont relative h-[251px] sm:h-auto w-full sm:w-[40%] flex-shrink-0 rounded-[12px]">
@@ -82,8 +93,6 @@ const ClubCard = ({ club, secondToLastItem, lastItem, className = "" }: ClubCard
             </div>
           </div>
         </div>
-        <div className='absolute left-0 bottom-[-15px] rounded-full h-10 w-10 bg-[#EDEDED] ml-[-15px]'></div>
-			  <div className='absolute right-0 bottom-[-15px] rounded-full h-10 w-10 bg-[#EDEDED] mr-[-15px]'></div>
       </CardContent>
     </Card>
   )
