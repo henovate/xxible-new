@@ -47,7 +47,7 @@ const Page = () => {
 	  ]
 
   return (
-    <div className='sign-up-cont min-h-screen bg-gray-100 flex flex-col pt-7 pb-16'>
+    <div className='container sign-up-cont min-h-screen bg-gray-100 flex flex-col pt-7 pb-16'>
       {/* Header Logo */}
 	  <div className="w-full max-w-6xl flex justify-start pl-8">
 		  <Link className="flex items-center" href="/">
@@ -57,7 +57,7 @@ const Page = () => {
 		  </Link>
 		</div>
 
-	<div className="flex-1 flex items-center justify-center w-full mt-[10px] px-4 sm:px-[120px]">
+	<div className="flex-1 flex items-center justify-center w-full mt-[10px] px-4 sm:px-[120px] 2xl:px-[220px]">
         <div className="bg-white bg-[url('/assets/img/bg2.png')] bg-cover bg-center bg-no-repeat rounded-xl shadow-lg p-6 sm:p-8 xl:px-[300px] md:pb-16 md:pt-12 w-full mx-auto text-center">
         {/* Header */}
         <div className="text-center mb-[52px]">

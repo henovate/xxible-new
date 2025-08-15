@@ -33,7 +33,7 @@ const Page = () => {
   }
 
   return (
-    <div className='sign-up-cont min-h-screen bg-[url("/assets/img/bg6.svg")] bg-cover bg-center bg-no-repeat bg-gray-100 flex flex-col pt-7 pb-16'>
+    <div className='container sign-up-cont min-h-screen bg-[url("/assets/img/bg6.svg")] bg-cover bg-center bg-no-repeat bg-gray-100 flex flex-col pt-7 pb-16'>
       <div className="w-full max-w-6xl flex justify-start pl-8">
         <Link className="flex items-center" href="/">
           <div className="h-[30px] w-[66.2px]">
@@ -42,14 +42,14 @@ const Page = () => {
         </Link>
 		  </div>
     <div className="sign-up-cont min-h-screen flex items-center justify-center p-4 lg:p-0">
-      <div className="w-full max-w-[600px] bg-white rounded-2xl shadow-xl p-8 lg:py-[50.23px] lg:px-[55.43px]">
+      <div className="w-full max-w-[600px] 2xl:max-w-[650px] bg-white rounded-2xl shadow-xl p-8 lg:py-[50.23px] lg:px-[55.43px]">
         {/* Header */}
         <div className="text-center mb-[35px]">
-          <h1 className="text-[20px] font-semibold text-gray-900 mb-2">
+          <h1 className="text-[20px] 2xl:text-[24px] font-semibold text-gray-900 mb-2">
             Create Your Account
           </h1>
           <div className='flex justify-center items-center w-full'>
-          <p className="text-[#A0A0A0] text-[13px] leading-[16px] font-[500] w-[70%] sm:w-[80%]">
+          <p className="text-[#A0A0A0] text-[13px] leading-[16px] 2xl:text-[14px] 2xl:leading-[17px] font-[500] w-[70%] sm:w-[80%]">
             Join the party. Discover events, make connections, and never miss a vibe.
           </p>
           </div>
@@ -65,24 +65,24 @@ const Page = () => {
                 <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
                 <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
               </svg>
-              <span className="text-[9.5px] font-medium text-gray-700 hidden sm:inline">Continue with Google</span>
-              <span className="text-[9.5px] font-medium text-gray-700 sm:hidden">Google</span>
+              <span className="text-[10px] 2xl:text-[11px] font-medium text-gray-700 hidden sm:inline">Continue with Google</span>
+              <span className="text-[10px] 2xl:text-[11px] font-medium text-gray-700 sm:hidden">Google</span>
             </button>
 
             <button className="flex items-center justify-center px-[9.8px] py-2 border border-gray-300 rounded-2xl hover:bg-gray-50 transition-colors">
               <div className="w-4 h-4 mr-1">
                 <Image src={apple} alt="brand Logo" className="brand-logo w-full h-full bg-cover"/>
               </div>
-              <span className="text-[9.5px] font-medium text-gray-700 hidden sm:inline">Continue with Apple</span>
-              <span className="text-[9.5px] font-medium text-gray-700 sm:hidden">Apple</span>
+              <span className="text-[10px] 2xl:text-[11px] font-medium text-gray-700 hidden sm:inline">Continue with Apple</span>
+              <span className="text-[10px] 2xl:text-[11px] font-medium text-gray-700 sm:hidden">Apple</span>
             </button>
 
             <button className="flex items-center justify-center px-[9.8px] py-2 border border-gray-300 rounded-2xl hover:bg-gray-50 transition-colors">
               <svg className="w-4 h-4 mr-1" viewBox="0 0 24 24" fill="#1877F2">
                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
               </svg>
-              <span className="text-[9.5px] font-medium text-gray-700 hidden sm:inline">Continue with Google</span>
-              <span className="text-[9.5px] font-medium text-gray-700 sm:hidden">Facebook</span>
+              <span className="text-[10px] 2xl:text-[11px] font-medium text-gray-700 hidden sm:inline">Continue with Google</span>
+              <span className="text-[10px] 2xl:text-[11px] font-medium text-gray-700 sm:hidden">Facebook</span>
             </button>
           </div>
         </div>
@@ -106,7 +106,7 @@ const Page = () => {
           {/* Email Input */}
           <div>
             <FormInput icon={Mail} type='email' name='email' value={formData.email} onChange={handleInputChange} placeholder='Enter your email address' />
-            <p className="text-[10px] text-gray-500 mt-1">
+            <p className="text-[10px] 2xl:text-[11px] text-gray-500 mt-1">
               We'll use your email address to send you updates.
             </p>
           </div>
@@ -114,7 +114,7 @@ const Page = () => {
           {/* Password Input */}
           <div>
             <PasswordComp placeholder='Password' name='password' value={formData.password} onChange={handleInputChange} />
-            <p className="text-[10px] text-gray-500 mt-1">
+            <p className="text-[10px] 2xl:text-[11px] text-gray-500 mt-1">
                 Minimum of 8 characters with a mix of letters, numbers, and symbols.
             </p>
           </div>
@@ -122,7 +122,7 @@ const Page = () => {
           {/* City Input */}
           <div>
             <FormInput icon={MapPin} type='text' name='city' value={formData.city} onChange={handleInputChange} placeholder='City' />
-            <p className="text-[10px] text-gray-500 mt-1">
+            <p className="text-[10px] 2xl:text-[11px] text-gray-500 mt-1">
               Help us find local events where you are.
             </p>
           </div>
@@ -140,7 +140,7 @@ const Page = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full text-[14px] bg-gray-900 text-white py-2.5 px-4 rounded-lg font-medium hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 outline-none"
+            className="w-full text-[14px] 2xl:text-[15px] bg-gray-900 text-white py-2.5 2xl:py-3.5 px-4 rounded-lg font-medium hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 outline-none"
           >
             Sign up
           </button>
@@ -148,7 +148,7 @@ const Page = () => {
 
         {/* Footer Links */}
         <div className="mt-6 text-center">
-          <p className="text-[12px] text-gray-600">
+          <p className="text-[12px] 2xl:text-[13px] text-gray-600">
             Already have an account?{' '}
             <Link href="/login" className="text-[#231F20] hover:text-[#595757] font-medium">
               Log in
@@ -157,7 +157,7 @@ const Page = () => {
         </div>
 
         <div className="mt-8 text-center xl:flex justify-center">
-          <p className="text-[13px] text-black w-full xl:w-[60%]">
+          <p className="text-[13px] 2xl:text-[14px] text-black w-full xl:w-[60%]">
             By signing up, you agree to{' '}
             <Link href="/terms" className="text-[#007AFF] hover:text-blue-500">
               Terms of Service

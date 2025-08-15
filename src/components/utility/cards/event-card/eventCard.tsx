@@ -1,8 +1,8 @@
 "use client"
 
 import Image from 'next/image';
-import { Ticket, Calendar, Search, MapPin } from 'lucide-react';
-import like from "../../../../public/assets/img/like.png";
+import { Ticket, Calendar, MapPin } from 'lucide-react';
+import like from "../../../../../public/assets/img/like.png";
 // import { SplideSlide } from "@splidejs/react-splide";
 import { SwiperSlide } from 'swiper/react';
 

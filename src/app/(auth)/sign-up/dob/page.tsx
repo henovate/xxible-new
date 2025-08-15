@@ -16,7 +16,7 @@ const Page = () => {
 	const years = Array.from({ length: 100 }, (_, i) => (currentYear - i).toString())
   
 	return (
-	  <div className="sign-up-cont min-h-screen flex flex-col bg-gray-100 pt-8 pb-16">
+	  <div className="container sign-up-cont min-h-screen flex flex-col bg-gray-100 pt-8 pb-16">
 		{/* Header Logo */}
 		<div className="w-full max-w-6xl flex justify-start pl-8">
 		  <Link className="flex items-center" href="/">
@@ -27,7 +27,7 @@ const Page = () => {
 		</div>
   
 		{/* Main Card */}
-		<div className="flex-1 flex items-center justify-center h-full w-full mt-[10px] px-4 sm:px-[120px]">
+		<div className="flex-1 flex items-center justify-center h-full w-full mt-[10px] px-4 sm:px-[120px] 2xl:px-[200px] ">
 		  <div className="relative bg-white rounded-xl p-1 w-full mx-auto h-full">
 			<div className="max-h-full h-full px-6 pb-6 sm:px-8 sm:pb-8 md:px-20 md:pb-[20px] text-center">
 
@@ -37,7 +37,7 @@ const Page = () => {
 					{/* Text Content */}
 					<h2 className="text-xl sm:text-2xl sm:leading-[24px] font-[600] text-[#212121] mt-[200px] mb-0">Let's get to know you!</h2>
 					<p className="text-lg leading-[21px] lg:text-2xl lg:leading-[24px] font-[600] text-[#212121]">Enter your date of birth</p>
-					<p className="text-[14px] leading-[17px] font-[500] text-gray-500 mb-[43px] max-w-[427.8px] mx-auto mt-[24px]">
+					<p className="text-[14px] leading-[17px] 2xl:text-[16px] 2xl:leading-[19px] font-[500] text-gray-500 mb-[43px] max-w-[427.8px] mx-auto mt-[24px]">
 						We use your age to personalize event recommendations. Your information stays confidential.
 					</p>	
 				</div>

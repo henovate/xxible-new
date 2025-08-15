@@ -3,7 +3,7 @@ import CategoryCard, {CardPropType} from "./categoryCard";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay} from 'swiper/modules';
 import "swiper/css";
-import "../../../../public/styles/swiper.css";
+import "../../../../../public/styles/swiper.css";
 
 
 interface CategoryListProps {

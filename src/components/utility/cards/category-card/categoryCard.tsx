@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import arrow from "../../../../public/assets/img/rightarrow.png";
+import arrow from "../../../../../public/assets/img/rightarrow.png";
 import { SwiperSlide } from "swiper/react";
 // import { SplideSlide } from "@splidejs/react-splide";
 

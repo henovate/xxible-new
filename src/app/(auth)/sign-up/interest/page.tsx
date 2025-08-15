@@ -46,7 +46,7 @@ const Page = () => {
   const isContinueEnabled = selectedInterests.length >= 3
 
   return (
-    <div className="sign-up-cont min-h-screen bg-gray-100 flex flex-col pt-8 pb-16">
+    <div className="container sign-up-cont min-h-screen bg-gray-100 flex flex-col pt-8 pb-16">
       {/* Header Logo */}
       	<div className="w-full max-w-6xl flex justify-start pl-8">
 		  <Link className="flex items-center" href="/">
@@ -57,15 +57,15 @@ const Page = () => {
 		</div>
 
       {/* Main Card */}
-      <div className="flex-1 flex items-center justify-center w-full mt-[10px] px-4 sm:px-[200px]">
+      <div className="flex-1 flex items-center justify-center w-full mt-[10px] px-4 sm:px-[250px] 2xl:px-[300px]">
         <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 md:px-10 md:pb-6 md:pt-0 w-full mx-auto text-center">
 
           {/* Text Content */}
 		  <div className="flex justify-center items-center">
 				<div className="max-w-[1000px] bg-[url('/assets/img/interest.svg')] bg-cover bg-center bg-no-repeat">
-					<h2 className="text-xl leading-[23px] sm:text-2xl sm:leading-[24px] font-[600] text-[#212121] mb-2 mt-[230px]">Get started by picking a few interests</h2>
-					<p className="text-sm leading-[17px] text-[#A0A0A0] mb-1">These help with future event and Vibes recommendations.</p>
-					<p className="text-sm leading-[17px] text-[#007AFF] mb-16">Select at least 3 interests.</p>
+					<h2 className="text-xl leading-[23px] sm:text-2xl sm:leading-[24px] 2xl:text-[32px] 2xl:leading-[32px] font-[600] text-[#212121] mb-2 mt-[230px] 2xl:mt-[310px]">Get started by picking a few interests</h2>
+					<p className="text-sm leading-[17px] 2xl:text-[16px] 2xl:leading-[19px] text-[#A0A0A0] mb-1">These help with future event and Vibes recommendations.</p>
+					<p className="text-sm leading-[17px] 2xl:text-[16px] 2xl:leading-[19px] text-[#007AFF] mb-16">Select at least 3 interests.</p>
 				</div>
 		  </div>
           {/* Interests Grid */}
@@ -77,7 +77,7 @@ const Page = () => {
                   key={interest}
                   onClick={() => toggleInterest(interest)}
                   className={`
-                    flex items-center gap-1 px-3 py-[3px] rounded-full text-[12px] font-medium transition-colors duration-200
+                    flex items-center gap-1 px-3 py-[3px] rounded-full text-[12px] 2xl:text-[15px] font-medium transition-colors duration-200
                     ${
                       isSelected
                         ? "bg-[#F800E9] text-white"

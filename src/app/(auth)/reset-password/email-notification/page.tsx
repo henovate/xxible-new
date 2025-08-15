@@ -10,7 +10,7 @@ import Image from 'next/image';
 const Page = () => {
 
   return (
-		<div className="sign-up-cont min-h-screen bg-gray-100 flex flex-col pt-7 pb-16">
+		<div className="container sign-up-cont min-h-screen bg-gray-100 flex flex-col pt-7 pb-16">
 			<div className="w-full max-w-6xl flex justify-start pl-8">
 				<Link className="flex items-center" href="/">
 					<div className="h-[30px] w-[66.2px]">
@@ -35,7 +35,7 @@ const Page = () => {
 					{/* Form */}
 					<div>
 						<div className='flex justify-center items-center'>
-							<div className="h-[200px] w-[200px]">
+							<div className="h-[200px] w-[200px] 2xl:h-[253px] 2xl:w-[253px]">
 								<Image src={emailLogo} alt="brand Logo" className="brand-logo w-full h-full bg-cover"/>
 							</div>
 						</div>

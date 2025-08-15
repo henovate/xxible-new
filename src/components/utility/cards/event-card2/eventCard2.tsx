@@ -6,9 +6,9 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useState } from "react";
-import placeholderImg from  "../../../../public/assets/events/event3.png";
+import placeholderImg from  "../../../../../public/assets/events/event3.png";
 import { EventDataType } from "./type/eventDataType";
-import "../../../../public/styles/main.css";
+import "../../../../../public/styles/main.css";
 
   
 

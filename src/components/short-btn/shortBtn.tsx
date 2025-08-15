@@ -11,7 +11,7 @@ const ShortBtn = ({btnName, classes=""}:ShortBtnProps) => {
 	<>
 		<button
 			type="submit"
-			className={`w-full text-[14px] mt-2 md:mt-0 py-2 px-4 rounded-lg font-medium transition-colors focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 outline-none ${classes}`}
+			className={`w-full text-[14px] 2xl:text-[16px] mt-2 md:mt-0 py-2 2xl:py-2.5 px-4 rounded-lg font-medium transition-colors focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 outline-none ${classes}`}
 		>
 			{btnName}
 		</button>

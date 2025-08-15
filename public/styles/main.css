@@ -56,26 +56,11 @@
 	font-family: "Poppins", sans-serif;
 }
 
-.search-wrapper {
-	padding: 2px;
-	background: linear-gradient(271.95deg, #7B0093 -30.8%, #F3DAFF 92.81%);
-	/* background: white; */
-	/* border-radius: 30px;
-	width: 45vw; */
-}
-
-.search-container{
+/* .search-container{
 	border: 2px solid transparent;
 	border-image-slice: 1;
 	background-color: black;
-	/* padding: 3px;
-	border-radius: 30px;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 10px; */
-}
+} */
 
 
 .search-input{

@@ -28,7 +28,7 @@ const FormInput = ({ icon:Icon, type, value, name, onChange, checked, label, req
 					className={`h-4 w-4 accent-[#F800E9] focus:ring-[#F800E9] border-gray-300 rounded ${classes}`}
 					required={required}
 				/>
-				<label htmlFor={name} className="ml-2 text-[13px] text-gray-700">
+				<label htmlFor={name} className="ml-2 text-[13px] 2xl:text-[14px] text-gray-700">
 					{label}
 				</label>
 			</div>
@@ -45,7 +45,7 @@ const FormInput = ({ icon:Icon, type, value, name, onChange, checked, label, req
 				onChange={onChange}
 				name={name}
 				required={required}
-				className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F800E9] focus:border-transparent outline-none transition-colors placeholder:text-[14px] text-[13px] text-[#898989]"
+				className="block w-full pl-10 pr-3 py-2 2xl:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#F800E9] focus:border-transparent outline-none transition-colors placeholder:text-[13px] text-[13px] 2xl:text-[14px] 2xl:placeholder:text-[14px] text-[#898989]"
 			/>
 		</div>
 		)}

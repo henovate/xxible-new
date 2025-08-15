@@ -28,7 +28,7 @@ const Page = () => {
   }
 
   return (
-    <div className='sign-up-cont min-h-screen bg-[url("/assets/img/bg5.png")] bg-cover bg-center bg-no-repeat bg-gray-100 flex flex-col pt-7 pb-16'>
+    <div className='container sign-up-cont min-h-screen bg-[url("/assets/img/bg5.png")] bg-cover bg-center bg-no-repeat bg-gray-100 flex flex-col pt-7 pb-16'>
       	<div className="w-full max-w-6xl flex justify-start pl-8">
 			<Link className="flex items-center" href="/">
 				<div className="h-[30px] w-[66.2px]">
@@ -37,7 +37,7 @@ const Page = () => {
 			</Link>
 		</div>
 		<div className="flex-1 flex items-center justify-center w-full h-full p-4 sm:px-0">
-			<div className="w-full max-w-[500px] bg-white rounded-2xl shadow-xl p-8 lg:py-[70.23px] lg:px-[59px]">
+			<div className="w-full max-w-[500px] 2xl:max-w-[600px]  bg-white rounded-2xl shadow-xl p-8 lg:py-[70.23px] lg:px-[59px]">
 				{/* Header */}
 				<div className="text-center mb-[52px]">
 				<h1 className="text-2xl font-semibold text-gray-900 mb-2">
@@ -48,7 +48,7 @@ const Page = () => {
 
 				{/* Form */}
 				<form onSubmit={handleSubmit}>
-					<div className="space-y-[20px]">
+					<div className="space-y-[20px] 2xl:space-y-[24px] ">
 						<PasswordComp placeholder='Password' name='password' value={formData.password} onChange={handleInputChange} />
 						<PasswordComp placeholder='Confirm Password' name='confirmPassword' value={formData.confirmPassword} onChange={handleInputChange} />
 					
