@@ -97,22 +97,22 @@ const Header = () => {
 
                 {/* Mobile Menu */}
                 {isMobileMenuOpen && (
-                    <div className="bg-gray-900 border-t border-gray-700 px-4 py-4">
+                    <div className="bg-black border-t border-zinc-700 px-4 py-4">
                         {/* Mobile Search */}
                         <div className="mb-4">
                             <form className="space-y-3">
-                                <div className="flex items-center bg-gray-800 rounded-lg px-3 py-2 border border-gray-700">
-                                    <Search className="w-4 h-4 text-gray-400 mr-2" />
+                                <div className="flex items-center bg-zinc-800 rounded-lg px-3 py-2 border border-zinc-700">
+                                    <Search className="w-4 h-4 text-zinc-400 mr-2" />
                                     <input 
                                         type="text" 
                                         name="search" 
                                         placeholder="Beach Party"
-                                        className="flex-1 bg-transparent text-white placeholder-gray-400 outline-none text-sm 2xl:text-base"
+                                        className="flex-1 bg-transparent text-white placeholder-zinc-400 outline-none text-sm 2xl:text-base"
                                     />
                                 </div>
                                 <div className="w-full">
                                     <Select>
-                                        <SelectTrigger className="w-full bg-gray-800 border-gray-700 text-white">
+                                        <SelectTrigger className="w-full bg-zinc-800 border-zinc-700 text-white">
                                             <SelectValue placeholder="Select Location" />
                                         </SelectTrigger>
                                         <SelectContent>
@@ -128,7 +128,7 @@ const Header = () => {
                                 </div>
                                 <button 
                                     type="submit"
-                                    className="w-full bg-white text-gray-900 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 transition-colors flex items-center justify-center gap-2"
+                                    className="w-full bg-white text-zinc-900 py-2 rounded-lg text-sm font-medium hover:bg-zinc-100 transition-colors flex items-center justify-center gap-2"
                                 >
                                     <Search className="w-4 h-4" />
                                     Search
@@ -137,20 +137,20 @@ const Header = () => {
                         </div>
 
                         {/* Mobile Auth */}
-                        <div className="space-y-3 pt-3 border-t border-gray-700">
+                        <div className="space-y-3 pt-3 border-t border-zinc-700">
                             <Link 
                                 href="/login" 
-                                className="block text-white hover:text-gray-300 transition-colors text-sm 2xl:text-base font-medium py-2"
+                                className="block text-white hover:text-zinc-300 transition-colors text-sm 2xl:text-base font-medium py-2"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 Log in
                             </Link>
                             <button 
-                                className="w-full bg-white text-gray-900 py-2 rounded-lg text-sm font-medium hover:bg-gray-100 transition-colors flex items-center justify-center gap-2"
+                                className="w-full bg-white text-zinc-900 py-2 rounded-lg text-sm font-medium hover:bg-zinc-100 transition-colors flex items-center justify-center gap-2"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 Sign Up
-                                <div className="w-4 h-4 bg-gray-900 rounded-full flex items-center justify-center">
+                                <div className="w-4 h-4 bg-zinc-900 rounded-full flex items-center justify-center">
                                     <span className="text-white text-xs 2xl:text-base">+</span>
                                 </div>
                             </button>
