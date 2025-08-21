@@ -68,7 +68,7 @@ const secondtoLastClubItem = clubsData.length - 1
 
               <div className='sec1 h-full px-6 lg:px-8 mt-4 sm:mt-16 lg:mt-10'>
                 <div className='pl-0 ml-0 flex items-center bg-black w-full'>
-                  <p className='night text-[13vw] leading-[12vw] sm:text-[14.5vw] sm:leading-[13vw] lg:leading-[14.5vw] xl:text-[14.7vw] xl:leading-[14.7vw] 2xl:text-[14.8rem] 2xl:leading-[14.8rem] font-[600]'>NIGHT LIFE</p>
+                  <p className='night text-white text-[13vw] leading-[12vw] sm:text-[14.5vw] sm:leading-[13vw] lg:leading-[14.5vw] xl:text-[14.7vw] xl:leading-[14.7vw] 2xl:text-[14.8rem] 2xl:leading-[14.8rem] font-[600]'>NIGHT LIFE</p>
                 </div>
 
                 <div className='w-full flex lg:items-center justify-between lg:justify-around mt-14 lg:mt-6'>             

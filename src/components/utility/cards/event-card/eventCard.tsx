@@ -31,7 +31,7 @@ const EventCard = ({cardDetails}:EventCardProps) => {
 				<div className='card absolute inset-0 flex flex-col justify-between bg-black/40'>
 					<div className='pl-5 pt-5'>
 						<div className='cardNum h-[69.74px] w-[80.74px] border-[#0E101A] border-4 rounded-[11.6px] flex justify-center items-center text-[36px] font-[900] bg-zinc-900'>
-							<p>{`0${cardDetails.id}`}</p>
+							<p className='text-white'>{`0${cardDetails.id}`}</p>
 						</div>
 					</div>
 				
