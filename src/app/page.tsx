@@ -73,8 +73,8 @@ const secondtoLastClubItem = clubsData.length - 1
 
                 <div className='w-full flex lg:items-center justify-between lg:justify-around mt-14 lg:mt-6'>             
                     <div className='w-[45%] md:w-[44vw] lg:w-[32vw]'>
-                      <p className='hero-summary text-[19px] leading-[17px] sm:text-[25px] sm:leading-[23px] 2xl:text-[32px] 2xl:leading-[30px] font-[500]'>Find The Hottest Nightlife Events, Vibes And Meet New People. Cruise with Leisure.</p>
-                      <p className='diveInto uppercase mt-2 text-[19px] leading-[17px] sm:text-[25px] sm:leading-[25px] 2xl:text-[32px] 2xl:leading-[32px]'>Dive into An Experience</p>
+                      <p className='hero-summary text-[19px] leading-[17px] sm:text-[25px] sm:leading-[23px] 2xl:text-[32px] 2xl:leading-[30px] font-[500] text-stone-100'>Find The Hottest Nightlife Events, Vibes And Meet New People. Cruise with Leisure.</p>
+                      <p className='diveInto uppercase mt-2 text-[19px] leading-[17px] sm:text-[25px] sm:leading-[25px] 2xl:text-[32px] 2xl:leading-[32px] text-stone-100'>Dive into An Experience</p>
                       {/* <p className='partyHard mt-2 text-[17px] leading-[17px] font-[400] text- uppercase'>Party Hard</p> */}
                     </div>               
 
