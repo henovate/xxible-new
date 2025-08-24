@@ -28,15 +28,15 @@
 }
 
 .layout-cont{
-	font-family: "Object Sans";
+	font-family: "Inter", sans-serif;
 }
 
 .main-tool-bar {
-	height: 70px;
+	/* height: 70px; */
 	text-align: center;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	/* justify-content: center; */
   
 	position: fixed;
 	width: 100%;
@@ -45,6 +45,7 @@
 	transition: ease 0.4s;
 	&--scrolled {
 	  height: 40px;
+	  width: 100%;
 	}
   }
 

@@ -44,7 +44,7 @@ const secondtoLastClubItem = clubsData.length - 1
             <div className='h-full w-full'>
               <div className='relative w-full'>
                 {/* Video Section */}
-                <div className='video-container h-[390px] 2xl:h-[550px] w-full overflow-hidden bg-black bg-blend-overlay rounded-br-[400px] rounded-bl-[100px]'>
+                <div className='video-container h-[390px] 2xl:h-[525px] w-full overflow-hidden bg-black bg-blend-overlay rounded-br-[400px] rounded-bl-[100px]'>
                   <video className='w-full h-full min-w-full scale-150 rounded-br-[400px] rounded-bl-[100px]' muted autoPlay loop>
                     <source onLoad={()=> handleLoad()} src='https://videos.pexels.com/video-files/6225458/6225458-hd_1920_1080_30fps.mp4' type='video/mp4' />
                   </video>
@@ -108,7 +108,7 @@ const secondtoLastClubItem = clubsData.length - 1
                       </div>
                       
 
-                      <div className='topdetails text-center sm:text-start text-[1.5rem] leading-[1.7rem] sm:text-[30px] sm:leading-[35px] xl:text-[48px] xl:leading-[53px] font-[500] mt-4  text-transparent bg-clip-text bg-gradient-to-r from-[#FFFFFF] via-pink-500 to-[#FF00EA] overflow-visible'>
+                      <div className='topdetails text-center sm:text-start text-[1.5rem] leading-[1.5rem] sm:text-[30px] sm:leading-[35px] xl:text-[48px] xl:leading-[53px] font-[500] mt-4  text-transparent bg-clip-text bg-gradient-to-r from-[#FFFFFF] via-pink-500 to-[#FF00EA] overflow-visible'>
                         <p>Top 10 Upcoming events in Lagos</p>
                       </div>
                     </div>
@@ -146,7 +146,7 @@ const secondtoLastClubItem = clubsData.length - 1
                       </div>
                       
 
-                      <div className='topdetails text-center sm:text-start text-[1.5rem] leading-[1.5rem] sm:text-[30px] sm:leading-[30px] xl:text-[48px] xl:leading-[53px] font-[500] mt-4 text-transparent bg-clip-text bg-gradient-to-r from-[#fbd0f7] via-[#FFFFFF] to-[#FF00EA] overflow-visible'>
+                      <div className='topdetails text-center sm:text-start text-[1.5rem] leading-[1.5rem] sm:text-[1.88rem] sm:leading-[2.5rem] xl:text-[48px] xl:leading-[53px] font-[500] mt-4 text-transparent bg-clip-text bg-gradient-to-r from-[#fbd0f7] via-[#FFFFFF] to-[#FF00EA] overflow-visible'>
                         <p>Top 10 Upcoming events in Lagos</p>
                       </div>
                     </div>
@@ -164,8 +164,8 @@ const secondtoLastClubItem = clubsData.length - 1
 
               <div className='sec3 px-5 lg:px-8 xl:px-16 pt-[10px] bg-[#EDEDED] w-full text-[#212121] pb-10'>
                 <div className='eventHeading'>
-                  <div className='discover flex items-center py-1 lg:py-3 px-5 bg-[#242424]/40 rounded-xl w-fit mt-[83px]'>
-                    <div className='h-[13px] w-[13px] lg:h-[15px] lg:w-[15px] mr-1 mt-[2.5px] lg:mb-[3.5px]'>
+                  <div className='discover flex items-center py-1 lg:py-2.5 px-5 bg-[#242424]/40 rounded-full w-fit mt-[83px]'>
+                    <div className='h-[13px] w-[13px] lg:h-[0.875rem] lg:w-[0.875rem] mr-1'>
                       <Image src={star} alt="right arrow" className="w-full h-full"/>
                     </div>
                     <p className='text-[12px] lg:text-[14px] 2xl:text-[16px] font-[400] uppercase explore mt-[8px] text-[#212121]'>Featured</p>
@@ -201,7 +201,7 @@ const secondtoLastClubItem = clubsData.length - 1
 
 
 
-                <div className='mt-[32px] grid sm:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-4'>
+                <div className='mt-[32px] grid md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-4'>
                   
                   {eventsData.map((_event, i) => (
                        <EventCard2 key={i} event={_event}/>
@@ -221,9 +221,9 @@ const secondtoLastClubItem = clubsData.length - 1
                 <div className='line pt-[72px] mt-[43px] border-t bg-[#EDEDED]'>
                   <div className='eventHeading'>
                     <div>
-                      <div className='discover flex items-center  py-1 lg:py-3 px-5 bg-[#242424]/40 rounded-[24px] w-fit'>
-                        <Globe className='h-[13px] w-[13px] lg:h-[15px] lg:w-[15px] mr-1 mt-[2.5px] lg:mt-[3.5px] text-stone-100'/>
-                        <p className='text-[12px] lg:text-[14px] 2xl:text-[16px] font-[400] uppercase explore text-stone-100 mt-[8px]'>Brands</p>
+                      <div className='discover flex items-center py-1 lg:py-2.5 px-5 bg-[#242424]/40 rounded-[24px] w-fit'>
+                        <Globe className='h-[13px] w-[13px] lg:h-[0.875rem] lg:w-[0.875rem] mr-1 text-stone-100' />
+                        <p className='text-[12px] lg:text-[14px] 2xl:text-[16px] font-[400] uppercase explore text-stone-100 p-0 m-0'>Brands</p>
                       </div>
                     </div>
                     
@@ -232,7 +232,7 @@ const secondtoLastClubItem = clubsData.length - 1
                       <p>Popular Brands to Follow</p>
                     </div>
 
-                    <div className='mt-16 grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-3 2xl:gap-y-0'>
+                    <div className='mt-16 grid grid-cols-1 sm:grid-cols-2 gap-5 2xl:gap-y-0'>
                       {clubsData.map((club, index) => (
                         <ClubCard key={index} club={club} lastItem={lastClubItem} secondToLastItem={secondtoLastClubItem}/>
                       ))}
@@ -292,7 +292,7 @@ const secondtoLastClubItem = clubsData.length - 1
                 </div>
 
 
-                <div className='mt-[139px] pb-[180px]'>
+                <div className='mt-[6rem] pb-[8rem] sm:mt-[139px] sm:pb-[180px]'>
                   <Marquee autoFill={true} pauseOnHover={true}>
                     <div className='flex items-center'>
                       {data.map((item, i) => (

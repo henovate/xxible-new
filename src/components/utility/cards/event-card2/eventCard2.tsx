@@ -30,20 +30,19 @@ const EventCard2 = ({ event, className = "" }: EventCardProps) => {
 
   return (
     <Card
-      className={`card3 w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl mx-auto overflow-hidden bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-[33.79px] p-5 border-none ${className}`}
+      className={`card3 w-full max-w-sm sm:max-w-full md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto overflow-hidden bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-[33.79px] p-5 border-none ${className}`}
     >
       {/* Hero Image Section */}
       <div className="relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3]">
-		<div className="relative w-full h-[340px]">
-			<Image
-			src={event?.imageUrl || placeholderImg}
-			alt={event?.imageAlt}
-			fill
-			className="object-cover rounded-[16.82px]"
-			// sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-			priority
-			/>
-		</div>
+        <div className="relative w-full h-[21.25rem]">
+          <Image
+          src={event?.imageUrl || placeholderImg}
+          alt={event?.imageAlt}
+          fill
+          className="object-cover rounded-[16.82px]"
+          priority
+          />
+        </div>
         <Button
           variant="ghost"
           size="icon"
@@ -61,15 +60,15 @@ const EventCard2 = ({ event, className = "" }: EventCardProps) => {
       <CardContent className="space-y-4 sm:space-y-5">
         {/* Event Title and Location */}
         <div>
-          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold xl:text-[22px] xl:leading-[26px] 2xl:text-[24px] 2xl:leading-[28px] mt-2 text-[#212121]">{event?.title}</h2>
+          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold xl:text-[22px] xl:leading-[26px] 2xl:text-[24px] 2xl:leading-[28px] mt-2 text-[#212121]">{event?.title.length > 24? (`${event.title.substring(0, 24)}...`) : (event.title)}</h2>
           <div className="flex items-center gap-1 text-gray-600 mt-3">
             <MapPin className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0 mb-[2px]" />
-            <p className="cat text-[14px] leading-[14px] 2xl:text-[16px] 2xl:leading-[20px]">{event?.location}</p>
+            <p className="cat text-sm leading-[1.25rem] 2xl:text-base 2xl:leading-[1.25rem]">{event?.location}</p>
           </div>
         </div>
 
         {/* Event Details */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 text-sm sm:text-[12px] 2xl:text-[14px] 2xl:leading-[18px] mt-4 font-[600] text-[#696B6F]">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 text-sm sm:text-[0.75rem] 2xl:text-sm 2xl:leading-[1.125rem] mt-4 font-[600] text-[#696B6F]">
           <div className="flex items-center gap-1">
             <Clock className="w-4 h-4 flex-shrink-0" />
             <span>
@@ -91,16 +90,34 @@ const EventCard2 = ({ event, className = "" }: EventCardProps) => {
 
         {/* Category Tags */}
         <div className="flex flex-wrap gap-2 font-[500] mt-3">
-          {event?.categories.map((category, index) => ( 
-            <Badge
-              key={index}
-              variant="secondary"
-              className="explore rounded-[20px] text-[#898989] bg-[#EDEDED] hover:bg-gray-200 text-xs sm:text-sm 2xl:text-[15px] px-2 py-1 sm:px-3 sm:py-1"
-            >
-              {category}
-            </Badge>
-          ))}
+          {event?.categories.length > 3 ? (
+            <>
+              {event.categories.slice(0, 3).map((category, index) => (
+                <Badge
+                  key={index}
+                  variant="secondary"
+                  className="explore rounded-[20px] text-[#898989] bg-[#EDEDED] hover:bg-gray-200 text-xs sm:text-sm 2xl:text-[0.94rem] px-2 py-1 sm:px-3 sm:py-1"
+                >
+                  {category}
+                </Badge>
+              ))}
+              <Badge  className="explore rounded-[20px] text-[#898989] bg-[#EDEDED] hover:bg-gray-200 text-xs sm:text-sm 2xl:text-[0.94rem] px-2 py-1 sm:px-3 sm:py-1">
+                +{event.categories.length - 3} more
+              </Badge>
+            </>
+          ) : (
+            event.categories.map((category, index) => (
+              <Badge
+                key={index}
+                variant="secondary"
+                className="explore rounded-[1.25rem] text-[#898989] bg-[#EDEDED] hover:bg-gray-200 text-xs sm:text-sm 2xl:text-[0.94rem] px-2 py-1 sm:px-3 sm:py-1"
+              >
+                {category}
+              </Badge>
+            ))
+          )}
         </div>
+
 
         {/* Brand Section */}
         <div className="relative flex items-center gap-3 pt-3 sm:pt-4 border-t-2 border-dashed border-gray-300">
@@ -109,7 +126,7 @@ const EventCard2 = ({ event, className = "" }: EventCardProps) => {
           <div className="w-8 h-8 sm:w-10 sm:h-10 bg-black rounded-full flex items-center justify-center flex-shrink-0">
             {event?.brand.logo ? (
               <Image
-                src={event?.brand.logo || "/placeholder.svg"}
+                src={event?.brand.logo}
                 alt={`${event?.brand.name} logo`}
                 width={32}
                 height={32}
@@ -122,7 +139,7 @@ const EventCard2 = ({ event, className = "" }: EventCardProps) => {
           <div className="min-w-0 flex-1">
             <p className="text-xs sm:text-sm text-gray-500 mb-1">Brand</p>
             <p className="text-sm sm:text-base font-medium text-gray-900 leading-tight">
-              {event?.brand.name || "Quilox"} - {event?.brand.description || "Explore nightlife in Lagos"}
+              {event?.brand.name} - {event?.brand.description.length > 24? (`${event.brand.description.substring(0, 24)}...`) : (event.brand.description)}
             </p>
           </div>
         </div>

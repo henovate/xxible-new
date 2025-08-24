@@ -35,7 +35,7 @@ const EventCardList = ({cards}:EventCardListProps) => {
 		  spaceBetween: 20
         },
         // when window width is >= 768px
-        640: {
+        768: {
           slidesPerView: 2,
         },
         // when window width is >= 0px
