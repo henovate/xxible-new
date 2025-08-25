@@ -13,11 +13,12 @@ import "../../../../../public/styles/main.css";
   
 
 interface EventCardProps {
-  event: EventDataType
-  className?: string
+  event: EventDataType;
+  className?: string;
+  children: React.ReactNode;
 }
 
-const EventCard2 = ({ event, className = "" }: EventCardProps) => {
+const EventCard2 = ({children, event, className = "" }: EventCardProps) => {
   const [isFavorited, setIsFavorited] = useState(false)
 
   const handleFavoriteToggle = () => {
@@ -30,7 +31,7 @@ const EventCard2 = ({ event, className = "" }: EventCardProps) => {
 
   return (
     <Card
-      className={`card3 w-full max-w-sm sm:max-w-full md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto overflow-hidden bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-[33.79px] p-5 border-none ${className}`}
+      className={`card3 w-full max-w-full md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto overflow-hidden bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-[33.79px] p-5 border-none ${className}`}
     >
       {/* Hero Image Section */}
       <div className="relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3]">
@@ -56,6 +57,10 @@ const EventCard2 = ({ event, className = "" }: EventCardProps) => {
           />
         </Button>
       </div>
+
+      <>
+        {children}
+      </>
 
       <CardContent className="space-y-4 sm:space-y-5">
         {/* Event Title and Location */}

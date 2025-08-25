@@ -21,6 +21,7 @@ const ClubCard = ({ club, secondToLastItem, lastItem, className = "" }: ClubCard
   }
 
   console.log("item:", lastItem, secondToLastItem)
+  console.log(club.primaryTags.length)
 
   return (
     <Card
@@ -30,9 +31,9 @@ const ClubCard = ({ club, secondToLastItem, lastItem, className = "" }: ClubCard
                   ${Number(club.id) == 1 || Number(club.id) == 2? "rounded-t-[20px]" : null} 
                   ${Number(club.id) == secondToLastItem || Number(club.id) == lastItem? "rounded-b-[20px]" : null}
                   ${Number(club.id) == 1? "rounded-t-[20px]" : null}  
-                  ${Number(club.id) == 2? "rounded-none sm:rounded-t-[20px]" : null}
-                  ${Number(club.id) == secondToLastItem? "rounded-none sm:rounded-b-[20px]" : null}
-                  ${Number(club.id) == lastItem? "rounded-none sm:rounded-b-[20px]" : null}
+                  ${Number(club.id) == 2? "rounded-none md:rounded-t-[20px]" : null}
+                  ${Number(club.id) == secondToLastItem? "rounded-none md:rounded-b-[20px]" : null}
+                  ${Number(club.id) == lastItem? "rounded-b-[20px]" : null}
                   ${className}`}
     >
       <CardContent className="relative pl-[22px] pr-[27px] pt-[24px] pb-[24px] 2xl:pb-[70px]">
@@ -51,13 +52,13 @@ const ClubCard = ({ club, secondToLastItem, lastItem, className = "" }: ClubCard
           {/* Content Section */}
           <div className="w-full lg:w-[60%] flex flex-col">
             {/* Header */}
-            <div className="space-y-3 sm:space-y-4">
+            <div className="space-y-4 sm:space-y-4">
               <div className="flex items-center justify-between gap-2 flex-wrap">
                 <h3 className="text-lg sm:text-xl lg:text-[1.5rem] font-bold text-gray-900">{club.name}</h3>
                 {club.isVerified && (
                   <div className="flex items-center gap-1 text-blue-500 bg-[#E9F5FF] rounded-full px-2 py-[2px]">
                     <CheckCircle className="w-4 h-4 sm:w-[11.49px] sm:h-[11.49px]" />
-                    <span className="text-xs sm:text-[0.565rem] font-medium">Verified Club</span>
+                    <span className="text-xs sm:text-[0.7rem] font-medium">Verified Club</span>
                   </div>
                 )}
               </div>
@@ -69,19 +70,46 @@ const ClubCard = ({ club, secondToLastItem, lastItem, className = "" }: ClubCard
               </div>
 
               {/* Description */}
-              <p className="text-sm leading-relaxed sm:text-[13px] sm:leading-[15px] xl:text-sm xl:leading-[1rem] text-[#696B6F] line-clamp-3">{club.description}</p>
+              <p className="text-sm leading-[1.1rem] sm:text-[13px] sm:leading-[15px] xl:text-sm xl:leading-[1rem] text-[#696B6F] line-clamp-3">{club.description}</p>
 
               {/* Primary Tags */}
               <div className="flex flex-wrap gap-2">
-                {club.primaryTags.map((tag, index) => (
-                  <Badge
-                    key={index}
-                    variant="secondary"
-                    className="bg-gray-100 text-[#212121] hover:bg-gray-200 text-xs sm:text-[10px] xl:text-[0.75rem] px-2 py-[2px] rounded-full"
-                  >
-                    {tag}
-                  </Badge>
-                ))}
+                {club.primaryTags.length > 6? 
+                  (
+                    <>
+                    {club.primaryTags.slice(0, 6).map((tag, index) => (
+                    <Badge
+                      key={index}
+                      variant="secondary"
+                      className="bg-gray-100 text-[#212121] hover:bg-gray-200 text-xs sm:text-[10px] xl:text-[0.75rem] px-2 py-[2px] rounded-full"
+                    >
+                      {tag}
+                    </Badge>
+                  ))}
+
+                    <Badge
+                      variant="secondary"
+                      className="bg-gray-100 text-[#212121] hover:bg-gray-200 text-xs sm:text-[10px] xl:text-[0.75rem] px-2 py-[2px] rounded-full"
+                    >
+                      +{club.primaryTags.length - 6} more
+                    </Badge>
+                    </>
+                  ):(
+                      <>
+                        {
+                          club.primaryTags.map((tag, index) => (
+                            <Badge
+                              key={index}
+                              variant="secondary"
+                              className="bg-gray-100 text-[#212121] hover:bg-gray-200 text-xs sm:text-[10px] xl:text-[0.75rem] px-2 py-[2px] rounded-full"
+                            >
+                              {tag}
+                            </Badge>
+                          ))
+                        }
+                      </>
+                  )
+                }
               </div>
             </div>
 

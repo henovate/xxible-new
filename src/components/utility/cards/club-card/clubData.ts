@@ -10,7 +10,7 @@ export const clubsData: ClubDataType[] = [
     description: "A chic, three-level hotspot in Ikoyi with a state-of-the-art sound system and lively themed nights",
     imageUrl: "/assets/club/club1.png",
     imageAlt: "Purple-lit nightclub with dancing crowd and raised hands",
-    primaryTags: ["Social", "New In Town", "Make New Friends", "Mingle", "Splendour", "Explorer", "Connection", "+2 more"],
+    primaryTags: ["Social", "New In Town", "Make New Friends", "Mingle", "Splendour", "Explorer", "Connection"],
     location: "Ikoyi, Lagos",
   },
   {
@@ -22,7 +22,7 @@ export const clubsData: ClubDataType[] = [
     description: "Modern club in Victoria Island known for sleek design, pulsating Afrobeats, and VIP section",
     imageUrl: "/assets/club/club2.png",
     imageAlt: "Modern nightclub with blue lighting and people dancing",
-    primaryTags: ["Social", "New In Town", "Make New Friends", "Mingle", "Splendour", "Explorer", "Connection", "+2 more"],
+    primaryTags: ["Social", "New In Town", "Make New Friends", "Mingle", "Splendour", "Explorer", "Connection"],
     location: "Victoria Island, Lagos",
   },
   {
@@ -35,7 +35,7 @@ export const clubsData: ClubDataType[] = [
       "Biggest nightlife brand in Africa located at Club Quilox, 873 Ozumba Mbadiwe Rd, Victoria Island, Lagos",
     imageUrl: "/assets/club/club3.png",
     imageAlt: "Upscale nightclub with pink and blue neon lighting",
-    primaryTags: ["Social", "New In Town", "Make New Friends", "Mingle", "Splendour", "Explorer", "Connection", "+2 more"],
+    primaryTags: ["Social", "New In Town", "Make New Friends", "Mingle", "Splendour", "Explorer", "Connection"],
     location: "Victoria Island, Lagos",
   },
   {
@@ -47,7 +47,7 @@ export const clubsData: ClubDataType[] = [
     description: "Exclusive nighttime destination in Lekki known for upscale adult entertainment and posh ambiance",
     imageUrl: "/assets/club/club4.png",
     imageAlt: "Elegant upscale lounge with red and purple lighting",
-    primaryTags: ["Social", "New In Town", "Make New Friends", "Mingle", "Splendour", "Explorer", "Connection", "+2 more"],
+    primaryTags: ["Social", "New In Town", "Make New Friends", "Mingle", "Splendour", "Explorer", "Connection"],
     location: "Lekki, Lagos",
   },
   {
@@ -59,7 +59,7 @@ export const clubsData: ClubDataType[] = [
     description: "High-energy dance club in Victoria Island, popular for its mix of Afrobeats and EDM",
     imageUrl: "/assets/club/club5.png",
     imageAlt: "High energy dance club with laser lights and crowd",
-    primaryTags: ["Social", "New In Town", "Make New Friends", "Mingle", "Splendour", "Explorer", "Connection", "+2 more"],
+    primaryTags: ["Social", "New In Town", "Make New Friends", "Mingle", "Splendour", "Explorer", "Connection"],
     location: "Victoria Island, Lagos",
   },
   {
@@ -71,7 +71,7 @@ export const clubsData: ClubDataType[] = [
     description: "Rooftop lounge with scenic city views and a relaxed vibe",
     imageUrl: "/assets/club/club6.png",
     imageAlt: "Rooftop restaurant with city views and elegant dining",
-    primaryTags: ["Social", "New In Town", "Make New Friends", "Mingle", "Splendour", "Explorer", "Connection", "+2 more"],
+    primaryTags: ["Social", "New In Town", "Make New Friends", "Mingle", "Splendour", "Explorer", "Connection"],
     location: "Lagos Island, Lagos",
   },
   {
@@ -83,7 +83,7 @@ export const clubsData: ClubDataType[] = [
     description: "A luscious lounge-bar with rooftop views, premium cocktails, and elegant vibes",
     imageUrl: "/assets/club/club7.png",
     imageAlt: "Elegant cocktail lounge with premium bar setup",
-    primaryTags: ["Social", "New In Town", "Make New Friends", "Mingle", "Splendour", "Explorer", "Connection", "+2 more"],
+    primaryTags: ["Social", "New In Town", "Make New Friends", "Mingle", "Splendour", "Explorer", "Connection"],
     location: "Ikoyi, Lagos",
   },
   {
@@ -95,7 +95,7 @@ export const clubsData: ClubDataType[] = [
     description: "Rooftop bar in Mega Plaza offering a mix of live music, cityscape views, and cocktails",
     imageUrl: "/assets/club/club8.png",
     imageAlt: "Disco ball nightclub with sparkling lights and party atmosphere",
-    primaryTags: ["Social", "New In Town", "Make New Friends", "Mingle", "Splendour", "Explorer", "Connection", "+2 more"],
+    primaryTags: ["Social", "New In Town", "Make New Friends", "Mingle", "Splendour", "Explorer", "Connection"],
     location: "Mega Plaza, Lagos",
   },
 ]

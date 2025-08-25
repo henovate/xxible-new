@@ -27,7 +27,7 @@ const EventCard = ({cardDetails}:EventCardProps) => {
   return (
 	<>
 		 {/* <SwiperSlide> */}
-			<div className='card2 relative h-[25rem] md:h-[25rem] xl:h-[26.75rem] 2xl:h-[31.25rem] rounded-2xl overflow-hidden' style={{background: `url(${cardDetails.image})`, backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center"}}>
+			<div className='card2 relative h-[25rem] sm:h-[28rem] md:h-[25rem] xl:h-[26.75rem] 2xl:h-[31.25rem] rounded-2xl overflow-hidden' style={{background: `url(${cardDetails.image})`, backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center"}}>
 				<div className='card absolute inset-0 flex flex-col justify-between bg-black/40'>
 					<div className='pl-5 pt-5'>
 						<div className='cardNum h-[69.74px] w-[80.74px] border-[#0E101A] border-4 rounded-[11.6px] flex justify-center items-center text-[2.25rem] font-[900] bg-zinc-900'>

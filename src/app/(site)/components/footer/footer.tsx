@@ -2,7 +2,7 @@
 
 import { Facebook, Twitter, Youtube, Instagram } from 'lucide-react';
 import Image from 'next/image';
-import brandLogo from "../../../../public/assets/icons/brandLogo.png";
+import brandLogo from "../../../../../public/assets/icons/brandLogo.png";
 
 const Footer = () => {
   return (

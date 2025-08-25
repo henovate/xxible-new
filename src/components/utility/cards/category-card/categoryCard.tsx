@@ -20,7 +20,7 @@ interface CardProps{
 const CategoryCard = ({cardData}:CardProps) => {
   return (
 	<>
-		<div className='card1 relative h-[12.5rem] sm:h-[15.65rem] md:h-[12.5rem] lg:h-[11.3rem] xl:h-[15.65rem] 2xl:h-[18.8rem] bg-cover rounded-2xl overflow-hidden' style={{background: `url(${cardData.image})`, backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center"}}>
+		<div className='card1 relative h-[12.5rem] sm:h-[19rem] md:h-[12.5rem] lg:h-[11.3rem] xl:h-[15.65rem] 2xl:h-[18.8rem] bg-cover rounded-2xl overflow-hidden' style={{background: `url(${cardData.image})`, backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center"}}>
 			<div className='card absolute inset-0 flex flex-col justify-end p-3 md:p-2 xl:p-4 bg-black/40'>
 				<div className="card-info text-white">
 					<div className='details'>

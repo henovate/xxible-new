@@ -12,7 +12,7 @@ export const eventsData: EventDataType[] = [
     interestedCount: 50,
     imageUrl: "/assets/featured/featured1.png",
     imageAlt: "Person wearing glowing neon mask at nightclub with vibrant lighting",
-    categories: ["Girls Night", "Karaoke", "DJ Night", "+3 More"],
+    categories: ["Girls Night", "Karaoke", "DJ Night"],
     brand: {
       name: "Quilox",
       description: "Explore nightlife in Lagos",

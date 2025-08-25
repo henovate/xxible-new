@@ -2,12 +2,12 @@
 
 import React from 'react';
 import { Globe } from 'lucide-react';
-import { useTheme } from '../context/ThemeContext';
-import Layout from '@/components/layout/layout';
-import CircularText from '../../src/components/circularText/circularText';
-import arrow from "../../public/assets/img/rightarrow.png";
-import graphUp from "../../public/assets/img/graphUp.png";
-import star from "../../public/assets/img/star.png";
+import { useTheme } from '../../../context/ThemeContext';
+// import Layout from '@/app/(site)/layout';
+import CircularText from '../../../components/circularText/circularText';
+import arrow from "../../../../public/assets/img/rightarrow.png";
+import graphUp from "../../../../public/assets/img/graphUp.png";
+import star from "../../../../public/assets/img/star.png";
 import Image from 'next/image';
 import SwiperSlider from '@/components/swiper/swiperSlider';
 import EventCard2 from '@/components/utility/cards/event-card2/eventCard2';
@@ -19,8 +19,7 @@ import EventCard3 from '@/components/utility/cards/event-card3/eventCard3';
 import { data } from '@/components/utility/cards/event-card4/data';
 import EventCard4 from '@/components/utility/cards/event-card4/eventCard4';
 import Marquee from "react-fast-marquee";
-import "../../public/styles/main.css"
-import Footer from '@/components/layout/footer/footer';
+import "../../../../public/styles/main.css"
 
 
 
@@ -39,7 +38,7 @@ const secondtoLastClubItem = clubsData.length - 1
 
 
   return ( 
-      <Layout>
+      <>
           <div className='container h-full w-full bg-black layout-cont'>
             <div className='h-full w-full'>
               <div className='relative w-full'>
@@ -232,7 +231,7 @@ const secondtoLastClubItem = clubsData.length - 1
                       <p>Popular Brands to Follow</p>
                     </div>
 
-                    <div className='mt-16 grid grid-cols-1 sm:grid-cols-2 gap-5 2xl:gap-y-0'>
+                    <div className='mt-16 grid grid-cols-1 md:grid-cols-2 gap-5 2xl:gap-y-0'>
                       {clubsData.map((club, index) => (
                         <ClubCard key={index} club={club} lastItem={lastClubItem} secondToLastItem={secondtoLastClubItem}/>
                       ))}
@@ -305,6 +304,6 @@ const secondtoLastClubItem = clubsData.length - 1
 
             </div>
           </div> 
-      </Layout>
+      </>
   );
 }
