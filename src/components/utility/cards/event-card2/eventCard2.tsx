@@ -15,7 +15,7 @@ import "../../../../../public/styles/main.css";
 interface EventCardProps {
   event: EventDataType;
   className?: string;
-  children: React.ReactNode;
+  children?: (props: { event: EventDataType }) => React.ReactNode;
 }
 
 const EventCard2 = ({children, event, className = "" }: EventCardProps) => {
@@ -58,9 +58,9 @@ const EventCard2 = ({children, event, className = "" }: EventCardProps) => {
         </Button>
       </div>
 
-      <>
-        {children}
-      </>
+      {/* <>
+        {children? children({event}) : null}
+      </> */}
 
       <CardContent className="space-y-4 sm:space-y-5">
         {/* Event Title and Location */}
