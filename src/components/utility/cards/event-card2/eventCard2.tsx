@@ -14,11 +14,28 @@ import "../../../../../public/styles/main.css";
 
 interface EventCardProps {
   event: EventDataType;
-  className?: string;
-  children?: (props: { event: EventDataType }) => React.ReactNode;
+  bgClassName?: string;
+  titleAndCompanyTextColor?: string;
+  cardInfoTextColor?: string;
+  imgHeight?: string;
+  curveDesignColor?: string;
+  titleFontSize?: string;
+  locationFontSize?: string;
+  eventInfoFontSize?: string;
 }
 
-const EventCard2 = ({children, event, className = "" }: EventCardProps) => {
+const EventCard2 = ({ event, 
+                      bgClassName="bg-white", 
+                      titleAndCompanyTextColor="text-[#212121]", 
+                      cardInfoTextColor="text-[#696B6F]", 
+                      imgHeight="h-[21.25rem]", 
+                      curveDesignColor="bg-[#EDEDED]",
+                      titleFontSize="2xl:text-2xl 2xl:leading-7",
+                      locationFontSize="2xl:text-base 2xl:leading-[1.25rem]",
+                      eventInfoFontSize="2xl:text-sm 2xl:leading-[1.125rem]"
+                    }: EventCardProps) => {
+  
+  
   const [isFavorited, setIsFavorited] = useState(false)
 
   const handleFavoriteToggle = () => {
@@ -31,11 +48,11 @@ const EventCard2 = ({children, event, className = "" }: EventCardProps) => {
 
   return (
     <Card
-      className={`card3 w-full max-w-full md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto overflow-hidden bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-[33.79px] p-5 border-none ${className}`}
+      className={`card3 w-full max-w-full md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-[33.79px] p-5 border-none ${bgClassName}`}
     >
       {/* Hero Image Section */}
-      <div className="relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3]">
-        <div className="relative w-full h-[21.25rem]">
+      <div className="relative aspect-[4/3 sm:aspect-[16/10 lg:aspect-[4/3">
+        <div className={`relative w-full ${imgHeight}`}>
           <Image
           src={event?.imageUrl || placeholderImg}
           alt={event?.imageAlt}
@@ -44,6 +61,8 @@ const EventCard2 = ({children, event, className = "" }: EventCardProps) => {
           priority
           />
         </div>
+
+        {event?.categories &&
         <Button
           variant="ghost"
           size="icon"
@@ -56,24 +75,22 @@ const EventCard2 = ({children, event, className = "" }: EventCardProps) => {
             }`}
           />
         </Button>
+        }
       </div>
 
-      {/* <>
-        {children? children({event}) : null}
-      </> */}
 
       <CardContent className="space-y-4 sm:space-y-5">
         {/* Event Title and Location */}
         <div>
-          <h2 className="text-lg sm:text-xl lg:text-2xl font-bold xl:text-[22px] xl:leading-[26px] 2xl:text-[24px] 2xl:leading-[28px] mt-2 text-[#212121]">{event?.title.length > 24? (`${event.title.substring(0, 24)}...`) : (event.title)}</h2>
-          <div className="flex items-center gap-1 text-gray-600 mt-3">
+          <h2 className={`text-lg sm:text-xl lg:text-2xl font-bold xl:text-[22px] xl:leading-[26px] mt-2 ${titleFontSize}  ${titleAndCompanyTextColor}`}>{event?.title.length > 24? (`${event.title.substring(0, 24)}...`) : (event.title)}</h2>
+          <div className={`flex items-center gap-1 mt-3 ${cardInfoTextColor}`}>
             <MapPin className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0 mb-[2px]" />
-            <p className="cat text-sm leading-[1.25rem] 2xl:text-base 2xl:leading-[1.25rem]">{event?.location}</p>
+            <p className={`cat text-sm leading-[1.25rem] ${locationFontSize}`}>{event?.location}</p>
           </div>
         </div>
 
         {/* Event Details */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 text-sm sm:text-[0.75rem] 2xl:text-sm 2xl:leading-[1.125rem] mt-4 font-[600] text-[#696B6F]">
+        <div className={`flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 text-sm sm:text-[0.75rem] mt-4 font-[600] ${eventInfoFontSize}  ${cardInfoTextColor}`}>
           <div className="flex items-center gap-1">
             <Clock className="w-4 h-4 flex-shrink-0" />
             <span>
@@ -83,7 +100,7 @@ const EventCard2 = ({children, event, className = "" }: EventCardProps) => {
 
           <div className="flex items-center justify-between sm:justify-end gap-4 sm:mr-7">
             <div className="flex items-center gap-1">
-              <Ticket className="w-4 h-4 text-[#696B6F] mb-1 2xl:mb-0" />
+              <Ticket className="w-4 h-4 mb-1 2xl:mb-0" />
               <div>{formatPrice(event?.price, event?.currency)}</div>
             </div>
             <div className="flex items-center gap-1">
@@ -95,57 +112,61 @@ const EventCard2 = ({children, event, className = "" }: EventCardProps) => {
 
         {/* Category Tags */}
         <div className="flex flex-wrap gap-2 font-[500] mt-3">
-          {event?.categories.length > 3 ? (
-            <>
-              {event.categories.slice(0, 3).map((category, index) => (
+          {event.categories &&
+            event?.categories.length > 3 ? (
+              <>
+                {event.categories.slice(0, 3).map((category, index) => (
+                  <Badge
+                    key={index}
+                    variant="secondary"
+                    className="explore rounded-[20px] text-[#898989] bg-[#EDEDED] hover:bg-gray-200 text-xs sm:text-sm 2xl:text-[0.94rem] px-2 py-1 sm:px-3 sm:py-1"
+                  >
+                    {category}
+                  </Badge>
+                ))}
+                <Badge  className="explore rounded-[20px] text-[#898989] bg-[#EDEDED] hover:bg-gray-200 text-xs sm:text-sm 2xl:text-[0.94rem] px-2 py-1 sm:px-3 sm:py-1">
+                  +{event.categories.length - 3} more
+                </Badge>
+              </>
+            ) : (
+              event.categories && event.categories.map((category, index) => (
                 <Badge
                   key={index}
                   variant="secondary"
-                  className="explore rounded-[20px] text-[#898989] bg-[#EDEDED] hover:bg-gray-200 text-xs sm:text-sm 2xl:text-[0.94rem] px-2 py-1 sm:px-3 sm:py-1"
+                  className="explore rounded-[1.25rem] text-[#898989] bg-[#EDEDED] hover:bg-gray-200 text-xs sm:text-sm 2xl:text-[0.94rem] px-2 py-1 sm:px-3 sm:py-1"
                 >
                   {category}
                 </Badge>
-              ))}
-              <Badge  className="explore rounded-[20px] text-[#898989] bg-[#EDEDED] hover:bg-gray-200 text-xs sm:text-sm 2xl:text-[0.94rem] px-2 py-1 sm:px-3 sm:py-1">
-                +{event.categories.length - 3} more
-              </Badge>
-            </>
-          ) : (
-            event.categories.map((category, index) => (
-              <Badge
-                key={index}
-                variant="secondary"
-                className="explore rounded-[1.25rem] text-[#898989] bg-[#EDEDED] hover:bg-gray-200 text-xs sm:text-sm 2xl:text-[0.94rem] px-2 py-1 sm:px-3 sm:py-1"
-              >
-                {category}
-              </Badge>
-            ))
-          )}
+              ))
+            )
+          }
         </div>
 
 
         {/* Brand Section */}
-        <div className="relative flex items-center gap-3 pt-3 sm:pt-4 border-t-2 border-dashed border-gray-300">
-          <div className='absolute left-0 top-[-14px] rounded-full h-8 w-8 bg-[#EDEDED] ml-[-30px]'></div>
-          <div className='absolute right-0 top-[-14px] rounded-full h-8 w-8 bg-[#EDEDED] mr-[-30px]'></div>
-          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-black rounded-full flex items-center justify-center flex-shrink-0">
-            {event?.brand.logo ? (
-              <Image
-                src={event?.brand.logo}
-                alt={`${event?.brand.name} logo`}
-                width={32}
-                height={32}
-                className="rounded-full"
-              />
-            ) : (
-              <span className="text-white text-xs sm:text-sm font-bold">{event?.brand.name.charAt(0)}</span>
-            )}
-          </div>
-          <div className="min-w-0 flex-1">
-            <p className="text-xs sm:text-sm text-gray-500 mb-1">Brand</p>
-            <p className="text-sm sm:text-base font-medium text-gray-900 leading-tight">
-              {event?.brand.name} - {event?.brand.description.length > 24? (`${event.brand.description.substring(0, 24)}...`) : (event.brand.description)}
-            </p>
+        <div className={`relative flex items-center gap-3 pt-3 sm:pt-4 ${event?.categories && "border-t-2 border-dashed border-gray-300"}`}>
+          <div className={`absolute left-0 top-[-14px] rounded-full h-8 w-8 ${curveDesignColor}  ml-[-30px]`}></div>
+          <div className={`absolute right-0 top-[-14px] rounded-full h-8 w-8 ${curveDesignColor} mr-[-30px]`}></div>
+          <div className={`${!event?.categories? "px-2 py-3 border border-[#343434] bg-[#2B2B2B] flex items-center gap-3 rounded-2xl w-full" : "flex items-center gap-3"}`}>
+            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-black rounded-full flex items-center justify-center flex-shrink-0">
+              {event?.brand.logo ? (
+                <Image
+                  src={event?.brand.logo}
+                  alt={`${event?.brand.name} logo`}
+                  width={32}
+                  height={32}
+                  className="rounded-full"
+                />
+              ) : (
+                <span className="text-white text-xs sm:text-sm font-bold">{event?.brand.name.charAt(0)}</span>
+              )}
+            </div>
+            <div className="min-w-0 flex-1">
+              {event?.categories && <p className="text-xs sm:text-sm text-gray-500 mb-1">Brand</p>}
+              <p className={`text-sm sm:text-base leading-tight sm:leading-4 font-medium ${titleAndCompanyTextColor}`}>
+                {event?.brand.name} - {event?.brand.description.length > 24? (`${event.brand.description.substring(0, 24)}...`) : (event.brand.description)}
+              </p>
+            </div>
           </div>
         </div>
       </CardContent>

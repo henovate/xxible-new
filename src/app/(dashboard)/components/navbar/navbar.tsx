@@ -13,8 +13,8 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   return (
-    <nav className="bg-black text-white h-[4rem] sm:h-[5rem] xl:h-[5.9rem] w-full flex items-center px-4 sm:px-8 lg:px-[3.5rem] border-b-2 border-[#343434]">
-      <div className="xl:hidden flex items-center gap-3 flex-1">
+    <nav className="bg-[#191A1A] text-white h-[4rem] sm:h-[5rem] xl:h-[5.9rem] w-full flex items-center px-4 sm:px-8 lg:px-[3.5rem] border-b-2 border-[#343434]">
+      <div className="lg:hidden flex items-center gap-3 flex-1">
         <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
           <SheetTrigger asChild>
             <Button variant="ghost" size="sm" className="p-2 hover:bg-gray-800">
@@ -92,7 +92,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="hidden xl:flex items-center w-full">
+      <div className="hidden lg:flex items-center w-full">
         {/* LEFT: logo + brand + search */}
         <div className="flex items-center gap-10 flex-1 min-w-0">
           {/* Logo + dropdown */}
@@ -111,7 +111,7 @@ const Navbar = () => {
             <SearchBar
               widthAndBorderColorClass="max-w-[48rem] bg-[#818181]"
               bgColorClass="bg-[#2D2D2D]"
-              searchBtnBgAndTextColor="bg-[#3c3c3c] text-white"
+              searchBtnBgAndTextColor="bg-[#3c3c3c] text-white hover:bg-[#F800E9]"
             />
           </div>
         </div>

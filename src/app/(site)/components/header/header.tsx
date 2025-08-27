@@ -61,7 +61,7 @@ const Header = () => {
                     </Link>
 
                     {/* Search Bar */}
-                    <SearchBar />
+                    <div className=''><SearchBar /></div>
 
                     {/* Auth Buttons */}
                     <div className="flex items-center gap-4 flex-shrink-0">

@@ -3,17 +3,18 @@
 import Floating_Dock from "./components/floatingDock/floatingDock";
 import Navbar from "./components/navbar/navbar";
 import SideBar from "./components/sideBar/sideBar";
+import "../../../public/styles/main.css"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex h-screen">
+    <div className="layout-cont flex h-screen">
       	<SideBar />
 	  	<div className="w-full">
 			<Navbar />
-			<div className="flex flex-1 flex-col gap-4 p-4 pt-0 overflow-y-scroll overflow-hidden h-[calc(100%-5.9rem)]">{children}</div>
+			<div className="flex flex-1 flex-col gap-4 overflow-y-scroll overflow-hidden h-[calc(100%-5.9rem)]">{children}</div>
 		</div>
 		
-		<div className="fixed bottom-[-220px] w-full flex justify-center xl:hidden">
+		<div className="fixed bottom-[-220px] w-full flex justify-center lg:hidden">
 			<Floating_Dock />
 		</div>
     </div>

@@ -1,0 +1,16 @@
+export const categoryList = [
+	"All",
+	"Music",
+	"Dancing",
+	"Clubbing",
+	"New Friends",
+	"Karaoke",
+	"Game Night",
+	"Hype Man",
+	"Vibes",
+	"Island Flex",
+	"Game Night",
+	"Girls Night",
+	"Dj Nights",
+	"After Party",
+]

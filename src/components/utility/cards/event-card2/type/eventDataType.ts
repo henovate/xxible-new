@@ -9,7 +9,7 @@ export interface EventDataType {
 	interestedCount: number
 	imageUrl: string
 	imageAlt: string
-	categories: string[]
+	categories?: string[]
 	brand: {
 	  name: string
 	  description: string
