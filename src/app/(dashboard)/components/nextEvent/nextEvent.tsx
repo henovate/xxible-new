@@ -1,13 +1,33 @@
 "use client"
 
-const NextEvent = () => {
+import Image from "next/image";
+import { nextEventType } from "./nextEventType";
+import { Clock, MapPin } from "lucide-react";
+
+interface NextEventProps {
+  event: nextEventType;
+}
+
+const NextEvent = ({ event }:NextEventProps) => {
   return (
 	<>
-    <div className="grid grid-cols-[1fr_80%] p-[0.8rem]">
-        <div className="h-[30px] w-[80px] 2xl:h-[43px] 2xl:w-[111px]">
-            {/* <Image src={brandLogo} alt="brand Logo" className="brand-logo w-full h-full bg-cover"/> */}
+    <div className="flex items-center py-[0.6rem] pl-[0.6rem] pr-[1.8rem] bg-[#232323] border border-[#343434] gap-3 rounded-2xl w-fit whitespace-nowrap flex-shrink-0 snap-start">
+        <div className="2xl:w-24 2xl:h-24 bg-cover rounded-xl">
+            <Image src={event.eventImage} width={50} height={50} alt="Event Image" className="w-full h-full bg-cover bg-center rounded-xl"/>
         </div>
-      <div></div>
+        <div className="space-y-1">
+          <div>
+            <p className="text-xl text-[#F5F5F5] font-[600]">{event.eventTitle}</p>
+          </div>
+          <div className="flex items-center text-[#A0A0A0] gap-2">
+            <MapPin className="w-3 h-3 sm:w-5 sm:h-5 flex-shrink-0 mb-[2px]" />
+            <p className="text-base font-[500]">{event.eventLocation}</p>
+          </div>
+          <div className="flex items-center text-[#A0A0A0] gap-2">
+            <Clock className="w-3 h-3 sm:w-5 sm:h-5 flex-shrink-0" />
+            <p className="text-base font-[500]">{event.eventTime}</p>
+          </div>
+        </div>
     </div>
   </>
   )

@@ -27,6 +27,11 @@
 	box-sizing: border-box;
 }
 
+.container{
+	@apply max-w-[1900px] mx-auto
+}
+  
+
 .no-scrollbar::-webkit-scrollbar {
 	display: none;
   }
@@ -327,11 +332,6 @@ footer{
 	background-color: #FFFFFF;
 	color: #212121;
 }
-
-.container{
-	@apply max-w-[1900px] mx-auto
-}
-  
 
 
 /* Toggle Switch */

@@ -22,6 +22,7 @@ interface EventCardProps {
   titleFontSize?: string;
   locationFontSize?: string;
   eventInfoFontSize?: string;
+  cardTag?: string;
 }
 
 const EventCard2 = ({ event, 
@@ -32,7 +33,8 @@ const EventCard2 = ({ event,
                       curveDesignColor="bg-[#EDEDED]",
                       titleFontSize="2xl:text-2xl 2xl:leading-7",
                       locationFontSize="2xl:text-base 2xl:leading-[1.25rem]",
-                      eventInfoFontSize="2xl:text-sm 2xl:leading-[1.125rem]"
+                      eventInfoFontSize="2xl:text-sm 2xl:leading-[1.125rem]",
+                      cardTag
                     }: EventCardProps) => {
   
   
@@ -52,7 +54,7 @@ const EventCard2 = ({ event,
     >
       {/* Hero Image Section */}
       <div className="relative aspect-[4/3 sm:aspect-[16/10 lg:aspect-[4/3">
-        <div className={`relative w-full ${imgHeight}`}>
+        <div className={`relative w-full bg-[#000000] rounded-[16.82px] ${imgHeight}`}>
           <Image
           src={event?.imageUrl || placeholderImg}
           alt={event?.imageAlt}
@@ -62,8 +64,8 @@ const EventCard2 = ({ event,
           />
         </div>
 
-        {event?.categories &&
-        <Button
+        {cardTag === "likes"? 
+        (<Button
           variant="ghost"
           size="icon"
           onClick={handleFavoriteToggle}
@@ -75,6 +77,11 @@ const EventCard2 = ({ event,
             }`}
           />
         </Button>
+        ) : cardTag === "latest"? (
+          <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-[#53535354] border border-[#838383] text-[#F5F5F5] py-0.5 px-2.5 text-xs font-[500] rounded-full">
+                  Latest
+          </div>
+          ) : null
         }
       </div>
 
@@ -82,7 +89,7 @@ const EventCard2 = ({ event,
       <CardContent className="space-y-4 sm:space-y-5">
         {/* Event Title and Location */}
         <div>
-          <h2 className={`text-lg sm:text-xl lg:text-2xl font-bold xl:text-[22px] xl:leading-[26px] mt-2 ${titleFontSize}  ${titleAndCompanyTextColor}`}>{event?.title.length > 24? (`${event.title.substring(0, 24)}...`) : (event.title)}</h2>
+          <h2 className={`text-lg sm:text-xl lg:text-2xl font-bold xl:text-[22px] xl:leading-[26px] mt-2 ${titleFontSize} ${titleAndCompanyTextColor}`}> {event?.title.length > 24? (`${event.title.substring(0, 24)}...`) : (event.title)} </h2>
           <div className={`flex items-center gap-1 mt-3 ${cardInfoTextColor}`}>
             <MapPin className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0 mb-[2px]" />
             <p className={`cat text-sm leading-[1.25rem] ${locationFontSize}`}>{event?.location}</p>

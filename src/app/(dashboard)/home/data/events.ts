@@ -1,4 +1,4 @@
-import type { EventDataType } from "../../../../src/components/utility/cards/event-card2/type/eventDataType";
+import type { EventDataType } from "../../../../components/utility/cards/event-card2/type/eventDataType";
 
 export const eventsData: EventDataType[] = [
   {

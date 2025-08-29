@@ -27,7 +27,7 @@ const SearchBar = ({
   return (
     <>
       <div
-        className={`fle rounded-full p-[2px] sm:p-[3px] lg:p-[2px] 2xl:p-[3px] w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl mx-1 sm:mx-4 lg:mx-10 2xl:mx-20 ${widthAndBorderColorClass}`}
+        className={`rounded-full p-[2px] sm:p-[3px] lg:p-[2px] 2xl:p-[3px] w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl ${widthAndBorderColorClass}`}
       >
         <form
           className={`flex items-center rounded-full px-2 sm:px-3 lg:px-4 py-1.5 sm:py-2 border-gray-70 border-[2px] border-transparent [border-image-slice:1] ${bgColorClass}`}
@@ -40,7 +40,7 @@ const SearchBar = ({
             className="flex-1 bg-transparent text-white placeholder-gray-400 outline-none text-xs sm:text-sm lg:text-base min-w-0 mr-1 sm:mr-0"
           />
           <div className="w-px h-3 sm:h-4 bg-gray-600 mx-2 sm:mx-3 hidden sm:block"></div>
-          <div className={`${selectWidth} hidden sm:block`}>
+          <div className={`min-w-0 hidden sm:block ${selectWidth}`}>
             <Select>
               <SelectTrigger className="border-none bg-transparent text-white text-xs sm:text-sm lg:text-base h-auto p-0 focus:ring-0">
                 <SelectValue placeholder="Lagos, NG" />

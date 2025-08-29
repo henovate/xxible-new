@@ -13,7 +13,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   return (
-    <nav className="bg-[#191A1A] text-white h-[4rem] sm:h-[5rem] xl:h-[5.9rem] w-full flex items-center px-4 sm:px-8 lg:px-[3.5rem] border-b-2 border-[#343434]">
+    <nav className="bg-[#191A1A] text-white h-[4rem] sm:h-[5rem] xl:h-[5.9rem] w-full flex items-center px-4 sm:px-8 lg:px-[2rem] 2xl:px-[3.5rem] border-b-2 border-[#343434]">
       <div className="lg:hidden flex items-center gap-3 flex-1">
         <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
           <SheetTrigger asChild>
@@ -94,10 +94,10 @@ const Navbar = () => {
 
       <div className="hidden lg:flex items-center w-full">
         {/* LEFT: logo + brand + search */}
-        <div className="flex items-center gap-10 flex-1 min-w-0">
+        <div className="flex items-center gap-5 2xl:gap-10 flex-1 min-w-0">
           {/* Logo + dropdown */}
           <div className="flex items-center gap-2 shrink-0">
-            <div className="h-[2.4rem] w-[2.4rem] rounded-full bg-[url('/assets/img/dp.png')] bg-cover bg-center" />
+            <div className="h-[2rem] w-[2rem] 2xl:h-[2.4rem] 2xl:w-[2.4rem] rounded-full bg-[url('/assets/img/dp.png')] bg-cover bg-center" />
             <ChevronDown className="w-5 h-5 text-gray-400" />
           </div>
 
@@ -107,7 +107,7 @@ const Navbar = () => {
           </span>
 
           {/* SearchBar (fills remaining space) */}
-          <div className="flex-1 min-w-0">
+          <div className="flex-1 min-w-0 mx-1 sm:mx-4 lg:mx-10 2xl:mr-20 2xl:ml-7">
             <SearchBar
               widthAndBorderColorClass="max-w-[48rem] bg-[#818181]"
               bgColorClass="bg-[#2D2D2D]"
@@ -127,11 +127,11 @@ const Navbar = () => {
         {/* RIGHT: settings + notifications */}
         <div className="flex items-center gap-3 shrink-0">
           <div className="hover:bg-gray-800 p-2 rounded">
-            <Icon icon="material-symbols:settings-rounded" width="28" height="28" className="text-[#E9E9E9]" />
+            <Icon icon="material-symbols:settings-rounded" width="28" height="28" className="text-[#E9E9E9] w-7 h-7" />
           </div>
           <span className="opacity-50">|</span>
           <div className="hover:bg-gray-800 p-2 rounded">
-            <Icon icon="garden:notification-fill-12" width="24" height="24" className="text-[#E9E9E9]" />
+            <Icon icon="garden:notification-fill-12" width="24" height="24" className="text-[#E9E9E9] w-6 h-6" />
           </div>
         </div>
       </div>

@@ -203,7 +203,7 @@ const secondtoLastClubItem = clubsData.length - 1
                 <div className='mt-[32px] grid md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-4'>
                   
                   {eventsData.map((_event, i) => (
-                       <EventCard2 key={i} event={_event}/>
+                       <EventCard2 key={i} event={_event} cardTag='likes'/>
                   ) )}
                  
                 </div>

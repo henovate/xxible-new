@@ -7,6 +7,9 @@ const withPWA = require("next-pwa")({
 
 const nextConfig: NextConfig = {
   /* config options here */
+  images: {
+    domains: ["unsplash.com", "images.unsplash.com"], // add both just in case
+  },
 };
 
 module.exports = withPWA({
