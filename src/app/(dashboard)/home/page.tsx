@@ -1,18 +1,15 @@
 "use client";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import NextEvent from "../components/nextEvent/nextEvent";
-import Image from "next/image";
+import NextEvent from "../components/nextEventCard/nextEventCard";
 import { Badge } from "@/components/ui/badge";
 import { categoryList } from "./data/categoryList";
-// import { eventsData } from "@/components/utility/cards/event-card2/events";
 import EventCard2 from "@/components/utility/cards/event-card2/eventCard2";
 import { eventsData } from "./data/events";
-import { nextEventList } from "../components/nextEvent/next-events";
-import { Clock, Ticket } from "lucide-react";
+import { nextEventList } from "../components/nextEventCard/next-events";
 import UpcomingEventCard from "@/components/utility/cards/upcoming-event-card/upcomingEventCard";
-import { useState } from "react";
 import { clubData } from "./data/clubData";
 import FollowClubCard from "@/components/utility/cards/follow-club-card/followClubCard";
+import NextEventCard from "../components/nextEventCard/nextEventCard";
 
 
 const page = () => {
@@ -22,7 +19,7 @@ const page = () => {
 		{/* 1st Partition */}
 	  <div className="text-gray-600 border-r-2 border-[#343434] min-w-0">
 		<div className="p-4 md:p-5">	
-			<div className="w-full md:h-[18.5rem] bg-[url('/assets/img/db1.jpg')] md:bg-[url('/assets/img/db.png')] border border-[#5B5B5B] bg-[#000000a3] md:bg-[#00000052] bg-blend-overlay bg-cover bg-center rounded-2xl md:rounded-3xl md:flex justify-end">
+			<div className="w-full md:h-[18.5rem] bg-[url('/assets/img/db1.jpg')] md:bg-[url('/assets/img/db.png')] border border-[#5B5B5B] shadow-[0_0_20px_rgba(0,0,0,0.5)] bg-[#000000a3] md:bg-[#00000052] bg-blend-overlay bg-cover bg-center rounded-2xl md:rounded-3xl md:flex justify-end">
 				<div className="md:w-[50%] py-10 px-4 sm:py-8 md:py-0 md:px-0 md:pr-3 text-white flex flex-col justify-center">
 					<p className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFFFFF] via-[#ec7ee1] to-[#FF00EA] overflow-visible text-2xl leading-6 md:leading-8 md:text-3xl font-[600]">
 						Find the Night. Live the Vibe.
@@ -60,7 +57,11 @@ const page = () => {
 		
 			<div className="mt-8 flex items-center gap-2 overflow-x-auto no-scrollbar w-full snap-x snap-mandatory">
 				{categoryList.map((category, index) => (
-					<Badge key={index} variant={"default"} className="bg-[#393939] text-[#F5F5F5] hover:bg-[#F5F5F5] hover:text-[#231F20] py-3 px-2 text-sm font-[500] cursor-pointer whitespace-nowrap rounded-lg">{category}</Badge>
+					<Badge key={index} 
+						   variant={"default"} 
+						   className="bg-[#393939] text-[#F5F5F5] hover:bg-[#F5F5F5] hover:text-[#231F20] py-3 px-2 text-sm font-[500] cursor-pointer whitespace-nowrap rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+							{category}
+					</Badge>
 				))}
 			</div>
 
@@ -68,7 +69,7 @@ const page = () => {
 				{eventsData.map((_event, index) => (
 					<EventCard2 key={index} 
 								event={_event} 
-								bgClassName="bg-[#232323]" 
+								bgClassName="bg-[#232323] shadow-[0_0_20px_rgba(0,0,0,0.5)]" 
 								titleAndCompanyTextColor="text-[#F5F5F5]"
 								cardInfoTextColor="text-[#A0A0A0]"
 								imgHeight="h-[16rem]"
@@ -92,7 +93,9 @@ const page = () => {
 
 			<div className="mt-8 flex items-center w-full overflow-x-auto gap-5 snap-x snap-mandatory no-scrollbar min-w-0">
 				{nextEventList.map((_event, index) => (
-					<NextEvent key={index} event={_event}/>
+					<NextEventCard key={index} 
+							   event={_event}
+							   />
 				))}
 			</div>
 
@@ -151,11 +154,11 @@ const page = () => {
 
 		{/* 2nd Partition */}
 	  <div className="hidden lg:block pt-[2.7rem] px-4 md:px-5">
-		<div className="border border-gradient-to-r from-[#353535] to-[#9B9B9B] p-4 rounded-3xl">
+		<div className="border border-gradient-to-r from-[#353535] to-[#9B9B9B] shadow-[0_0_20px_rgba(0,0,0,0.5)] p-4 rounded-3xl">
 			<p className="text-xl font-[600] text-[#F5F5F5]">Subscribe to XXible+</p>
 			<p className="text-sm font-[400] text-[#C8C8C8] mt-1.5">Stay ahead of the vibe, subscribe for early access and premium features.</p>
 
-			<div className="rounded-full px-3 py-2 bg-[#F800E8] text-[#f5f5f5] mt-8 w-fit">
+			<div className="rounded-full px-3 py-2 bg-[#F800E8] text-[#f5f5f5] mt-8 w-fit shadow-[0_0_15px_rgba(255,0,212,0.6)] hover:scale-105 transition-transform">
 				<p className="text-base font-[600]">Subscribe</p>
 			</div>
 		</div>
@@ -167,7 +170,10 @@ const page = () => {
 
 			<div className="mt-6">
 				{eventsData.map((_event, index)=>(			
-					<UpcomingEventCard key={index} event={_event} eventNumber={Number(index + 1)} />
+					<UpcomingEventCard key={index} 
+									   event={_event} 
+									   eventNumber={Number(index + 1)} 
+									   />
 				))}	
 			</div>
 		</div>
@@ -180,7 +186,9 @@ const page = () => {
 
 			<div className="mt-6">
 				{clubData.map((club, index)=>(
-					<FollowClubCard key={index} clubData={club} />
+					<FollowClubCard key={index} 
+								    clubData={club} 
+									/>
 				))}	
 			</div>
 

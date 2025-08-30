@@ -8,10 +8,10 @@ interface NextEventProps {
   event: nextEventType;
 }
 
-const NextEvent = ({ event }:NextEventProps) => {
+const NextEventCard = ({ event }:NextEventProps) => {
   return (
 	<>
-    <div className="flex items-center py-[0.6rem] pl-[0.6rem] pr-[1.8rem] bg-[#232323] border border-[#343434] gap-3 rounded-2xl w-fit whitespace-nowrap flex-shrink-0 snap-start">
+    <div className="flex items-center py-[0.6rem] pl-[0.6rem] pr-[1.8rem] bg-[#232323] shadow-[0_0_20px_rgba(0,0,0,0.5)] border border-[#343434] gap-3 rounded-2xl w-fit whitespace-nowrap flex-shrink-0 snap-start">
         <div className="2xl:w-24 2xl:h-24 bg-cover rounded-xl">
             <Image src={event.eventImage} width={50} height={50} alt="Event Image" className="w-full h-full bg-cover bg-center rounded-xl"/>
         </div>
@@ -33,4 +33,4 @@ const NextEvent = ({ event }:NextEventProps) => {
   )
 }
 
-export default NextEvent;
+export default NextEventCard;

@@ -47,7 +47,7 @@ const Header = () => {
     return (
         <div className="w-full">
             {/* Desktop Header */}
-            <div className="hidden lg:flex main-tool-bar fixed top-0 left-0 right-0 z-40 bg-transparen mt-2 items-center justify-center">
+            <div className="container hidden lg:flex main-tool-bar fixed top-0 left-0 right-0 z-40 bg-transparen mt-2 items-center justify-center">
                 <div className='rounded-full bg-black/30 backdrop-blur-md border border-white/10 shadow-lg w-[95%] xl:w-[90%] flex items-center justify-between px-4 py-3'>
                     {/* Logo */}
                     <Link className="flex items-center gap-1 flex-shrink-0" href="/">

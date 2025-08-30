@@ -39,15 +39,15 @@ const SideBar = () => {
               <div key={item.title} onClick={()=> navigation(item)} className="flex flex-col justify-center items-center group">
             
                   <div
-                    className={`p-2 2xl:p-2.5 rounded-full transition-opacity hover:opacity-100 group-hover:!bg-[#393939]  ${
-                      isActive ? "bg-[#393939] opacity-100" : "opacity-70"
+                    className={`p-2 2xl:p-2.5 rounded-full transition-opacity hover:opacity-100 group-hover:!bg-[#393939] group-hover:!shadow-[0_0_20px_rgba(0,0,0,0.5)]  ${
+                      isActive ? "bg-[#393939] opacity-100 shadow-[0_0_20px_rgba(0,0,0,0.5)]" : "opacity-70"
                     }`}
                   >
                       <Icon
                         icon={item.icon} 
                         width="20"
                         height="20"
-                        className={`w-5 h-5 2xl:w-6 2xl:h-6 group-hover:!text-white ${
+                        className={`w-5 h-5 2xl:w-6 2xl:h-6 group-hover:!text-white cursor-pointer ${
                           isActive ? "text-white" : "text-[#898989] "
                         }`}
                       />
@@ -68,7 +68,7 @@ const SideBar = () => {
         </div>
         <hr className="w-16 h-[3px] bg-[#393939] mt-[1.7rem] 2xl:mt-[2.5rem]"></hr>
 
-        <div className="flex items-center justify-center bg-[#393939] rounded-full mt-[2.5rem] p-2 2xl:p-2.5">
+        <div className="flex items-center justify-center bg-[#393939] shadow-[0_0_20px_rgba(0,0,0,0.5)] rounded-full mt-[2.5rem] p-2 2xl:p-2.5 cursor-pointer">
           <Icon icon="material-symbols-light:add" width="24" height="24" className="h-4 w-4 2xl:w-6 2xl:h-6 text-white"/>
         </div>
 

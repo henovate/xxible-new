@@ -6,9 +6,9 @@ import brandLogo from "../../../../../public/assets/icons/brandLogo.png";
 
 const Footer = () => {
   return (
-	<div>    
+	<div className='bg-[#131313]'>    
       {/* Footer */}
-      <footer className="bg-[#131313] text-white">
+      <footer className="container text-white">
         {/* Newsletter Section */}
         <div>
           <div className=" mx-auto px-4 sm:px-6 lg:px-8 pb-6 pt-[60px]">

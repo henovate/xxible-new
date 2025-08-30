@@ -17,7 +17,7 @@ const UpcomingEventCard = ({ event, eventNumber }:UpcomingEventCardProp) => {
 
   return (
 	<>
-		<div className="border border-[#343434] rounded-xl p-2 mb-4">
+		<div className="border border-[#343434] shadow-[0_0_20px_rgba(0,0,0,0.5)] rounded-xl p-2 mb-4">
 			<div className="flex justify-between">
 				<div className="flex items-center gap-2">
 					<div className="border-2 border-[#0E101A] bg-gradient-to-br from-[#1a1a1a] to-[#0d0d0d] p-1 rounded-lg">

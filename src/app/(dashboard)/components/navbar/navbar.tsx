@@ -80,7 +80,7 @@ const Navbar = () => {
 
         {/* Mobile: Only show essential buttons */}
         <div className="flex items-center gap-2 ml-auto">
-          <Button className="bg-[#F800E9] hover:bg-[#f599ef] text-white px-2 py-2 rounded-lg">
+          <Button className="bg-[#F800E9] shadow-[0_0_15px_rgba(255,0,212,0.6)] hover:scale-105 hover:bg-[#F800E9] transition-transform text-white px-2 py-2 rounded-lg">
             <Icon icon="solar:crown-bold" width="20" height="20" />
           </Button>
           <div className="hover:bg-gray-800 p-1.5 rounded">
@@ -118,7 +118,7 @@ const Navbar = () => {
 
         {/* MIDDLE: Adopt button */}
         <div className="shrink-0 mx-6">
-          <Button className="bg-[#F800E9] hover:bg-pink-600 text-white px-3 py-2.5 rounded-lg flex items-center gap-2">
+          <Button className="bg-[#F800E9] hover:bg-[#F800E9] shadow-[0_0_15px_rgba(255,0,212,0.6)] hover:scale-105 transition-transform text-white px-3 py-2.5 rounded-lg flex items-center gap-2">
             <span className="text-base font-[600]">XXible+</span>
             <Icon icon="solar:crown-bold" width="24" height="24" />
           </Button>
