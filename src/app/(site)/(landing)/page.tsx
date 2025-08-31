@@ -43,13 +43,13 @@ const secondtoLastClubItem = clubsData.length - 1
             <div className='h-full w-full'>
               <div className='relative w-full'>
                 {/* Video Section */}
-                <div className='video-container h-[390px] 2xl:h-[525px] w-full overflow-hidden bg-black bg-blend-overlay rounded-br-[400px] rounded-bl-[100px]'>
+                <div className='video-container h-[390px] lg:h-[460px] 2xl:h-[600px] w-full overflow-hidden bg-black bg-blend-overlay rounded-br-[400px] rounded-bl-[100px]'>
                   <video className='w-full h-full min-w-full scale-150 rounded-br-[400px] rounded-bl-[100px]' muted autoPlay loop>
                     <source onLoad={()=> handleLoad()} src='https://videos.pexels.com/video-files/6225458/6225458-hd_1920_1080_30fps.mp4' type='video/mp4' />
                   </video>
                 </div>
 
-                <div className='absolute top-36 sm:top-32 left-0 sm:ml-8'>
+                <div className='absolute top-36 sm:top-32 2xl:top-72 left-0 sm:ml-8'>
                   <div className=''>
                     <CircularText
                       text="DIVE*INTO*AN*EXPERIENCE*"
