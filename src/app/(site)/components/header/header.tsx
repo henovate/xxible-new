@@ -164,7 +164,7 @@ const Header = () => {
             </div>
 
             {/* Spacer to prevent content from going under fixed header */}
-            <div className="h-16 lg:h-[60px]"></div>
+            <div className="h-16 lg:h-[60px"></div>
         </div>
     );
 };

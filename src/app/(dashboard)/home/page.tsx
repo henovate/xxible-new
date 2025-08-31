@@ -1,6 +1,5 @@
 "use client";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import NextEvent from "../components/nextEventCard/nextEventCard";
 import { Badge } from "@/components/ui/badge";
 import { categoryList } from "./data/categoryList";
 import EventCard2 from "@/components/utility/cards/event-card2/eventCard2";
