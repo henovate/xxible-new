@@ -62,7 +62,7 @@ const Header = () => {
 
                     {/* Search Bar */}
                     <div className='mx-1 sm:mx-4 lg:mx-20'>
-                        <SearchBar />
+                        <SearchBar searchInput='xl:w-96'/>
                     </div>
 
                     {/* Auth Buttons */}

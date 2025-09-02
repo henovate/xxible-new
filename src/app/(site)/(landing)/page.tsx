@@ -7,6 +7,7 @@ import { useTheme } from '../../../context/ThemeContext';
 import CircularText from '../../../components/circularText/circularText';
 import arrow from "../../../../public/assets/img/rightarrow.png";
 import graphUp from "../../../../public/assets/img/graphUp.png";
+import brandLogo from "../../../../public/assets/img/logo2.png";
 import star from "../../../../public/assets/img/star.png";
 import Image from 'next/image';
 import SwiperSlider from '@/components/swiper/swiperSlider';
@@ -41,53 +42,122 @@ const secondtoLastClubItem = clubsData.length - 1
       <>
           <div className='container h-full w-full bg-black layout-cont'>
             <div className='h-full w-full'>
+
               <div className='relative w-full'>
                 {/* Video Section */}
-                <div className='video-container h-[390px] lg:h-[460px] 2xl:h-[600px] w-full overflow-hidden bg-black bg-blend-overlay rounded-br-[400px] rounded-bl-[100px]'>
-                  <video className='w-full h-full min-w-full scale-150 rounded-br-[400px] rounded-bl-[100px]' muted autoPlay loop>
+                <div className='video-container h-[20rem] sm:h-[30rem] lg:h-[40rem] xl:h-[45rem] 2xl:h-[56rem] w-full overflow-hidden bg-[#0000009d] bg-blend-overlay'>
+                  <video className='w-full h-full min-w-full scale-150 grayscale' muted autoPlay loop>
                     <source onLoad={()=> handleLoad()} src='https://videos.pexels.com/video-files/6225458/6225458-hd_1920_1080_30fps.mp4' type='video/mp4' />
                   </video>
                 </div>
 
-                <div className='absolute top-36 sm:top-32 2xl:top-72 left-0 sm:ml-8'>
-                  <div className=''>
-                    <CircularText
-                      text="DIVE*INTO*AN*EXPERIENCE*"
-                      onHover="speedUp"
-                      spinDuration={20}
-                      className="custom-class text-white"
-                    />
+                <div className='absolute bottom-0 left-0 w-full'>
+                  <div className='exclusive hidden md:flex justify-end w-full pl-10 pr-40 gap-10 text-[#f5f5f5] text-sm font-[800]'>
+                    <div className='flex-1'>
+                      <p>Stay in the loop with the latest vibes, epic events, and unforgettable nights.</p>
+                    </div>
+                    <div className='w-[25%]'>
+                      <p>Whether you’re chasing the beats, the vibes, or the people, this is your all-access guide to the coolest scene.</p>
+                    </div>
+                    <div className='w-[25%]'>
+                      <p>Stay in the loop with the latest vibes, epic events, and unforgettable nights.</p>
+                    </div>
+                    <div className='w-[25%]'>
+                      <p>All Exclusive - Updates on parties, night clubs, and the coolest crowd</p>
+                      <p className='mt-9 w-[50%]'>Your ultimate pass to the hottest parties, buzzing nightclubs, and the trendiest crowd in town.</p>
+                      {/* <p>All in one place!</p> */}
+                    </div>
                   </div>
+                  <div className='flex mt-16 pl-2 sm:pl-10'>
+                    <div className='night-cont pl-0 ml-0 mb-0 pb-0'>
+                        <p className='night capitalize text-[#f5f5f5] text-[10rem] leading-[10rem] sm:text-[14.5vw] sm:leading-[13vw] lg:text-[20rem] lg:leading-[20rem] xl:leading-[22rem] xl:text-[22rem] 2xl:text-[33rem] 2xl:leading-none font-[600]'>NightLife</p>
+                    </div>
+                    <span className='text-2xl 2xl:text-[6rem] mt-9 lg:mt-7 text-[#f5f5f5]'>®</span>
+                  </div>
+                </div>
 
-                  <div className='absolute left-[72px] sm:left-24 top-[70px] sm:top-24 h-[50px] w-[50px] ml-1'>
-                    <Image src={arrow} alt="right arrow" className="right-logo w-full h-full"/>
-                  </div>
+                {/* Mobile */}
+                <div className='vertical-write absolute top-4 right-0 py-0.5 w-full bg-[#f599ef] lg:hidden uppercase'>
+                  <Marquee autoFill={true} pauseOnHover={true}>
+                    <div className='px-4 text-zinc-900 text-xs font-[500] uppercase border-x-2 border-zinc-900 flex justify-center items-center w-full'>
+                      <p className='whitespace-nowrap'>Dive into An Experience</p>
+                    </div>
+
+                    <div className='flex-1 w-full flex justify-center items-center'>
+                      <div className="h-[1.3rem] w-[2.3rem] 2xl:h-[2.6rem] 2xl:w-[3.5rem]">
+                        <Image src={brandLogo} alt="brand Logo" className="brand-logo w-full h-full bg-cover grayscale"/>
+                      </div>
+                    </div>
+
+                    <div className='px-4 text-zinc-900 text-xs font-[500] border-x-2 border-zinc-900 flex justify-center items-center w-full'>
+                      <p className='whitespace-nowrap'>Find The Hottest Nightlife Events, Vibes And Meet New People. Cruise with Leisure.</p>
+                    </div>
+
+
+                    <div className='flex-1 w-full flex justify-center items-center'>
+                      <div className="h-[1.3rem] w-[2.3rem] 2xl:h-[2.6rem] 2xl:w-[3.5rem]">
+                        <Image src={brandLogo} alt="brand Logo" className="brand-logo w-full h-full bg-cover grayscale"/>
+                      </div>
+                    </div>
+                  </Marquee>
+                </div>
+
+                {/* Desktop */}
+                <div className='vertical-write absolute top-0 right-0 h-full w-[6%] bg-[#f5f5f5] bg-[#f599ef hidden lg:flex flex-col items-center justify-center'>
+                    <div className='[writing-mode:vertical-rl] [text-orientation:mixed] text-zinc-900 h-[40%] text-2xl leading-6 font-[600] uppercase border-y-2 border-zinc-900 py- flex justify-center items-center w-full'>
+                      <p className='h-[80%] text-center'>Dive into An Experience</p>
+                    </div>
+                    <div className='[writing-mode:vertical-rl] [text-orientation:mixed] text-zinc-900 h-[40%] text-[1.1rem] leading-[1.2rem] font-[500] border-b-2 border-zinc-900 flex justify-center items-center w-full'>
+                      <p className='h-[80%] text-center'>Find The Hottest Nightlife Events, Vibes And Meet New People. Cruise with Leisure.</p>
+                    </div>
+
+
+                    <div className='flex-1 w-full flex justify-center items-center'>
+                      <div className="h-[1.8rem] w-[2.8rem] 2xl:h-[2.6rem] 2xl:w-[3.5rem]">
+                        <Image src={brandLogo} alt="brand Logo" className="brand-logo w-full h-full bg-cover grayscale"/>
+                      </div>
+                    </div>
+                </div>
+
+                <div className='absolute bottom-10 right-40 rounded-full bg-[#f5f5f5 bg-[#f599ef] hidden lg:flex justify-center items-center h-[7rem] w-[7rem] animate-bounce cursor-pointer'>
+                    <p className='text-sm text-zinc-900 font-[600]'>Scroll</p>
                 </div>
               </div>
 
-              <div className='sec1 h-full px-6 lg:px-8 mt-4 sm:mt-16 lg:mt-10'>
-                <div className='pl-0 ml-0 flex items-center bg-black w-full'>
-                  <p className='night text-white text-[13vw] leading-[12vw] sm:text-[14.5vw] sm:leading-[13vw] lg:leading-[14.5vw] xl:text-[14.7vw] xl:leading-[14.7vw] 2xl:text-[14.8rem] 2xl:leading-[14.8rem] font-[600]'>NIGHT LIFE</p>
-                </div>
 
-                <div className='w-full flex lg:items-center justify-between lg:justify-around mt-14 lg:mt-6'>             
-                    <div className='w-[45%] md:w-[44vw] lg:w-[32vw]'>
-                      <p className='hero-summary text-[19px] leading-[17px] sm:text-[25px] sm:leading-[23px] 2xl:text-[32px] 2xl:leading-[30px] font-[500] text-stone-100'>Find The Hottest Nightlife Events, Vibes And Meet New People. Cruise with Leisure.</p>
-                      <p className='diveInto uppercase mt-2 text-[19px] leading-[17px] sm:text-[25px] sm:leading-[25px] 2xl:text-[32px] 2xl:leading-[32px] text-stone-100'>Dive into An Experience</p>
-                      {/* <p className='partyHard mt-2 text-[17px] leading-[17px] font-[400] text- uppercase'>Party Hard</p> */}
-                    </div>               
 
-                  <div className='sum w-[45%] md:w-[44vw] lg:w-[34vw] mt-16 sm:mt-0'>
-                    <p className='exclusive text-stone-50 text-[19px] leading-[17px] sm:text-[25px] sm:leading-[25px] 2xl:text-[32px] 2xl:leading-[30px]'>All Exclusive</p>
-                    <p className='updates  mt-1 text-stone-100 text-[19px] leading-[17px] sm:text-[25px] sm:leading-[24px] 2xl:text-[32px] 2xl:leading-[31px]'>Updates on exclusive parties, night clubs, and the coolest crowd</p>
-                    <p className='allInOne mt-2 text-stone-100 text-[16px] leading-[16px] sm:text-[23px] sm:leading-[23px] 2xl:text-[30px] 2xl:leading-[30px]'>All in one place!</p>
+
+
+              <div className='landing-desc bg-black px-10 py-16 sm:hidden'>
+                  <div className='exclusive w-[95%] text-stone-300 text-xs leading-[0.875rem] font-[300] uppercase space-y-4'>
+                    <div>
+                      <p>Stay in the loop with the latest vibes, epic events, and unforgettable nights.</p>
+                      <p className='landing-no text-base mt-1 text-[#f599ef]'>1.0.1</p>
+                    </div>
+                    <div>
+                      <p>Whether you’re chasing the beats, the vibes, or the people, this is your all-access guide to the coolest scene.</p>
+                      <p className='landing-no text-base mt-1 text-[#f599ef]'>1.0.2</p>
+                    </div>
+                    <div>
+                      <p>Stay in the loop with the latest vibes, epic events, and unforgettable nights.</p>
+                      <p className='landing-no text-base mt-1 text-[#f599ef]'>1.0.3</p>
+                    </div>
+                    <div>
+                      <p>All Exclusive - Updates on parties, night clubs, and the coolest crowd</p>
+                      <p>Your ultimate pass to the hottest parties, buzzing nightclubs, and the trendiest crowd in town.</p>
+                      <p className='landing-no text-base mt-1 text-[#f599ef]'>1.0.4</p>
+                    </div>
                   </div>
-                </div>
               </div>
-              
 
 
-              <div className='sec2 w-full relative bg-[url("/assets/category-background.png")] mt-16 bg-cover bg-center'>
+
+
+
+
+
+
+              <div className='sec2 w-full relative bg-[url("/assets/category-background.png")] pt-16 bg-cover bg-center'>
               {/* hidden elememt for container height */}
               <div className='pt-8 md:pt-12 pb-20 hide invisible'>
                   <div className='w-full my-16 px-8'>              
@@ -279,26 +349,28 @@ const secondtoLastClubItem = clubsData.length - 1
                 </div>
               </div>
 
-
-              <div className='pt-[94px] bg-[url("/assets/img/bg1.png")] bg-cover bg-center bg-no-repeat bg-black px-5 lg:px-8 xl:px-0 pb-[36px]'>
-                <div className='flex justify-center'>
-                  <div className='w-full xl:w-[75%]'>
-                    <p className='text-[30px] leading-[35px] xl:text-center xl:text-[48px] xl:leading-[47px] py-3 font-[600] text-transparent bg-clip-text bg-gradient-to-r from-[#FFFFFF] via-pink-500 to-[#e28edb] overflow-visible'>Popular Cities on XXible</p>
-                    <p className='sm:w-[70%] lg:w-[50%] xl:w-full text-[16px] leading-[16px] md:text-[18px] md:leading-[20px] lg:leading-[22px] xl:text-center xl:text-[24px] xl:leading-[34px] font-[400] mt-8 text-[#ffffff]'>
-                      Looking for fun things to do near you? See what XXible organizers are planning in cities around the country.
-                    </p>                  
-                  </div>
-                </div>
-
-
-                <div className='mt-[6rem] pb-[8rem] sm:mt-[139px] sm:pb-[180px]'>
-                  <Marquee autoFill={true} pauseOnHover={true}>
-                    <div className='flex items-center'>
-                      {data.map((item, i) => (
-                        <EventCard4 key={i} cardData={item} />
-                      ))}
+              
+              <div className=''>
+                <div className='pt-[94px] bg-[url("/assets/img/bg1.png")] bg-cover bg-center bg-no-repeat bg-black px-5 lg:px-8 xl:px-0 pb-[36px]'>
+                  <div className='flex justify-center'>
+                    <div className='w-full xl:w-[75%]'>
+                      <p className='text-[30px] leading-[35px] xl:text-center xl:text-[48px] xl:leading-[47px] py-3 font-[600] text-transparent bg-clip-text bg-gradient-to-r from-[#FFFFFF] via-pink-500 to-[#e28edb] overflow-visible'>Popular Cities on XXible</p>
+                      <p className='sm:w-[70%] lg:w-[50%] xl:w-full text-[16px] leading-[16px] md:text-[18px] md:leading-[20px] lg:leading-[22px] xl:text-center xl:text-[24px] xl:leading-[34px] font-[400] mt-8 text-[#ffffff]'>
+                        Looking for fun things to do near you? See what XXible organizers are planning in cities around the country.
+                      </p>                  
                     </div>
-                  </Marquee>
+                  </div>
+
+
+                  <div className='mt-[6rem] pb-[8rem] sm:mt-[139px] sm:pb-[180px]'>
+                    <Marquee autoFill={true} pauseOnHover={true}>
+                      <div className='flex items-center'>
+                        {data.map((item, i) => (
+                          <EventCard4 key={i} cardData={item} />
+                        ))}
+                      </div>
+                    </Marquee>
+                  </div>
                 </div>
               </div>
 

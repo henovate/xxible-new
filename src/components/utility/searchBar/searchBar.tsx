@@ -12,10 +12,11 @@ import {
 } from "@/components/ui/select"
 
 interface SearchBarProps {
-  widthAndBorderColorClass?: string
-  bgColorClass?: string
-  selectWidth?: string
-  searchBtnBgAndTextColor?: string
+  widthAndBorderColorClass?: string;
+  bgColorClass?: string;
+  selectWidth?: string;
+  searchBtnBgAndTextColor?: string;
+  searchInput?: string;
 }
 
 const SearchBar = ({
@@ -23,6 +24,7 @@ const SearchBar = ({
   bgColorClass = "bg-black",
   selectWidth = "min-w-[100px] sm:min-w-[120px] lg:min-w-[140px]",
   searchBtnBgAndTextColor = "bg-white text-gray-900",
+  searchInput=""
 }: SearchBarProps) => {
   return (
     <>
@@ -37,7 +39,7 @@ const SearchBar = ({
             type="text"
             name="search"
             placeholder="Beach Party"
-            className="flex-1 bg-transparent text-white placeholder-gray-400 outline-none text-xs sm:text-sm lg:text-base min-w-0 mr-1 sm:mr-0"
+            className={`flex-1 bg-transparent text-white placeholder-gray-400 outline-none text-xs sm:text-sm lg:text-base min-w-0 mr-1 sm:mr-0 ${searchInput}`}
           />
           <div className="w-px h-3 sm:h-4 bg-gray-600 mx-2 sm:mx-3 hidden sm:block"></div>
           <div className={`min-w-0 hidden sm:block ${selectWidth}`}>
