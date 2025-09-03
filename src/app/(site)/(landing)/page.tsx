@@ -45,14 +45,14 @@ const secondtoLastClubItem = clubsData.length - 1
 
               <div className='relative w-full'>
                 {/* Video Section */}
-                <div className='video-container h-[20rem] sm:h-[30rem] lg:h-[40rem] xl:h-[45rem] 2xl:h-[56rem] w-full overflow-hidden bg-[#0000009d] bg-blend-overlay'>
+                <div className='video-container h-[20rem] sm:h-[30rem] md:h-[40rem] xl:h-[45rem] xxl:h-[50rem] 2xl:h-[56rem] w-full overflow-hidden bg-[#0000009d] bg-blend-overlay'>
                   <video className='w-full h-full min-w-full scale-150 grayscale' muted autoPlay loop>
                     <source onLoad={()=> handleLoad()} src='https://videos.pexels.com/video-files/6225458/6225458-hd_1920_1080_30fps.mp4' type='video/mp4' />
                   </video>
                 </div>
 
                 <div className='absolute bottom-0 left-0 w-full'>
-                  <div className='exclusive hidden md:flex justify-end w-full pl-10 pr-40 gap-10 text-[#f5f5f5] text-sm font-[800]'>
+                  <div className='exclusive hidden sm:flex justify-end w-full px-5 md:px-10 md:pr-32 lg:pr-40 gap-10 text-[#f5f5f5] text-[0.5rem] md:text-[0.65rem] xl:text-xs 2xl:text-sm font-[800]'>
                     <div className='flex-1'>
                       <p>Stay in the loop with the latest vibes, epic events, and unforgettable nights.</p>
                     </div>
@@ -65,19 +65,18 @@ const secondtoLastClubItem = clubsData.length - 1
                     <div className='w-[25%]'>
                       <p>All Exclusive - Updates on parties, night clubs, and the coolest crowd</p>
                       <p className='mt-9 w-[50%]'>Your ultimate pass to the hottest parties, buzzing nightclubs, and the trendiest crowd in town.</p>
-                      {/* <p>All in one place!</p> */}
                     </div>
                   </div>
-                  <div className='flex mt-16 pl-2 sm:pl-10'>
+                  <div className='flex md:mt-10 lg:mt-16 pl-2 sm:pl-5 md:pl-10'>
                     <div className='night-cont pl-0 ml-0 mb-0 pb-0'>
-                        <p className='night capitalize text-[#f5f5f5] text-[10rem] leading-[10rem] sm:text-[14.5vw] sm:leading-[13vw] lg:text-[20rem] lg:leading-[20rem] xl:leading-[22rem] xl:text-[22rem] 2xl:text-[33rem] 2xl:leading-none font-[600]'>NightLife</p>
+                        <p className='night capitalize text-[#f5f5f5] text-[10rem] leading-[10rem] sm:text-[13rem] sm:leading-[13rem] md:text-[16rem] md:leading-[16rem] lg:text-[18rem] lg:leading-[18rem] xl:leading-[22rem] xl:text-[22rem] 2xl:text-[33rem] 2xl:leading-none font-[600]'>NightLife</p>
                     </div>
                     <span className='text-2xl 2xl:text-[6rem] mt-9 lg:mt-7 text-[#f5f5f5]'>®</span>
                   </div>
                 </div>
 
                 {/* Mobile */}
-                <div className='vertical-write absolute top-4 right-0 py-0.5 w-full bg-[#f599ef] lg:hidden uppercase'>
+                <div className='vertical-write absolute top-4 right-0 py-0.5 w-full bg-[#f599ef] md:hidden uppercase'>
                   <Marquee autoFill={true} pauseOnHover={true}>
                     <div className='px-4 text-zinc-900 text-xs font-[500] uppercase border-x-2 border-zinc-900 flex justify-center items-center w-full'>
                       <p className='whitespace-nowrap'>Dive into An Experience</p>
@@ -103,11 +102,11 @@ const secondtoLastClubItem = clubsData.length - 1
                 </div>
 
                 {/* Desktop */}
-                <div className='vertical-write absolute top-0 right-0 h-full w-[6%] bg-[#f5f5f5] bg-[#f599ef hidden lg:flex flex-col items-center justify-center'>
-                    <div className='[writing-mode:vertical-rl] [text-orientation:mixed] text-zinc-900 h-[40%] text-2xl leading-6 font-[600] uppercase border-y-2 border-zinc-900 py- flex justify-center items-center w-full'>
+                <div className='vertical-write absolute top-0 right-0 h-full w-[6%] bg-[#f5f5f5] bg-[#f599ef hidden md:flex flex-col items-center justify-center'>
+                    <div className='[writing-mode:vertical-rl] [text-orientation:mixed] text-zinc-900 h-[40%] text-base leading-4 2xl:text-2xl 2xl:leading-6 font-[600] uppercase border-y-2 border-zinc-900 py- flex justify-center items-center w-full'>
                       <p className='h-[80%] text-center'>Dive into An Experience</p>
                     </div>
-                    <div className='[writing-mode:vertical-rl] [text-orientation:mixed] text-zinc-900 h-[40%] text-[1.1rem] leading-[1.2rem] font-[500] border-b-2 border-zinc-900 flex justify-center items-center w-full'>
+                    <div className='[writing-mode:vertical-rl] [text-orientation:mixed] text-zinc-900 h-[40%] text-[0.7rem] leading-[0.7rem] 2xl:text-[1.1rem] 2xl:leading-[1.2rem] font-[500] border-b-2 border-zinc-900 flex justify-center items-center w-full'>
                       <p className='h-[80%] text-center'>Find The Hottest Nightlife Events, Vibes And Meet New People. Cruise with Leisure.</p>
                     </div>
 
@@ -119,11 +118,10 @@ const secondtoLastClubItem = clubsData.length - 1
                     </div>
                 </div>
 
-                <div className='absolute bottom-10 right-40 rounded-full bg-[#f5f5f5 bg-[#f599ef] hidden lg:flex justify-center items-center h-[7rem] w-[7rem] animate-bounce cursor-pointer'>
-                    <p className='text-sm text-zinc-900 font-[600]'>Scroll</p>
+                <div className='absolute bottom-10 right-40 rounded-full bg-[#f5f5f5 bg-[#f599ef] hidden lg:flex justify-center items-center h-[5.5rem] w-[5.5rem] xl:h-[7rem] xl:w-[7rem] animate-bounce cursor-pointer'>
+                    <p className='text-xs xl:text-sm text-zinc-900 font-[600]'>Scroll</p>
                 </div>
               </div>
-
 
 
 
@@ -149,10 +147,6 @@ const secondtoLastClubItem = clubsData.length - 1
                     </div>
                   </div>
               </div>
-
-
-
-
 
 
 
