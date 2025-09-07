@@ -45,7 +45,7 @@ const secondtoLastClubItem = clubsData.length - 1
 
               <div className='relative w-full'>
                 {/* Video Section */}
-                <div className='video-container h-[20rem] sm:h-[30rem] md:h-[40rem] xl:h-[45rem] xxl:h-[50rem] 2xl:h-[56rem] w-full overflow-hidden bg-[#0000009d] bg-blend-overlay'>
+                <div className='video-container h-[20rem] sm:h-[30rem] md:h-[40rem] xl:h-[45rem] xxl:h-[50rem] 2xl:h-[56rem] w-full overflow-hidden bg-[#000000b3] bg-blend-overlay'>
                   <video className='w-full h-full min-w-full scale-150 grayscale' muted autoPlay loop>
                     <source onLoad={()=> handleLoad()} src='https://videos.pexels.com/video-files/6225458/6225458-hd_1920_1080_30fps.mp4' type='video/mp4' />
                   </video>
@@ -126,7 +126,7 @@ const secondtoLastClubItem = clubsData.length - 1
 
 
 
-              <div className='landing-desc bg-black px-10 py-16 sm:hidden'>
+              <div className='landing-desc bg-black px-10 py-16 sm:hidden border-y border-stone-500'>
                   <div className='exclusive w-[95%] text-stone-300 text-xs leading-[0.875rem] font-[300] uppercase space-y-4'>
                     <div>
                       <p>Stay in the loop with the latest vibes, epic events, and unforgettable nights.</p>

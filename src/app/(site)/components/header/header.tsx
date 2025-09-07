@@ -70,12 +70,14 @@ const Header = () => {
                         <Link href="/login" className="text-white hover:text-gray-300 transition-colors text-sm 2xl:text-base font-medium">
                             Log in
                         </Link>
-                        <button className="bg-white text-gray-900 px-4 py-2 rounded-full text-sm 2xl:text-base font-medium hover:bg-gray-100 transition-colors flex items-center gap-2">
-                            Sign Up
-                            <div className="w-4 h-4 bg-gray-900 rounded-full flex items-center justify-center">
-                                <span className="text-white text-xs">+</span>
-                            </div>
-                        </button>
+                        <Link href="/signup">
+                            <button className="bg-white text-gray-900 px-4 py-2 rounded-full text-sm 2xl:text-base font-medium hover:bg-gray-100 transition-colors flex items-center gap-2">
+                                Sign Up
+                                <div className="w-4 h-4 bg-gray-900 rounded-full flex items-center justify-center">
+                                    <span className="text-white text-xs">+</span>
+                                </div>
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>

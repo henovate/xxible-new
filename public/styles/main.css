@@ -96,6 +96,7 @@ input:focus {
 	font-size: 16px;
 }
 
+
 .search-option .border{
 	border-width: 0px;
 }
@@ -496,3 +497,25 @@ footer{
 	  left: -68%;
 	}
   }
+
+
+
+  /* Dashboard  */
+
+  /* create events */
+.event-cat .data-\[size\=default\]\:h-9[data-size="default"] {
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	border: 1px solid #434343;
+	border-radius: 0.75rem;
+	width: 100%;
+	font-size: 1.25rem;
+	height: 5.15rem;
+	background-color: #232323;
+	color: #A0A0A0;
+}
+
+
+.event-cat .SelectItem, .event-cat .SelectLabel{
+	font-size: 1.5rem;
+}

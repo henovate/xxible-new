@@ -16,6 +16,8 @@ import ToggleSwitch from "../toggleSwitch/toggleSwitch";
 const SideBar = () => {
   const pathname = usePathname();
   const router = useRouter()
+  const createEventRoute = "/create-event"
+  const isCreateEventActive = pathname === createEventRoute
 
 
   const navigation =(route:any)=>{
@@ -68,9 +70,11 @@ const SideBar = () => {
         </div>
         <hr className="w-16 h-[3px] bg-[#393939] mt-[1.7rem] 2xl:mt-[2.5rem]"></hr>
 
-        <div className="flex items-center justify-center bg-[#393939] shadow-[0_0_20px_rgba(0,0,0,0.5)] rounded-full mt-[2.5rem] p-2 2xl:p-2.5 cursor-pointer">
-          <Icon icon="material-symbols-light:add" width="24" height="24" className="h-4 w-4 2xl:w-6 2xl:h-6 text-white"/>
-        </div>
+        <Link href="/create-event">
+          <div className={`flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.5)] hover:scale-105 rounded-full mt-[2.5rem] p-2 2xl:p-2.5 cursor-pointer ${isCreateEventActive? "bg-[#f5f5f5]" : "bg-[#F800E9]" }`}>
+            <Icon icon="fluent:add-32-filled" width="24" height="24" className={`h-4 w-4 2xl:w-6 2xl:h-6 ${isCreateEventActive? "text-zinc-900" : "text-white"}`}/>
+          </div>
+        </Link>
 
 
         <div className="mt-[4.54rem]">
