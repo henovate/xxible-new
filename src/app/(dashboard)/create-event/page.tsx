@@ -30,8 +30,8 @@ const page = () => {
 		</div>
 
 		<div className="mt-9 flex flex-wrap items-center gap-3 md:gap-5">
-			{tabItems.map((item) => (
-				<div className="px-3 py-1 md:py-2 border border-[#787878] text-[#C2C2C2] rounded-full text-[0.7rem] lg:text-[0.94rem] font-[500] whitespace-nowrap">
+			{tabItems.map((item, index) => (
+				<div key={index} className="px-3 py-1 md:py-2 border border-[#787878] text-[#C2C2C2] rounded-full text-[0.7rem] lg:text-[0.94rem] font-[500] whitespace-nowrap cursor-pointer">
 					{item}
 				</div>
 			))}

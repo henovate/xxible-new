@@ -1,11 +1,23 @@
 "use client";
 
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
+// import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useState } from "react";
-import BigFrameFileUploader from "../../components/bigFramefileUpload/bigFrameFileUploader";
+import { FileUpload } from "@/components/ui/file-upload";
 import NextPreviousBtn from "../../components/nextPreviousBtn/nextPreviousBtn";
 import Image from "next/image";
+import FileUploader from "../../components/fileUploader/fileUploader";
+
+
+interface EventBasicsType {
+	eventName: string;
+	eventDescription: string;
+	eventCategory: string;
+	selectedInterest: string[];
+	bannerImage: string;
+	eventGalleryImages: string[];
+}
+
 
 const eventInterests = [
 	"Amapiano",
@@ -27,12 +39,38 @@ const eventInterests = [
 	"More"
   ];
 
+
 const EventBasics = () => {
 
-	const [selectedCategory, setSelectedCategory] = useState<string[]>([]);
+	const [files, setFiles] = useState<File[]>([]);
+	const [selectedInterested, setSelectedInterest] = useState<string[]>([]);
+	const [eventBasicsInput, setEventBasicsInput] = useState<EventBasicsType>({
+		eventName: "",
+		eventDescription: "",
+		eventCategory: "",
+		selectedInterest: [],
+		bannerImage: "",
+		eventGalleryImages: []
+	})
+
+	const handleBannerUpload = (files: File[]) => {
+		setFiles(files);
+		console.log(files);
+	};
+
+	const handleEventBasicInput = (event:any) => {
+
+	}
+	
+	const handleSelectedFilesForEventBasics = (event:React.ChangeEvent<HTMLInputElement>) => {
+		const { files } = event.currentTarget;
+		let file = files?.[0];
+
+		if (!file) return;
+	}
 
 	const toggleSelect = (category:string) => {
-		setSelectedCategory((prev) => prev.includes(category)? prev.filter(item => item !== category) : [...prev, category])
+		setSelectedInterest((prev) => prev.includes(category)? prev.filter(item => item !== category) : [...prev, category])
 	}
 
   return (
@@ -43,7 +81,13 @@ const EventBasics = () => {
 				<div>
 					<label htmlFor="eventName" className="text-base xl:text-xl font-500 text-[#f5f5f5]">Event Name</label>
 					<div className="mt-3 xl:mt-5">
-						<input type="text" name="eventName" id="eventName" className="px-3 xl:px-6 py-4 xl:py-7 placeholder:text-base xl:placeholder:text-xl placeholder:text-[#A0A0A0] text-[#f5f5f5] text-base xl:text-xl bg-[#232323] border border-[#434343] w-full rounded-[0.75rem] focus:outline-[#F800E9] focus:outline-none" placeholder="Enter your event name"/>
+						<input 
+							onChange={handleEventBasicInput} 
+							type="text" 
+							name="eventName" 
+							id="eventName" 
+							value={eventBasicsInput.eventName} 
+							className="px-3 xl:px-6 py-4 xl:py-7 placeholder:text-base xl:placeholder:text-xl placeholder:text-[#A0A0A0] text-[#f5f5f5] text-base xl:text-xl bg-[#232323] border border-[#434343] w-full rounded-[0.75rem] focus:outline-[#F800E9] focus:outline-none" placeholder="Enter your event name"/>
 					</div>
 				</div>
 
@@ -51,7 +95,12 @@ const EventBasics = () => {
 				<div>
 					<label htmlFor="eventName" className="text-base xl:text-xl font-500 text-[#f5f5f5]">Event Description</label>
 					<div className="mt-3 xl:mt-5">
-						<textarea name="eventName" id="eventName" className="px-3 xl:px-6 py-4 xl:pt-6 placeholder:text-base xl:placeholder:text-xl placeholder:text-[#A0A0A0] text-[#f5f5f5] text-base xl:text-xl bg-[#232323] border border-[#434343] h-60 w-full rounded-[0.75rem] focus:outline-[#F800E9] focus:outline-none" placeholder="Enter your event description"/>
+						<textarea 
+							onChange={handleEventBasicInput} 
+							name="eventDescription" 
+							id="eventDescription" 
+							value={eventBasicsInput.eventDescription} 
+							className="px-3 xl:px-6 py-4 xl:pt-6 placeholder:text-base xl:placeholder:text-xl placeholder:text-[#A0A0A0] text-[#f5f5f5] text-base xl:text-xl bg-[#232323] border border-[#434343] h-60 w-full rounded-[0.75rem] focus:outline-[#F800E9] focus:outline-none" placeholder="Enter your event description"/>
 					</div>
 				</div>
 
@@ -88,6 +137,8 @@ const EventBasics = () => {
 					<div className="mt-3 xl:mt-5">
 						<div className="relative w-full">
 							<select
+								onChange={handleEventBasicInput}
+								value={eventBasicsInput.eventCategory}
 								id="eventCategory"
 								name="eventCategory"
 								className="w-full bg-[#232323] text-white text-base xl:text-xl px-3 xl:px-6 py-4 xl:py-7 rounded-[0.75rem] border border-[#434343] appearance-none focus:outline-none"
@@ -110,16 +161,16 @@ const EventBasics = () => {
 
 
 				<div>
-					<p className="text-xl leading-none font-500 text-[#f5f5f5]">Event Category</p>
+					<p className="text-xl leading-none font-500 text-[#f5f5f5]">Event Interest</p>
 					<div className="flex flex-wrap gap-5 items-center mt-3 xl:mt-5">
-						{eventInterests.map((item)=> {
-							const selectedInterest = selectedCategory.includes(item)
+						{eventInterests.map((item, index)=> {
+							const selectedInterest = selectedInterested.includes(item)
 
 							return (
 							<div 
-								key={item} 
+								key={index} 
 								onClick={() => toggleSelect(item)} 
-								className={`px-3 py-1 lg:py-2 rounded-full text-[0.7rem] lg:text-[0.94rem] font-[500] whitespace-nowrap w-fit 
+								className={`px-3 py-1 lg:py-2 rounded-full text-[0.7rem] lg:text-[0.94rem] font-[500] whitespace-nowrap w-fit cursor-pointer 
 											${selectedInterest? 
 												"bg-[#F800E9] text-[#f5f5f5] border-none" 
 												: 
@@ -133,26 +184,17 @@ const EventBasics = () => {
 
 
 				<div>
-					<p className="text-xl leading-none font-500 text-[#f5f5f5]">Banner Image</p>
-					
-					<div className="mt-5">
-						<BigFrameFileUploader />
+					<p className="text-xl leading-none font-500 text-[#f5f5f5]">Banner Image</p>					
+					<div className="mt-5 w-full mx-auto min-h-64 border border-dashed bg-white dark:bg-[#1F1F1F] border-neutral-200 dark:border-[#343434] rounded-lg">
+						<FileUpload onChange={handleBannerUpload} />
 					</div>			
 				</div>
 
 				<div>
 					<p className="text-xl leading-none font-500 text-[#f5f5f5]">Event Gallery</p>
 					
-					<div className="relative h-36 w-[14.2rem] mt-5 border-2 border-dashed border-[#434343] rounded-xl">
-						<div className="absolute top-0 left-0 z-20 h-full w-full flex flex-col justify-center items-center">
-							<Icon icon="meteor-icons:image" width="24" height="24" className="h-9 w-9" />
-							<p className="mt-4 text-[0.95rem] text-[#f5f5f5] font-[500] leading-none">Add photo</p>									
-						</div>
-						
-						<div className={`z-10 relative w-full h-full`}>
-							<div className="absolute top-0 left-0 h-full w-full rounded-xl" style={{backgroundColor: "rgba(0, 0, 0, 0.2)"}}></div>
-						</div>
-						<input type="file" multiple className="absolute top-0 left-0 w-full h-full opacity-0 z-30 cursor-pointer" />
+					<div className="mt-5"> 
+						<FileUploader eventFunc={handleSelectedFilesForEventBasics}/>
 					</div>
 							
 				</div>
