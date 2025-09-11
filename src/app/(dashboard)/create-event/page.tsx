@@ -3,15 +3,38 @@
 import { Progress } from "@/components/ui/progress";
 import { tabItems } from "./tabItems";
 import EventBasics from "./eventBasics/eventBasics";
-import { Icon } from "@iconify/react/dist/iconify.js";
-import NextPreviousBtn from "../components/nextPreviousBtn/nextPreviousBtn";
+import { useSearchParams } from "next/navigation";
+import DateAndTime from "./dateAndTime/dateAndTime";
+import { useState } from "react";
+import Location from "./location/location";
+import Tickets from "./tickets/tickets";
+import OrganizerInfo from "./organizerInfo/organizerInfo";
+import Publish from "./publish/publish";
 
-interface createEventProps {
-	children: React.ReactNode
-}
 
+const page = () => {	
+	const searchParams = useSearchParams();
+	const [step, setStep] = useState<number>(1);
+	const nextStep = searchParams.get("page");
 
-const page = () => {
+	const renderPage = (step:number) => {
+		switch (step) {
+			case 1:
+				return <EventBasics setStep={setStep}/>;
+			case 2:
+				return <DateAndTime setStep={setStep}/>;
+			case 3:
+				return <Location setStep={setStep}/>;
+			case 4:
+				return <Tickets setStep={setStep}/>;
+			case 5:
+				return <OrganizerInfo setStep={setStep}/>;
+			case 6:
+				return <Publish setStep={setStep}/>;	
+			default:
+				return <EventBasics setStep={setStep}/>;
+		}
+	  };
 
   return (
 	<div className="px-3 py-3 xl:px-16 xl:py-11">
@@ -38,7 +61,7 @@ const page = () => {
 		</div>
 
 		<div className="mt-[4.75rem]">
-			<EventBasics />
+			{renderPage(Number(nextStep))}
 		</div>
 	  </div>
 	</div>

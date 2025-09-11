@@ -7,9 +7,14 @@ import { FileUpload } from "@/components/ui/file-upload";
 import NextPreviousBtn from "../../components/nextPreviousBtn/nextPreviousBtn";
 import Image from "next/image";
 import FileUploader from "../../components/fileUploader/fileUploader";
+import { useRouter } from "next/navigation";
 
 
-interface EventBasicsType {
+interface EventBasicsProps {
+	setStep: React.Dispatch<React.SetStateAction<number>>;
+}
+
+interface EventBasicsInputType {
 	eventName: string;
 	eventDescription: string;
 	eventCategory: string;
@@ -40,11 +45,14 @@ const eventInterests = [
   ];
 
 
-const EventBasics = () => {
 
+const EventBasics = ({setStep}:EventBasicsProps) => {
+
+	const router = useRouter();
 	const [files, setFiles] = useState<File[]>([]);
 	const [selectedInterested, setSelectedInterest] = useState<string[]>([]);
-	const [eventBasicsInput, setEventBasicsInput] = useState<EventBasicsType>({
+	const [uploading, setUploading] = useState<Boolean>(false);
+	const [eventBasicsInput, setEventBasicsInput] = useState<EventBasicsInputType>({
 		eventName: "",
 		eventDescription: "",
 		eventCategory: "",
@@ -53,25 +61,116 @@ const EventBasics = () => {
 		eventGalleryImages: []
 	})
 
-	const handleBannerUpload = (files: File[]) => {
-		setFiles(files);
-		console.log(files);
-	};
 
-	const handleEventBasicInput = (event:any) => {
+const uploadImage = async(image:any) => {
 
+	const cloudName = process.env.NEXT_PUBLIC_CLOUD_NAME ?? "";
+	const preset = process.env.NEXT_PUBLIC_PRESET ?? "";
+	const fileData = new FormData();
+	fileData.append("file", image);
+	fileData.append("upload_preset", preset);
+	fileData.append("cloud_name", cloudName);
+
+	try {
+		const imgResp = await fetch(
+		`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+		{
+			method: "POST",
+			body: fileData,
+		}
+		);
+
+		const result = await imgResp.json();
+		console.log(result)
+
+		if (result?.secure_url) {
+		return result?.secure_url;
+
+		} else {
+		console.error("Upload failed:", result);
+		// showToast.error("Image upload failed. Please try again.");
+		}
+	} catch (error) {
+	//   showToast.error("Image upload failed. Please try again.");
+		console.error("Image upload error:", error);
+	} finally {
+		setUploading(false);
 	}
-	
-	const handleSelectedFilesForEventBasics = (event:React.ChangeEvent<HTMLInputElement>) => {
-		const { files } = event.currentTarget;
+}
+
+
+const handleBannerUpload = (files: File[]) => {
+	setFiles(files);
+	console.log(files);
+};
+
+const handleEventBasicInput = (event:any) => {
+
+}
+
+const handleSelectedFilesForEventBasics = async(event:React.ChangeEvent<HTMLInputElement>, fileType:string) => {
+	const { files } = event.currentTarget;
+
+	if (fileType == "single") {
 		let file = files?.[0];
-
 		if (!file) return;
-	}
+	
+		try{
+			const uploadedUrl = await uploadImage(file);
 
-	const toggleSelect = (category:string) => {
-		setSelectedInterest((prev) => prev.includes(category)? prev.filter(item => item !== category) : [...prev, category])
-	}
+			if (uploadedUrl) {
+				setEventBasicsInput((prev) => ({
+					...prev,
+					eventGalleryImages: uploadedUrl
+				}))
+			}
+		}catch(error:any){
+			// showToast.error(error)
+			console.log("Upload failed:", error)
+		}finally{
+			setUploading(false);
+		}
+	} else {
+		if (!files) return;
+
+		try{
+			let imageFiles = Array.from(files);
+
+			const uploadedUrl = await Promise.all(
+				imageFiles.map((image) => uploadImage(image))
+			);
+
+			const validUrls = uploadedUrl.filter((url):url is string => Boolean(url));
+
+			setEventBasicsInput(prev => ({
+				...prev,
+				eventGalleryImages: [...prev.eventGalleryImages, ...validUrls]
+			}))
+
+		}catch(error:any){
+			// showToast.error(error)
+			console.log(error);
+		}finally{
+			setUploading(false);
+		}
+	}	
+}
+
+
+
+
+const handleNextStep = (step:number) => {
+	setStep(step);
+	router.replace(`create-event?page=${step}`)
+}
+
+
+
+const toggleSelect = (category:string) => {
+	setSelectedInterest((prev) => prev.includes(category)? prev.filter(item => item !== category) : [...prev, category])
+}
+
+
 
   return (
 	<>
@@ -193,15 +292,15 @@ const EventBasics = () => {
 				<div>
 					<p className="text-xl leading-none font-500 text-[#f5f5f5]">Event Gallery</p>
 					
-					<div className="mt-5"> 
-						<FileUploader eventFunc={handleSelectedFilesForEventBasics}/>
+					<div className="mt-5"> 					
+						<FileUploader eventHandler={handleSelectedFilesForEventBasics} />
 					</div>
 							
 				</div>
 
 				<div className="mt-12 flex justify-between w-full pb-28 lg:pb-0">
 					<NextPreviousBtn btnName="Previous"/>
-					<NextPreviousBtn btnName="Next" />
+					<NextPreviousBtn btnName="Next"  handleNextStep={() => handleNextStep(2)}/>
 				</div>
 			</form>
 		</div>

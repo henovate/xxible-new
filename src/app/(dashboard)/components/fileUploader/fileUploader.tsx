@@ -3,10 +3,10 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 
 interface FileUploaderProps {
-	eventFunc: any;
+	eventHandler: any;
 }
 
-const FileUploader = ({eventFunc}:FileUploaderProps) => {
+const FileUploader = ({eventHandler}:FileUploaderProps) => {
   return (
 	<>
 		<div className="relative h-36 w-[14.2rem] border-2 border-dashed border-[#434343] rounded-xl">
@@ -19,7 +19,7 @@ const FileUploader = ({eventFunc}:FileUploaderProps) => {
 				<div className="absolute top-0 left-0 h-full w-full rounded-xl" style={{backgroundColor: "rgba(0, 0, 0, 0.2)"}}></div>
 			</div>
 			<input 
-				onChange={eventFunc}
+				onChange={eventHandler}
 				type="file" 
 				multiple className="absolute top-0 left-0 w-full h-full opacity-0 z-30 cursor-pointer" />
 		</div>
