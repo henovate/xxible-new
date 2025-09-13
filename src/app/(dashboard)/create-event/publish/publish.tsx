@@ -21,7 +21,7 @@ const Publish = ({setStep}:PublishProps) => {
 			Publish
 			<div className="mt-12 flex justify-between w-full pb-28 lg:pb-0">
 				<NextPreviousBtn btnName="Previous"/>
-				<NextPreviousBtn btnName="Next"  handleNextStep={() => handleNextStep(3)}/>
+				<NextPreviousBtn btnName="Next"  handleNextStep={() => handleNextStep(1)}/>
 			</div>	
 		</div>
 	</>

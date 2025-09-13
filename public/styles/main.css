@@ -550,7 +550,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: #B0B0B0;
+	background-color: #222222;
 	border: 1px solid #B0B0B0;
 	transition: .4s;
 	border-radius: 32px;
@@ -577,14 +577,14 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 	stroke-width: 8;
 	position: absolute;
 	z-index: 999;
-	stroke: #222222;
+	/* stroke: #222222; */
 	right: 60%;
 	top: 30%;
 	transition: right ease-in-out .3s, opacity ease-in-out .15s;
   }
   
   input:checked + .slider {
-	background-color: #222222;
+	background: linear-gradient(to right, #F800E9, #5500CD);
   }
   
   input:checked + .slider .slider-icon {

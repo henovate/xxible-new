@@ -8,6 +8,7 @@ import NextPreviousBtn from "../../components/nextPreviousBtn/nextPreviousBtn";
 import Image from "next/image";
 import FileUploader from "../../components/fileUploader/fileUploader";
 import { useRouter } from "next/navigation";
+import DashboardInputComp from "../../components/dasboardInput Comp/dashboardInputComp";
 
 
 interface EventBasicsProps {
@@ -177,19 +178,7 @@ const toggleSelect = (category:string) => {
 		<div>
 			<p className="text-xl xl:text-[2rem] leading-none font-[600] text-[#f5f5f5]">Event Basics</p>
 			<form className="mt-7 xl:mt-10 space-y-10">
-				<div>
-					<label htmlFor="eventName" className="text-base xl:text-xl font-500 text-[#f5f5f5]">Event Name</label>
-					<div className="mt-3 xl:mt-5">
-						<input 
-							onChange={handleEventBasicInput} 
-							type="text" 
-							name="eventName" 
-							id="eventName" 
-							value={eventBasicsInput.eventName} 
-							className="px-3 xl:px-6 py-4 xl:py-7 placeholder:text-base xl:placeholder:text-xl placeholder:text-[#A0A0A0] text-[#f5f5f5] text-base xl:text-xl bg-[#232323] border border-[#434343] w-full rounded-[0.75rem] focus:outline-[#F800E9] focus:outline-none" placeholder="Enter your event name"/>
-					</div>
-				</div>
-
+				<DashboardInputComp htmlFor="eventName" id="eventName" name="eventName" type="text" eventHandler={handleEventBasicInput} label="Event Name" value={eventBasicsInput.eventName} placeholder="Enter your event name"/>
 
 				<div>
 					<label htmlFor="eventName" className="text-base xl:text-xl font-500 text-[#f5f5f5]">Event Description</label>
