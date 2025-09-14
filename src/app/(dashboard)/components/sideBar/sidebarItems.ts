@@ -1,5 +1,11 @@
+interface sidebarItemsTypes {
+	title: string;
+	href: string;
+	icon: string
+}
 
-export const sidebarItems = [
+
+export const sidebarItems:sidebarItemsTypes[] = [
 	{ title: "Home", href: "/home", icon: "lsicon:home-filled" },
 	{ title: "Explore", href: "/explore", icon: "streamline-sharp:magnifying-glass" },
 	{ title: "Events", href: "/events", icon: "solar:bolt-linear" },

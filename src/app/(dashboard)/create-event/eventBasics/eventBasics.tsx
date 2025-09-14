@@ -5,10 +5,10 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import { useState } from "react";
 import { FileUpload } from "@/components/ui/file-upload";
 import NextPreviousBtn from "../../components/nextPreviousBtn/nextPreviousBtn";
-import Image from "next/image";
 import FileUploader from "../../components/fileUploader/fileUploader";
 import { useRouter } from "next/navigation";
-import DashboardInputComp from "../../components/dasboardInput Comp/dashboardInputComp";
+import DashboardInputComp from "../../components/dasboardInputComp/dashboardInputComp";
+import DashboardTextAreaComp from "../../components/dashboardTextAreaComp/dashboardTextAreaComp";
 
 
 interface EventBasicsProps {
@@ -159,12 +159,10 @@ const handleSelectedFilesForEventBasics = async(event:React.ChangeEvent<HTMLInpu
 
 
 
-
 const handleNextStep = (step:number) => {
 	setStep(step);
 	router.replace(`create-event?page=${step}`)
 }
-
 
 
 const toggleSelect = (category:string) => {
@@ -172,25 +170,31 @@ const toggleSelect = (category:string) => {
 }
 
 
-
   return (
 	<>
 		<div>
 			<p className="text-xl xl:text-[2rem] leading-none font-[600] text-[#f5f5f5]">Event Basics</p>
 			<form className="mt-7 xl:mt-10 space-y-10">
-				<DashboardInputComp htmlFor="eventName" id="eventName" name="eventName" type="text" eventHandler={handleEventBasicInput} label="Event Name" value={eventBasicsInput.eventName} placeholder="Enter your event name"/>
+				<DashboardInputComp 
+					htmlFor="eventName" 
+					id="eventName" 
+					name="eventName" 
+					type="text" 
+					eventHandler={handleEventBasicInput} 
+					label="Event Name" 
+					value={eventBasicsInput.eventName} 
+					placeholder="Enter your event name"
+					/>
 
-				<div>
-					<label htmlFor="eventName" className="text-base xl:text-xl font-500 text-[#f5f5f5]">Event Description</label>
-					<div className="mt-3 xl:mt-5">
-						<textarea 
-							onChange={handleEventBasicInput} 
-							name="eventDescription" 
-							id="eventDescription" 
-							value={eventBasicsInput.eventDescription} 
-							className="px-3 xl:px-6 py-4 xl:pt-6 placeholder:text-base xl:placeholder:text-xl placeholder:text-[#A0A0A0] text-[#f5f5f5] text-base xl:text-xl bg-[#232323] border border-[#434343] h-60 w-full rounded-[0.75rem] focus:outline-[#F800E9] focus:outline-none" placeholder="Enter your event description"/>
-					</div>
-				</div>
+				<DashboardTextAreaComp
+					htmlFor="eventDescription" 
+					label="Event Description" 
+					eventHandler={handleEventBasicInput} 
+					name="eventDescription" 
+					id="eventDescription" 
+					value={eventBasicsInput.eventDescription} 
+					placeholder="Enter your event description"
+					/>
 
 
 
