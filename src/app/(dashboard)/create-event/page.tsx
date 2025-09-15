@@ -10,6 +10,7 @@ import Location from "./location/location";
 import Tickets from "./tickets/tickets";
 import OrganizerInfo from "./organizerInfo/organizerInfo";
 import Publish from "./publish/publish";
+import { Icon } from "@iconify/react/dist/iconify.js";
 
 
 const page = () => {	
@@ -17,7 +18,14 @@ const page = () => {
 	const [step, setStep] = useState<number>(1);
 	const nextStep = searchParams.get("page");
 
+	const stagePercentage = (currentStage:number, totalNo:number) => {
+		return (currentStage/totalNo) * 100
+	}
+
+	const stageProgress = Math.round(stagePercentage(Number(nextStep), tabItems.length));
+
 	const renderPage = (step:number) => {
+
 		switch (step) {
 			case 1:
 				return <EventBasics setStep={setStep}/>;
@@ -46,15 +54,21 @@ const page = () => {
 
 		<div className="w-full py-5 md:py-9 px-5 bg-[#232323] border border-[#343434] mt-7 md:mt-[3.45rem] rounded-[0.75rem]">
 			<div className="flex justify-between items-center">
-				<p className="text-base xl:text-2xl text-[#f5f5f5] font-[600]">Step 1 of 6</p>
-				<p className="text-sm xl:text-xl text-[#A0A0A0] font-[500]">13% complete</p>
+				<p className="text-base xl:text-2xl text-[#f5f5f5] font-[600]">Step {nextStep} of {tabItems.length}</p>
+				<p className="text-sm xl:text-xl text-[#A0A0A0] font-[500]">{stageProgress}% complete</p>
 			</div>
-			<Progress value={33} className="mt-3 md:mt-7 text-[#F800E9]"/>
+			<Progress value={stageProgress} className="mt-3 md:mt-7 text-[#F800E9]"/>
 		</div>
 
 		<div className="mt-9 flex flex-wrap items-center gap-3 md:gap-5">
 			{tabItems.map((item, index) => (
-				<div key={index} className="px-3 py-1 md:py-2 border border-[#787878] text-[#C2C2C2] rounded-full text-[0.7rem] lg:text-[0.94rem] font-[500] whitespace-nowrap cursor-pointer">
+				<div 
+					key={index} 
+					className={`flex items-center gap-[0.4rem] px-3 py-1 md:py-2 rounded-full text-[0.7rem] lg:text-[0.94rem] font-[500] whitespace-nowrap cursor-pointer 
+						${Number(nextStep) - 1 === index? "bg-[#F800E9] text-[#f5f5f5]" : "border border-[#787878] text-[#C2C2C2]"}
+						${Number(nextStep) - 1 > index && "bg-[#102D18] border border-[#33861D]"}
+						`}>
+					<Icon icon="ic:round-check" width="24" height="24" className={`h-5 w-5 ${Number(nextStep) - 1 > index? "block" : "hidden"} `}/>
 					{item}
 				</div>
 			))}

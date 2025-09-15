@@ -292,8 +292,8 @@ const toggleSelect = (category:string) => {
 				</div>
 
 				<div className="mt-12 flex justify-between w-full pb-28 lg:pb-0">
-					<NextPreviousBtn btnName="Previous"/>
-					<NextPreviousBtn btnName="Next"  handleNextStep={() => handleNextStep(2)}/>
+					<NextPreviousBtn btnName="Previous" handleStepDirection={()=>router.back()} />
+					<NextPreviousBtn btnName="Next"  handleStepDirection={() => handleNextStep(2)}/>
 				</div>
 			</form>
 		</div>

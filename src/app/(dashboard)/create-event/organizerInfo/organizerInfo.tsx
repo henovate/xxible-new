@@ -63,8 +63,8 @@ const OrganizerInfo = ({setStep}:OrganizerInfoProps) => {
 				</div>
 			</div>
 			<div className="mt-12 flex justify-between w-full pb-28 lg:pb-0">
-				<NextPreviousBtn btnName="Previous"/>
-				<NextPreviousBtn btnName="Next"  handleNextStep={() => handleNextStep(6)}/>
+				<NextPreviousBtn btnName="Previous" handleStepDirection={()=>router.push("create-event?page=4")} />
+				<NextPreviousBtn btnName="Next"  handleStepDirection={() => handleNextStep(6)}/>
 			</div>	
 		</div>
 	</>

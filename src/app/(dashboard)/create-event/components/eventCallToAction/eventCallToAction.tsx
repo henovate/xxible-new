@@ -17,7 +17,7 @@ const EventCallToAction = ({children, heading, description, setSwitch, switchSta
 	
 	
   return (
-	<div className={`border border-[#343434] p-3 xl:p-6 bg-gradient-to-r from-[#5500cd38] to-[#f800e81e] rounded-[0.75rem] ${bgColor}`}>
+	<div className={`border border-[#343434] p-3 xl:p-6 rounded-[0.75rem] ${bgColor}`}>
 		<div className='text-[#f5f5f5] flex justify-between items-center'>
 			<div className='w-[80%] md:w-full'>
 				<p className='font-[500] text-base xl:text-[1.5rem] leading-none'>{heading}</p>

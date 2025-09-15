@@ -33,8 +33,8 @@ const Location = ({setStep}:LocationProps) => {
 				<LocationDetails />
 			</div>
 			<div className="mt-12 flex justify-between w-full pb-28 lg:pb-0">
-				<NextPreviousBtn btnName="Previous"/>
-				<NextPreviousBtn btnName="Next"  handleNextStep={() => handleNextStep(4)}/>
+				<NextPreviousBtn btnName="Previous" handleStepDirection={()=>router.push("create-event?page=2")}/>
+				<NextPreviousBtn btnName="Next"  handleStepDirection={() => handleNextStep(4)}/>
 			</div>	
 		</div>
 	</EventContextProvider>

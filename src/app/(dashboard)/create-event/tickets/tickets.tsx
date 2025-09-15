@@ -12,6 +12,7 @@ import TicketCallToAction from './ticketCallToAction/ticketCallToAction';
 import TicketTier from './ticketTier/ticketTier';
 import { se } from 'date-fns/locale';
 
+
 interface TicketsProps {
 	setStep: React.Dispatch<React.SetStateAction<number>>;
 }
@@ -59,8 +60,8 @@ const Tickets = ({setStep}:TicketsProps) => {
 				</div>
 			</div>
 			<div className="mt-12 flex justify-between w-full pb-28 lg:pb-0">
-				<NextPreviousBtn btnName="Previous"/>
-				<NextPreviousBtn btnName="Next"  handleNextStep={() => handleNextStep(5)}/>
+				<NextPreviousBtn btnName="Previous" handleStepDirection={()=>router.push("create-event?page=3")} />
+				<NextPreviousBtn btnName="Next"  handleStepDirection={() => handleNextStep(5)}/>
 			</div>	
 		</div>
 	</EventContextProvider>
