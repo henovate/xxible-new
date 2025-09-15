@@ -37,8 +37,8 @@ const page = () => {
 	  };
 
   return (
-	<div className="px-3 py-3 xl:px-16 xl:py-11">
-	  <div className="bg-[#1F1F1F] border border-[#343434] rounded-3xl py-5 px-3 xl:py-12 xl:px-[8.935rem]">
+	<div className="px-3 py-3 lg:p-7 xl:px-16 xl:py-11">
+	  <div className="bg-[#1F1F1F] border border-[#343434] rounded-3xl py-5 px-3 lg:px-7 lg:py-9 xl:py-12 xl:px-[8.935rem]">
 		<div className="flex flex-col items-center">
 			<p className="text-2xl leading-6 lg:text-[2rem] lg:leading-[2rem] xl:text-[2.5rem] md:leading-[2.5rem] text-[#f5f5f5] font-[600]">Post Event</p>
 			<p className="mt-2 xl:mt-3 text-[#A0A0A0] text-sm xl:text-xl leading-none font-[400] text-center md:text-start">Bring the nightlife to life with your amazing event</p>
