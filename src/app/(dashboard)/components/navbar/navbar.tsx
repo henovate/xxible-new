@@ -126,7 +126,7 @@ const Navbar = () => {
           <div className="flex-1 min-w-0 mx-1 sm:mx-4 lg:mx-10 2xl:mr-20 2xl:ml-7 lg:hidden xl:block">
             <SearchBar
               widthAndBorderColorClass="max-w-[48rem] bg-[#818181]"
-              bgColorClass="bg-[#2D2D2D]"
+              bgColorClass="bg-gradient-to-r from-[#2A2A2A] to-[#1A1A1A] shadow-inner shadow-[inset_0_0_20px_#FC89FF2B]"
               searchBtnBgAndTextColor="bg-[#3c3c3c] text-white hover:bg-[#F800E9]"
             />
           </div>

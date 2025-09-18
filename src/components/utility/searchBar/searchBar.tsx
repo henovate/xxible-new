@@ -1,6 +1,6 @@
 "use client"
 
-import { Search } from "lucide-react"
+import { Search } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -9,7 +9,8 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
+} from "@/components/ui/select";
+import SelectComponent from "@/components/selectComp/selectComp";
 
 interface SearchBarProps {
   widthAndBorderColorClass?: string;
@@ -18,6 +19,8 @@ interface SearchBarProps {
   searchBtnBgAndTextColor?: string;
   searchInput?: string;
 }
+
+export const selectList = ["Lagos, NG", "Abuja, NG", "Kano, NG", "Ibadan, NG"];
 
 const SearchBar = ({
   widthAndBorderColorClass = "max-w-2xl bg-[linear-gradient(271.95deg,#7B0093_-30.8%,#F3DAFF_92.81%)]",
@@ -34,29 +37,22 @@ const SearchBar = ({
         <form
           className={`flex items-center rounded-full px-2 sm:px-3 lg:px-4 py-1.5 sm:py-2 border-gray-70 border-[2px] border-transparent [border-image-slice:1] ${bgColorClass}`}
         >
-          <Search className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400 mr-1 sm:mr-3 flex-shrink-0" />
+          <Search className="w-3 h-3 sm:w-4 sm:h-4 text-[#f5f5f5] mr-1 sm:mr-3 flex-shrink-0" />
           <input
             type="text"
             name="search"
             placeholder="Beach Party"
-            className={`flex-1 bg-transparent text-white placeholder-gray-400 outline-none text-xs sm:text-sm lg:text-base min-w-0 mr-1 sm:mr-0 ${searchInput}`}
+            className={`flex-1 bg-transparent text-[#f5f5f5] placeholder-[#f5f5f5] outline-none text-xs sm:text-sm lg:text-base min-w-0 mr-1 sm:mr-0 ${searchInput}`}
           />
           <div className="w-px h-3 sm:h-4 bg-gray-600 mx-2 sm:mx-3 hidden sm:block"></div>
           <div className={`min-w-0 hidden sm:block ${selectWidth}`}>
-            <Select>
-              <SelectTrigger className="border-none bg-transparent text-white text-xs sm:text-sm lg:text-base h-auto p-0 focus:ring-0">
-                <SelectValue placeholder="Lagos, NG" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectLabel>Location</SelectLabel>
-                  <SelectItem value="lagos">Lagos, NG</SelectItem>
-                  <SelectItem value="abuja">Abuja, NG</SelectItem>
-                  <SelectItem value="kano">Kano, NG</SelectItem>
-                  <SelectItem value="ibadan">Ibadan, NG</SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
+            <SelectComponent 
+                label="Location" 
+                selectItems={selectList} 
+                placeholder="Lagos NG" 
+                className="border-none bg-transparent text-white text-xs sm:text-sm lg:text-base h-auto p-0"
+                selectItemClassName="data-[highlighted]:bg-[#F800E9] data-[highlighted]:font-[600]"
+                />
           </div>
           <button
             type="submit"

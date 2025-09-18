@@ -8,7 +8,7 @@ const withPWA = require("next-pwa")({
 const nextConfig: NextConfig = {
   /* config options here */
   images: {
-    domains: ["unsplash.com", "images.unsplash.com"], // add both just in case
+    domains: ["unsplash.com", "images.unsplash.com", "images.pexels.com", "www.pexels.com"], // add both just in case
   },
 };
 

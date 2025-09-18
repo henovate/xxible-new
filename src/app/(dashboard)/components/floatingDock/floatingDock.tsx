@@ -25,7 +25,7 @@ const Floating_Dock = () => {
 		icon: (
 			<Icon icon="fluent:add-32-filled" width="20" height="20" className="h-full w-full text-neutral-500 dark:text-neutral-300" />
 		),
-		href: "/create-event",
+		href: "/create-event?page=1",
 	},
     {
       title: "Events",

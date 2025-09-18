@@ -64,7 +64,7 @@ const page = () => {
 			{tabItems.map((item, index) => (
 				<div 
 					key={index} 
-					className={`flex items-center gap-[0.4rem] px-3 py-1 md:py-2 rounded-full text-[0.7rem] lg:text-[0.94rem] font-[500] whitespace-nowrap cursor-pointer 
+					className={`flex items-center gap-[0.4rem] px-3 py-1 md:py-2 rounded-full text-[0.7rem] lg:text-[0.94rem] font-[500] whitespace-nowrap 
 						${Number(nextStep) - 1 === index? "bg-[#F800E9] text-[#f5f5f5]" : "border border-[#787878] text-[#C2C2C2]"}
 						${Number(nextStep) - 1 > index && "bg-[#102D18] border border-[#33861D]"}
 						`}>

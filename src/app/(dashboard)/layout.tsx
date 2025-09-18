@@ -7,7 +7,7 @@ import "../../../public/styles/main.css"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-	<div className="bg-[#191A1A] h-screen overflow-hidden"> {/* clamp height */}
+	<div className="bg-[#191A1A] h-screen overflow-hidden"> 
       <div className="container layout-cont flex h-full">
         <SideBar />
 
@@ -15,7 +15,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="flex flex-col w-full min-w-0">
           <Navbar />
 
-          {/* This grows + scrolls */}
           <div className="flex-1 overflow-y-auto min-w-0">
             {children}
           </div>

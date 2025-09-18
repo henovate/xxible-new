@@ -1,7 +1,5 @@
 "use client";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import { Badge } from "@/components/ui/badge";
-import { categoryList } from "./data/categoryList";
 import EventCard2 from "@/components/utility/cards/event-card2/eventCard2";
 import { eventsData } from "./data/events";
 import { nextEventList } from "../components/nextEventCard/next-events";
@@ -9,6 +7,7 @@ import UpcomingEventCard from "@/components/utility/cards/upcoming-event-card/up
 import { clubData } from "./data/clubData";
 import FollowClubCard from "@/components/utility/cards/follow-club-card/followClubCard";
 import NextEventCard from "../components/nextEventCard/nextEventCard";
+import CategoryFilter from "../components/categoryFilter/categoryFilter";
 
 
 const page = () => {
@@ -54,14 +53,8 @@ const page = () => {
 				<p className="font-[600] text-xl sm:text-2xl text-[#F5F5F5]">Event In Lagos</p>
 			</div>
 		
-			<div className="mt-8 flex items-center gap-2 overflow-x-auto no-scrollbar w-full snap-x snap-mandatory">
-				{categoryList.map((category, index) => (
-					<Badge key={index} 
-						   variant={"default"} 
-						   className="bg-[#393939] text-[#F5F5F5] hover:bg-[#F5F5F5] hover:text-[#231F20] py-3 px-2 text-sm font-[500] cursor-pointer whitespace-nowrap rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.5)]">
-							{category}
-					</Badge>
-				))}
+			<div className="mt-8">
+				<CategoryFilter />
 			</div>
 
 			<div className="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
@@ -93,8 +86,8 @@ const page = () => {
 			<div className="mt-8 flex items-center w-full overflow-x-auto gap-5 snap-x snap-mandatory no-scrollbar min-w-0">
 				{nextEventList.map((_event, index) => (
 					<NextEventCard key={index} 
-							   event={_event}
-							   />
+								   event={_event}
+									/>
 				))}
 			</div>
 

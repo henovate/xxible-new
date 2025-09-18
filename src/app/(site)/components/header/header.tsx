@@ -6,18 +6,10 @@ import React, { useEffect, useState } from 'react';
 import { Search, Menu, X } from 'lucide-react';
 import { gsap } from "gsap";  
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select";
 import brandLogo from "../../../../../public/assets/icons/brandLogo.png";
 import "../../../../../public/styles/main.css";
-import SearchBar from '@/components/utility/searchBar/searchBar';
+import SearchBar, { selectList } from '@/components/utility/searchBar/searchBar';
+import SelectComponent from '@/components/selectComp/selectComp';
 
 const Header = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -67,11 +59,11 @@ const Header = () => {
 
                     {/* Auth Buttons */}
                     <div className="flex items-center gap-4 flex-shrink-0">
-                        <Link href="/login" className="text-white hover:text-gray-300 transition-colors text-sm 2xl:text-base font-medium">
+                        <Link href="/login" className="text-white hover:text-pink-200 transition-colors text-sm 2xl:text-base font-medium">
                             Log in
                         </Link>
                         <Link href="/signup">
-                            <button className="bg-white text-gray-900 px-4 py-2 rounded-full text-sm 2xl:text-base font-medium hover:bg-gray-100 transition-colors flex items-center gap-2">
+                            <button className="bg-white text-gray-900 px-4 py-2 rounded-full text-sm 2xl:text-base font-medium hover:scale-105 transition flex items-center gap-2">
                                 Sign Up
                                 <div className="w-4 h-4 bg-gray-900 rounded-full flex items-center justify-center">
                                     <span className="text-white text-xs">+</span>
@@ -117,20 +109,7 @@ const Header = () => {
                                     />
                                 </div>
                                 <div className="w-full">
-                                    <Select>
-                                        <SelectTrigger className="w-full bg-zinc-800 border-zinc-700 text-white">
-                                            <SelectValue placeholder="Select Location" />
-                                        </SelectTrigger>
-                                        <SelectContent>
-                                            <SelectGroup>
-                                                <SelectLabel>Location</SelectLabel>
-                                                <SelectItem value="lagos">Lagos, NG</SelectItem>
-                                                <SelectItem value="abuja">Abuja, NG</SelectItem>
-                                                <SelectItem value="kano">Kano, NG</SelectItem>
-                                                <SelectItem value="ibadan">Ibadan, NG</SelectItem>
-                                            </SelectGroup>
-                                        </SelectContent>
-                                    </Select>
+                                    <SelectComponent label="Location" selectItems={selectList} placeholder="Lagos NG" className="w-full bg-zinc-800 border-zinc-700 text-white"/>
                                 </div>
                                 <button 
                                     type="submit"
