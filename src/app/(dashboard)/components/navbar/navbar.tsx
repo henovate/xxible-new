@@ -112,13 +112,13 @@ const Navbar = () => {
         {/* LEFT: logo + brand + search */}
         <div className="flex items-center gap-5 2xl:gap-10 flex-1 min-w-0">
           {/* Logo + dropdown */}
-          <div className="flex items-center gap-2 shrink-0">
+          <div className="flex items-center gap-2 shrink-0 cursor-pointer">
             <div className="h-[2rem] w-[2rem] 2xl:h-[2.4rem] 2xl:w-[2.4rem] rounded-full bg-[url('/assets/img/dp.png')] bg-cover bg-center" />
             <ChevronDown className="w-5 h-5 text-gray-400" />
           </div>
 
           {/* Brand text */}
-          <span className="rounded-xl text-white text-sm font-medium flex justify-center items-center border-2 border-[#898989] px-3 py-2 shrink-0">
+          <span className="rounded-xl text-white text-sm font-medium flex justify-center items-center border-2 border-[#898989] px-3 py-2 shrink-0 cursor-pointer hover:scale-105 transition">
             Create your own brand
           </span>
 
@@ -127,7 +127,7 @@ const Navbar = () => {
             <SearchBar
               widthAndBorderColorClass="max-w-[48rem] bg-[#818181]"
               bgColorClass="bg-gradient-to-r from-[#2A2A2A] to-[#1A1A1A] shadow-inner shadow-[inset_0_0_20px_#FC89FF2B]"
-              searchBtnBgAndTextColor="bg-[#3c3c3c] text-white hover:bg-[#F800E9]"
+              searchBtnBgAndTextColor="bg-[#3c3c3c] text-white hover:bg-[#2f2e2e]"
             />
           </div>
         </div>
@@ -142,11 +142,11 @@ const Navbar = () => {
 
         {/* RIGHT: settings + notifications */}
         <div className="flex items-center gap-3 shrink-0">
-          <div className="hover:bg-gray-800 p-2 rounded">
+          <div className="hover:bg-[#393939] p-2 rounded-full cursor-pointer">
             <Icon icon="material-symbols:settings-rounded" width="28" height="28" className="text-[#E9E9E9] w-7 h-7" />
           </div>
           <span className="opacity-50">|</span>
-          <div className="hover:bg-gray-800 p-2 rounded">
+          <div className="hover:bg-[#393939] p-2 rounded-full cursor-pointer">
             <Icon icon="garden:notification-fill-12" width="24" height="24" className="text-[#E9E9E9] w-6 h-6" />
           </div>
 
@@ -157,7 +157,7 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center xl:hidden gap-3 flex-1">
             <Sheet open={isLargeScreenSearchOpen} onOpenChange={setIsLargeScreenSearchOpen}>
               <SheetTrigger asChild>
-                <div className="p-2 hover:bg-gray-800 rounded">
+                <div className="p-2 hover:bg-gray-800 rounded cursor-pointer">
                   <Icon icon="material-symbols:search"
                       className="w-7 h-7 text-[#E9E9E9]"
                       />

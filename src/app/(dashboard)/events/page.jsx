@@ -15,7 +15,7 @@ const page = () => {
 	<div className="grid grid-cols-1 lg:grid-cols-[75%_1fr] 2xl:grid-cols-[80%_1fr] bg-[#191A1A]">
 		{/* 1st Partition */}
 		<div className="text-gray-600 border-r-2 border-[#343434] min-w-0">
-	 		<div className="bg-[#221922] text-2xl py-5 pl-16 pr-10 flex items-center justify-between text-[#f5f5f5]">
+	 		<div className="bg-[#221922] text-xl sm:text-2xl py-5 pl-5 pr-5 xl:pl-16 xl:pr-10 flex items-center justify-between text-[#f5f5f5]">
 				<p className="font-[600]">Events</p>
 				<div className={`flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.5)] group-hover:scale-105 group-hover:bg-[#f5f5f5] transition rounded-full p-2 2xl:p-2.5 cursor-pointer bg-[#F800E9]`}>
 					<Icon icon="fluent:add-32-filled" width="24" height="24" className={`h-4 w-4 2xl:w-6 2xl:h-6 group-hover:text-zinc-900 text-[#f5f5f5]`}/>
@@ -25,7 +25,7 @@ const page = () => {
 			<div className="mt-11 px-4 md:px-5">
 				<CategoryFilter />
 
-				<div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-9">
+				<div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-9">
 					<SelectComponent 
 						selectItems={categories} 
 						placeholder="Category" 
@@ -62,6 +62,7 @@ const page = () => {
 									titleFontSize="2xl:text-xl 2xl:leading-6"
 									eventInfoFontSize="2xl:text-xs 2xl:leading-4"
 									locationFontSize="2xl:text-sm 2xl:leading-[1.1rem]"
+									cardTag="eventCategory"
 									/>
 					))}
 				</div>
@@ -70,7 +71,7 @@ const page = () => {
 		</div>
 
 		{/* 2nd Partition */}
-		<div className="hidden lg:block pt-[2.7rem] px-4 md:px-5">
+		<div className="hidden lg:block pt-[2.7rem] px-4 md:px-5 xxl:bg-pink-600">
 			<p className="text-base font-[500] text-[#f5f5f5]">Trending This Week</p>
 			<div className="mt-[0.9rem] space-y-5">
 				{nextEventList.map((_event, index) => (
@@ -80,6 +81,8 @@ const page = () => {
 								   locationClassName="text-base"
 								   timeClassName="text-base"
 								   imageClassName="w-[5rem] h-[5rem]"
+								   cardUse="trending"
+								   iconSizeClassName="w-3 h-3 sm:w-4 sm:h-4" 
 							  	 />
 				))}
 			</div>

@@ -1,6 +1,6 @@
 import DashboardInputComp from '@/app/(dashboard)/components/dasboardInputComp/dashboardInputComp';
 import DashboardTextAreaComp from '@/app/(dashboard)/components/dashboardTextAreaComp/dashboardTextAreaComp';
-import React from 'react';
+import React, { useState } from 'react';
 import { perksAndBenefits, ticketBadges } from '../ticketData/ticketData';
 import { Badge } from '@/components/ui/badge';
 import { Icon } from '@iconify/react/dist/iconify.js';
@@ -13,8 +13,14 @@ interface TicketTierProps {
 
 const TicketTier = ({tierNo, setTierContainer}:TicketTierProps) => {
 
+	const [perksContainer, setPerksContainer] = useState<string[]>([]);
+
 	const removeTier = (index:number) => {
 		setTierContainer(prev => [...prev.filter((_, i) => i !== index)])
+	}
+
+	const toggleBadge = (badge:string) => {
+		setPerksContainer(prev => prev.includes(badge)? prev.filter(item => item !== badge) : [...prev, badge]);
 	}
 
   return (
@@ -67,11 +73,14 @@ const TicketTier = ({tierNo, setTierContainer}:TicketTierProps) => {
 					<p className="text-base xl:text-xl font-500 text-[#f5f5f5]">Perks and Benefits</p>
 
 					<div className='flex items-center flex-wrap gap-6 mt-6'>
-						{perksAndBenefits.map((item, index) => (
-							<Badge key={index} variant={'outline'} className='rounded-3xl gap-2 px-2.5 py-1.5 text-sm text-[#f5f5f5] font-[500] whitespace-nowrap border border-[#343434] cursor-pointer'>
+						{perksAndBenefits.map((item, index) => {
+							const selectedBadges = perksContainer.includes(item);
+
+							return (
+							<Badge onClick={() => toggleBadge(item)} key={index} variant={'outline'} className={`${selectedBadges && "bg-[#F800E9] text-[#f5f5f5] border-none"} rounded-3xl gap-2 px-2.5 py-1.5 text-sm text-[#f5f5f5] font-[500] whitespace-nowrap border border-[#343434] cursor-pointer`}>
 								{item}
 							</Badge>
-						))}
+						)})}
 					</div>
 				</div>
 			</div>

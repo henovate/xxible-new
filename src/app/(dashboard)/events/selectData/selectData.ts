@@ -17,6 +17,7 @@ export const eventsData: EventDataType[] = [
       name: "Quilox",
       description: "Explore nightlife in Lagos",
     },
+    category: "House Parties"
   },
   {
     id: "2",
@@ -33,6 +34,7 @@ export const eventsData: EventDataType[] = [
       name: "SkyLounge",
       description: "Premium rooftop experiences",
     },
+    category: "Nightclubs"
   },
   {
     id: "3",
@@ -49,6 +51,7 @@ export const eventsData: EventDataType[] = [
       name: "Pulse Club",
       description: "Electronic music destination",
     },
+    category: "Lounge"
   },
   {
     id: "4",
@@ -65,6 +68,7 @@ export const eventsData: EventDataType[] = [
       name: "The Jazz Spot",
       description: "Sophisticated live music venue",
     },
+    category: "Festival"
   },
   {
     id: "5",
@@ -81,6 +85,7 @@ export const eventsData: EventDataType[] = [
       name: "Waves Entertainment",
       description: "Beach party specialists",
     },
+    category: "Beach"
   },
   {
     id: "6",
@@ -97,6 +102,7 @@ export const eventsData: EventDataType[] = [
       name: "Urban Vibes",
       description: "Street culture and music",
     },
+    category: "Privates"
   },
   {
     id: "7",
@@ -113,6 +119,7 @@ export const eventsData: EventDataType[] = [
       name: "Urban Vibes",
       description: "Street culture and music",
     },
+    category: "House Party"
   },
   {
     id: "8",
@@ -129,6 +136,7 @@ export const eventsData: EventDataType[] = [
       name: "Urban Vibes",
       description: "Street culture and music",
     },
+    category: "Girls Night"
   },
   {
     id: "9",
@@ -145,6 +153,7 @@ export const eventsData: EventDataType[] = [
       name: "Urban Vibes",
       description: "Street culture and music",
     },
+    category: "Disco"
   },
   {
     id: "10",
@@ -161,6 +170,7 @@ export const eventsData: EventDataType[] = [
       name: "Urban Vibes",
       description: "Street culture and music",
     },
+    category: "Nightclub"
   },
   {
     id: "11",
@@ -177,6 +187,7 @@ export const eventsData: EventDataType[] = [
       name: "Urban Vibes",
       description: "Street culture and music",
     },
+    category: "Disco"
   },
   {
     id: "12",
@@ -193,6 +204,7 @@ export const eventsData: EventDataType[] = [
       name: "Urban Vibes",
       description: "Street culture and music",
     },
+    category: "Lounge"
   },
   {
     id: "13",
@@ -209,6 +221,7 @@ export const eventsData: EventDataType[] = [
       name: "Urban Vibes",
       description: "Street culture and music",
     },
+    category: "Girls Night"
   },
   {
     id: "14",
@@ -225,6 +238,7 @@ export const eventsData: EventDataType[] = [
       name: "Urban Vibes",
       description: "Street culture and music",
     },
+    category: "Privates"
   },
   {
     id: "15",
@@ -241,6 +255,7 @@ export const eventsData: EventDataType[] = [
       name: "Urban Vibes",
       description: "Street culture and music",
     },
+    category: "Nightclub"
   },
 ]
 

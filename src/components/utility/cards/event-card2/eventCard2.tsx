@@ -81,7 +81,13 @@ const EventCard2 = ({ event,
           <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-[#53535354] border border-[#838383] text-[#F5F5F5] py-0.5 px-2.5 text-xs font-[500] rounded-full">
                   Latest
           </div>
-          ) : null
+          ) : cardTag === "eventCategory"? (
+            <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-[#53535354] border border-[#838383] text-[#F5F5F5] py-0.5 px-2.5 text-xs font-[500] rounded-full">
+                  {event?.category}
+            </div>
+          ) : (
+            <></>
+          )
         }
       </div>
 

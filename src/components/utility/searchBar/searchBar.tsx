@@ -26,7 +26,7 @@ const SearchBar = ({
   widthAndBorderColorClass = "max-w-2xl bg-[linear-gradient(271.95deg,#7B0093_-30.8%,#F3DAFF_92.81%)]",
   bgColorClass = "bg-black",
   selectWidth = "min-w-[100px] sm:min-w-[120px] lg:min-w-[140px]",
-  searchBtnBgAndTextColor = "bg-white text-gray-900",
+  searchBtnBgAndTextColor = "bg-white text-gray-900 hover:bg-gray-100",
   searchInput=""
 }: SearchBarProps) => {
   return (
@@ -56,7 +56,7 @@ const SearchBar = ({
           </div>
           <button
             type="submit"
-            className={`ml-1 sm:ml-3 ${searchBtnBgAndTextColor} px-1.5 sm:px-3 lg:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm lg:text-base font-medium hover:bg-gray-100 transition-colors flex items-center gap-1 sm:gap-2 flex-shrink-0`}
+            className={`ml-1 sm:ml-3 px-1.5 sm:px-3 lg:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm lg:text-base font-medium transition-colors flex items-center gap-1 sm:gap-2 flex-shrink-0  ${searchBtnBgAndTextColor}`}
           >
             <Search className="w-3 h-3 sm:w-4 sm:h-4" />
             <span className="hidden sm:inline">Search</span>

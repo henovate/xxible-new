@@ -1,8 +1,6 @@
 "use client";
 
 import { Icon } from '@iconify/react/dist/iconify.js';
-import { CheckCircle, Clock, Ticket } from 'lucide-react';
-import { EventDataType } from '../event-card2/type/eventDataType';
 import Image from 'next/image';
 import { clubDataType } from '@/app/(dashboard)/home/data/clubData';
 
