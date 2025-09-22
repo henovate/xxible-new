@@ -8,9 +8,15 @@ import { selectList } from "@/components/utility/searchBar/searchBar";
 import EventCard2 from "@/components/utility/cards/event-card2/eventCard2";
 import NextEventCard from "../components/nextEventCard/nextEventCard";
 import { nextEventList } from "../components/nextEventCard/next-events";
+import Pagination from "@/components/pagination/pagination";
+import { useState } from "react";
 
 
 const page = () => {
+	const totalPage:number = eventsData.length/6
+	const [currentPage, setCurrentPage] = useState<number>(1);
+
+
   return (
 	<div className="grid grid-cols-1 lg:grid-cols-[75%_1fr] 2xl:grid-cols-[80%_1fr] bg-[#191A1A]">
 		{/* 1st Partition */}
@@ -65,6 +71,11 @@ const page = () => {
 									cardTag="eventCategory"
 									/>
 					))}
+				</div>
+
+
+				<div className="mt-24 mb-10 flex justify-center">
+					<Pagination totalPage={10} currentPage={currentPage} onPageChange={setCurrentPage} delta={2}/>
 				</div>
 				
 			</div>

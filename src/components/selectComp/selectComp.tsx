@@ -15,7 +15,7 @@ interface SelectCompProps{
 	className: string;
 	placeholder: string;
 	selectItems: string[];
-	label: string;
+	label?: string;
 	selectItemClassName?: string;
 }
 
