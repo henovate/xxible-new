@@ -45,7 +45,7 @@ const secondtoLastClubItem = clubsData.length - 1
 
               <div className='relative w-full'>
                 {/* Video Section */}
-                <div className='video-container h-[20rem] sm:h-[30rem] md:h-[40rem] xl:h-[45rem] xxl:h-[50rem] 2xl:h-[56rem] w-full overflow-hidden bg-[#000000] bg-blend-overlay'>
+                <div className='video-container h-[20rem] sm:h-[30rem] md:h-[40rem] xl:h-[45rem] xxl:h-[50rem] 2xl:h-[56rem] w-full overflow-hidden bg-[#000000d6] bg-blend-overlay'>
                   <video className='w-full h-full min-w-full scale-150 grayscal' muted autoPlay loop>
                     <source onLoad={()=> handleLoad()} src='https://videos.pexels.com/video-files/6225458/6225458-hd_1920_1080_30fps.mp4' type='video/mp4' />
                   </video>

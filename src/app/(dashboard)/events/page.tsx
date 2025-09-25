@@ -10,11 +10,18 @@ import NextEventCard from "../components/nextEventCard/nextEventCard";
 import { nextEventList } from "../components/nextEventCard/next-events";
 import Pagination from "@/components/pagination/pagination";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 
 const page = () => {
+	const router = useRouter();
 	const totalPage:number = eventsData.length/6
 	const [currentPage, setCurrentPage] = useState<number>(1);
+
+	const eventPage = (id:number) => {
+		router.push("events/eventInformation")
+		// router.push(`events/eventInformation?title=${eventName}`)
+	}
 
 
   return (
@@ -69,6 +76,7 @@ const page = () => {
 									eventInfoFontSize="2xl:text-xs 2xl:leading-4"
 									locationFontSize="2xl:text-sm 2xl:leading-[1.1rem]"
 									cardTag="eventCategory"
+									clickHandler={(id:number) => eventPage(id)}
 									/>
 					))}
 				</div>

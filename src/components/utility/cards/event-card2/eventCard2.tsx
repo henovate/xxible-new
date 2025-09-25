@@ -23,6 +23,7 @@ interface EventCardProps {
   locationFontSize?: string;
   eventInfoFontSize?: string;
   cardTag?: string;
+  clickHandler?: (id:number) => void;
 }
 
 const EventCard2 = ({ event, 
@@ -34,7 +35,8 @@ const EventCard2 = ({ event,
                       titleFontSize="2xl:text-2xl 2xl:leading-7",
                       locationFontSize="2xl:text-base 2xl:leading-[1.25rem]",
                       eventInfoFontSize="2xl:text-sm 2xl:leading-[1.125rem]",
-                      cardTag
+                      cardTag,
+                      clickHandler
                     }: EventCardProps) => {
   
   
@@ -53,7 +55,7 @@ const EventCard2 = ({ event,
       className={`card3 w-full max-w-full md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-[33.79px] p-5 border-none ${bgClassName}`}
     >
       {/* Hero Image Section */}
-      <div className="relative aspect-[4/3 sm:aspect-[16/10 lg:aspect-[4/3">
+      <div onClick={() => clickHandler?.(Number(event.id))} className="relative aspect-[4/3 sm:aspect-[16/10 lg:aspect-[4/3 cursor-pointer">
         <div className={`relative w-full bg-[#000000] rounded-[16.82px] ${imgHeight}`}>
           <Image
           src={event?.imageUrl || placeholderImg}
