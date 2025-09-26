@@ -1,9 +1,17 @@
 "use client";
 
+import TicketCard from '@/components/utility/cards/ticketCard/ticketCard';
 import { Icon } from '@iconify/react/dist/iconify.js';
 import { Clock, Ticket } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { tickets } from './data';
+import AttendantCard from '@/components/utility/cards/attendantCard/attendantCard';
+import { previewImages, socialData, users } from '@/components/utility/cards/attendantCard/data';
+import MultipleAttendCard from '@/components/utility/cards/multipleAttendCard/multipleAttendCard';
+import SocialMediaCard from '@/components/utility/cards/socialMediaCard/socialMediaCard';
+import NextEventCard from '../../components/nextEventCard/nextEventCard';
+import { nextEventList } from '../../components/nextEventCard/next-events';
 
 
 const Page = () => {
@@ -22,7 +30,7 @@ const Page = () => {
 
   return (
 	<div className="bg-[#191A1A]">
-    <div className="bg-[#221922] text-xl lg:text-2xl py-5 pl-5 pr-5 xl:pl-5 xl:pr-[5.5rem] flex items-center justify-between text-[#f5f5f5]">
+    <div className="bg-[#221922] shadow-[0_0_20px_rgba(0,0,0,0.5)] text-xl lg:text-2xl py-5 pl-5 pr-5 xl:pl-5 xl:pr-[5.5rem] flex items-center justify-between text-[#f5f5f5]">
       <div className='flex items-center gap-3'>
       <Icon icon="majesticons:arrow-left-line" width="24" height="24" className='h-6 w-6' />
         <p className="font-[600]">Event Overview</p>
@@ -44,7 +52,7 @@ const Page = () => {
     <div className='grid grid-cols-1 lg:grid-cols-[70%_1fr] px-5 lg:pl-[3.7rem] gap-16 lg:pr-[5.4rem] pt-12 text-[#f5f5f5]'>
       {/* 1st Partition */}  
       <div>
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 bg-[#202222] border border-[#343434] p-5 lg:py-6 lg:pl-6 lg:pr-16 rounded-xl gap-[5.3rem'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 bg-[#202222] border border-[#343434] p-5 lg:py-6 lg:pl-6 lg:pr-16 rounded-xl gap-[5.3rem shadow-[0_0_20px_rgba(0,0,0,0.5)]'>
           <div className='space-y-3'>
             <div className='flex items-center gap-2'>
               <Icon icon="solar:user-linear" width="24" height="24" className='h-5 w-5 text-[#A2A2A2]' />
@@ -160,7 +168,7 @@ const Page = () => {
 
                 <div className="flex items-center gap-1">
                   <Icon icon="solar:heart-angle-bold" width="24" height="24" className="w-5 h-5 fill-[#F800E9] text-[#F800E9]" />               
-                  <span>Interested</span>
+                  <span>51 Interested</span>
                 </div>   
               </div>
 
@@ -171,18 +179,60 @@ const Page = () => {
             </div>
           </div>
 
-          <div className='border border-[#343434] mt-8 p-8'>
+          <div className='border border-[#343434] rounded-xl mt-8 p-8'>
             <p className='font-[600] text-2xl leading-none text-[#f5f5f5]'>Get Your Tickets</p>
-            <div className='py-5 px-4 mt-8'>
+            <div className='mt-8 grid grid-cols-1 md:grid-cols-3 gap-5'>
+                {tickets.map((item, i) => (
+                  <TicketCard key={i} ticketData={item} curveDesignColor='bg-[#191A1A]'/>
+                ))}
+            </div>
+          </div>
 
+          <div className='border border-[#343434] rounded-xl mt-8 p-8'>
+            <div className='md:flex items-center justify-between'>
+              <p className='font-[600] text-2xl leading-none text-[#f5f5f5]'>Who Is going (50)</p>
+              <div className='flex items-center gap-1'>
+                <p className='text-base font-[500] text-[#007AFF]'>See More</p>
+                <Icon icon="iconamoon:arrow-right-2-duotone" width="24" height="24" className='h-6 w-6 text-[#007AFF]' />
+              </div>
+            </div>
+           
+            <div className='mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7'>
+                {users.slice(0, 3).map((user, i) => (
+                  <AttendantCard key={i} profile={user} />
+                ))}
+                <MultipleAttendCard data={users}/>
+            </div>
+          </div>
+
+
+          <div className='border border-[#343434] rounded-xl mt-8 p-8'>
+            <p className='font-[600] text-2xl leading-none text-[#f5f5f5]'>Event Preview</p>
+
+            <div className='mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'>
+              {previewImages.map((item, i) => (
+                <div key={i} style={{backgroundImage: `url(${item.url})`}} className='rounded-xl h-[13.5rem] bg-black bg-cover bg-no-repeat bg-center shadow-[0_0_20px_rgba(0,0,0,0.5)]'></div>
+              ))}
+            </div>
+          </div>
+
+          <div className='border border-[#343434] rounded-xl mt-8 p-8'>
+            <p className='font-[600] text-2xl leading-none text-[#f5f5f5]'>Contact & Support</p>
+            <div className='mt-10 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-10'>
+              {socialData.map((item, i) => (
+                <SocialMediaCard key={i} data={item}/>
+              ))}
             </div>
           </div>
         </div>
       </div>
 
+
+
+
       {/* 2nd Partition */}  
       <div className='hidden lg:block'>
-        <div className='bg-[#232323] rounded-xl p-6 w-full'>
+        <div className='bg-[#232323] rounded-xl p-6 w-full shadow-[0_0_20px_rgba(0,0,0,0.5)]'>
           <div className='flex items-center justify-between'>
             <p className="w-[13.2rem] font-[600] text-xl leading-6">Quilox - Explore nightlife in Lagos</p>         
             <div className='w-[5.7rem] h-[5.7rem] bg-[#D9D9D9] rounded-lg'></div>
@@ -198,6 +248,49 @@ const Page = () => {
             <Icon icon="ic:round-star-half" width="24" height="24" className='text-[#FFAD43] h-6 w-6' />
             <p className="text-sm font-[400] underline text-[#A0A0A0] ml-1">22 ratings</p>
           </div>
+        </div>
+
+        <div className='mt-10 px-5 pt-5 pb-10 rounded-t-2xl bg-[#232323] shadow-[0_0_20px_rgba(0,0,0,0.5)]'>
+          <div className='flex gap-4'>
+            <Icon icon="formkit:time" width="16" height="16" className='h-6 w-6 text-[#A2A2A2]' />
+            <div className='text-[#E9E9E9]'>
+              <p className='font-[500] leading-none text-sm'>Saturday, June 28, 2025</p>
+              <p className='font-[500] leading-none text-sm mt-1'>06:00 PM WAT</p>
+              <p className='font-[600] leading-none text-[#0866FF] mt-2 text-sm'>+ Add to Calendar</p>
+            </div>
+          </div>
+
+
+          <div className='flex gap-4 mt-9'>
+          <Icon icon="tdesign:location" width="24" height="24" className='h-6 w-6 text-[#A2A2A2]' />
+            <div className='text-[#E9E9E9]'>
+              <p className='font-[500] leading-none text-sm'>Club Quilox</p>
+              <p className='font-[500] leading-4 text-sm mt-1 w-[14rem] lg:w-[13rem]'>873 Ozumba Mbadiwe Ave, Victoria Island, Lagos 106104, Lagos</p>
+              <button className='bg-[#007AFF] px-3 py-[0.5rem] flex items-center rounded-xl gap-2 mt-5'>
+                <Icon icon="solar:map-arrow-left-linear" width="24" height="24" />
+                <span className='font-[500] text-sm'>Get Direction</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div className='bg-zinc-800 h-[26.8rem] shadow-[0_0_20px_rgba(0,0,0,0.5)]'></div>
+
+        <div className='mt-[4.8rem]'>
+          <p className="text-2xl leading-none font-[600] text-[#f5f5f5]">More Events by Quilox</p>
+
+          <div className="mt-8 space-y-6">
+            {nextEventList.map((_event, index) => (
+              <NextEventCard key={index} 
+                            event={_event}
+                            titleClassName="text-base"
+                            locationClassName="text-base"
+                            timeClassName="text-base"
+                            imageClassName="w-[5rem] h-[5rem]"
+                            iconSizeClassName="w-3 h-3 sm:w-4 sm:h-4" 
+                            />
+             ))}
+			    </div>
         </div>
       </div>
     </div>
