@@ -5,24 +5,20 @@ import CategoryFilter from "../components/categoryFilter/categoryFilter";
 import SelectComponent from "@/components/selectComp/selectComp";
 import { categories, eventFilters, eventsData } from "./selectData/selectData";
 import { selectList } from "@/components/utility/searchBar/searchBar";
-import EventCard2 from "@/components/utility/cards/event-card2/eventCard2";
 import NextEventCard from "../components/nextEventCard/nextEventCard";
 import { nextEventList } from "../components/nextEventCard/next-events";
 import Pagination from "@/components/pagination/pagination";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+interface EventLayoutProps {
+	children: React.ReactNode;
+}
 
-const page = () => {
+const EventLayout = ({children}:EventLayoutProps) => {
 	const router = useRouter();
 	const totalPage:number = eventsData.length/6
 	const [currentPage, setCurrentPage] = useState<number>(1);
-
-	const eventPage = (id:number) => {
-		router.push("events/eventInformation")
-		// router.push(`events/eventInformation?title=${eventName}`)
-	}
-
 
   return (
 	<div className="grid grid-cols-1 lg:grid-cols-[75%_1fr] 2xl:grid-cols-[80%_1fr] bg-[#191A1A]">
@@ -39,22 +35,25 @@ const page = () => {
 				<CategoryFilter />
 
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-9">
-					<SelectComponent 
-						selectItems={categories} 
+					<SelectComponent
+						arrayItemType="array" 
+						selectArrayItems={categories} 
 						placeholder="Category" 
 						className="w-full py-4 rounded-xl text-base font-[400] pl-4 focus-visible:ring-offset-0 outline-none #4A4A4A text-[#6F747E] bg-gradient-to-r from-[#2A2A2A] to-[#1A1A1A] shadow-inner shadow-[inset_0_0_20px_#FC89FF2B]]" 
 						selectItemClassName="data-[highlighted]:font-[600] data-[highlighted]:bg-[#F800E9] data-[highlighted]:text-[#F5f5f5] font-[400] text-base"
 						/>
 
-					<SelectComponent 
-						selectItems={selectList} 
+					<SelectComponent
+						arrayItemType="array" 
+						selectArrayItems={selectList} 
 						placeholder="All Area" 
 						className="w-full py-4 rounded-xl text-base font-[400] pl-4 focus-visible:ring-offset-0 outline-none #4A4A4A text-[#6F747E] bg-gradient-to-r from-[#2A2A2A] to-[#1A1A1A] shadow-inner shadow-[inset_0_0_20px_#FC89FF2B]]" 
 						selectItemClassName="data-[highlighted]:font-[600] data-[highlighted]:bg-[#F800E9] data-[highlighted]:text-[#F5f5f5] font-[400] text-base"
 						/>
 
-					<SelectComponent 
-						selectItems={eventFilters} 
+					<SelectComponent
+						arrayItemType="object" 
+						selectArrayOfObjectItems={eventFilters} 
 						placeholder="Upcoming" 
 						className="w-full py-4 rounded-xl text-base font-[400] pl-4 focus-visible:ring-offset-0 outline-none #4A4A4A text-[#6F747E] bg-gradient-to-r from-[#2A2A2A] to-[#1A1A1A] shadow-inner shadow-[inset_0_0_20px_#FC89FF2B]]" 
 						selectItemClassName="data-[highlighted]:font-[600] data-[highlighted]:bg-[#F800E9] data-[highlighted]:text-[#F5f5f5] font-[400] text-base"
@@ -62,24 +61,8 @@ const page = () => {
 				</div>
 
 
-				
-				<div className="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
-					{eventsData.map((_event, index) => (
-						<EventCard2 key={index} 
-									event={_event} 
-									bgClassName="bg-[#232323] shadow-[0_0_20px_rgba(0,0,0,0.5)]" 
-									titleAndCompanyTextColor="text-[#F5F5F5]"
-									cardInfoTextColor="text-[#A0A0A0]"
-									imgHeight="h-[16rem]"
-									curveDesignColor="bg-[#191A1A]"
-									titleFontSize="2xl:text-xl 2xl:leading-6"
-									eventInfoFontSize="2xl:text-xs 2xl:leading-4"
-									locationFontSize="2xl:text-sm 2xl:leading-[1.1rem]"
-									cardTag="eventCategory"
-									clickHandler={(id:number) => eventPage(id)}
-									/>
-					))}
-				</div>
+				{children}
+
 
 
 				<div className="mt-24 mb-10 flex justify-center">
@@ -110,4 +93,4 @@ const page = () => {
   )
 }
 
-export default page
+export default EventLayout;

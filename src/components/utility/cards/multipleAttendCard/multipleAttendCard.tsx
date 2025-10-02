@@ -10,7 +10,7 @@ interface MultipleAttendCardProps {
 const MultipleAttendCard = ({data}:MultipleAttendCardProps) => {
 
   return (
-    <div className="bg-[#232323] border border-[#343434] rounded-lg py-10 flex flex-col justify-center items-center shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+    <div className="bg-[#232323] border border-[#343434] rounded-lg py-10 flex flex-col justify-center items-center">
       {/* Profile Images */}
       <div className="flex -space-x-3">
         {data.slice(3, 6).map((item, index) => (

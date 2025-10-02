@@ -9,6 +9,7 @@ import { useState } from "react";
 import placeholderImg from  "../../../../../public/assets/events/event3.png";
 import { EventDataType } from "./type/eventDataType";
 import "../../../../../public/styles/main.css";
+import { Icon } from "@iconify/react/dist/iconify.js";
 
   
 
@@ -55,7 +56,7 @@ const EventCard2 = ({ event,
       className={`card3 w-full max-w-full md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-[33.79px] p-5 border-none ${bgClassName}`}
     >
       {/* Hero Image Section */}
-      <div onClick={() => clickHandler?.(Number(event.id))} className="relative aspect-[4/3 sm:aspect-[16/10 lg:aspect-[4/3 cursor-pointer">
+      <div onClick={() => clickHandler?.(Number(event.id))} className="relative cursor-pointer">
         <div className={`relative w-full bg-[#000000] rounded-[16.82px] ${imgHeight}`}>
           <Image
           src={event?.imageUrl || placeholderImg}
@@ -105,6 +106,7 @@ const EventCard2 = ({ event,
         </div>
 
         {/* Event Details */}
+        {event?.interestedCount? (
         <div className={`flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 text-sm sm:text-[0.75rem] mt-4 font-[600] ${eventInfoFontSize}  ${cardInfoTextColor}`}>
           <div className="flex items-center gap-1">
             <Clock className="w-4 h-4 flex-shrink-0" />
@@ -116,7 +118,7 @@ const EventCard2 = ({ event,
           <div className="flex items-center justify-between sm:justify-end gap-4 sm:mr-7">
             <div className="flex items-center gap-1">
               <Ticket className="w-4 h-4 mb-1 2xl:mb-0" />
-              <div>{formatPrice(event?.price, event?.currency)}</div>
+              <div>{event?.price && event?.currency && formatPrice(event?.price, event?.currency)}</div>
             </div>
             <div className="flex items-center gap-1">
               <Users className="w-4 h-4 flex-shrink-0" />
@@ -124,6 +126,40 @@ const EventCard2 = ({ event,
             </div>
           </div>
         </div>
+        ) : null}
+
+
+
+        {/* Event Ratings and Review */}
+        {event?.ratings && event?.review ? (
+        <div className="mt-5">
+          <div className="flex items-center justify-between">
+            <div className='flex items-center'>
+              <p className='text-[1.15rem] font-[500] mr-1 text-[#f5f5f5]'>{event.ratings}</p>
+              {Array.from({length:4}, (_, i) => (
+                <Icon key={i} icon="ic:round-star-rate" width="24" height="24" className='text-[#FFAD43] h-6 w-6' />
+              ))}
+              <Icon icon="ic:round-star-half" width="24" height="24" className='text-[#FFAD43] h-6 w-6' />
+            </div>
+
+            <div>
+              <p className="font-[400] text-base leading-none text-[#A0A0A0]">({event.review.reviewTotal} Reviews)</p>
+            </div>
+          </div>
+
+          <div className="mt-3 border border-[#3A3A3A] rounded-xl text-base font-[400] text-[#A0A0A0] leading-5 py-5 px-6">
+            <p className="italic">
+            "{event.review?.review}"
+            </p>
+            <p className="leading-none mt-1"> - {event.review?.reviewersName}</p>
+          </div>
+        </div>
+        ) : null}
+
+
+
+
+
 
         {/* Category Tags */}
         <div className="flex flex-wrap gap-2 font-[500] mt-3">

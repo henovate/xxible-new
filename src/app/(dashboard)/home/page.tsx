@@ -146,7 +146,7 @@ const page = () => {
 
 		{/* 2nd Partition */}
 	  <div className="hidden lg:block pt-[2.7rem] px-4 md:px-5">
-		<div className="border border-gradient-to-r from-[#353535] to-[#9B9B9B] shadow-[0_0_20px_rgba(0,0,0,0.5)] p-4 rounded-3xl">
+		<div className="border border-gradient-to-r from-[#353535] to-[#9B9B9B] bg-[#232323]  shadow-[0_0_20px_rgba(0,0,0,0.5)] p-4 rounded-3xl">
 			<p className="text-xl font-[600] text-[#F5F5F5]">Subscribe to XXible+</p>
 			<p className="text-sm font-[400] text-[#C8C8C8] mt-1.5">Stay ahead of the vibe, subscribe for early access and premium features.</p>
 

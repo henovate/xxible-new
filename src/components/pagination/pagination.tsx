@@ -60,10 +60,9 @@ const Pagination = ({totalPage, currentPage, onPageChange, delta=2}:PaginationPr
 				${currentPage === 1? "opacity-40 cursor-not-allowed" : "hover:bg-zinc-800"}
 				bg-[#111111`}
 				>
-					{/* <span className="relative w-7 h-7 rounded-full flex items-center justify-center
-							shadow-[inset_0_0_12px_rgba(252,137,255,0.17)]"> */}
+					
 						<ChevronLeft size={14} className='text-[#BCBCBC] group-hover:text-[#F800E9]'/>
-					{/* </span> */}
+				
 			</button>
 
 
@@ -103,11 +102,7 @@ const Pagination = ({totalPage, currentPage, onPageChange, delta=2}:PaginationPr
 				bg-[#111111`}
 				>
 
-					{/* <span className="relative w-7 h-7 rounded-full flex items-center justify-center
-									shadow-[inset_0_0_12px_rgba(252,137,255,0.17)]"> */}
 						<ChevronRight size={14} className='text-[#BCBCBC] group-hover:text-[#F800E9]'/>
-					{/* </span> */}
-
 			</button>
 		</div>
 	</div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { TicketType } from '@/app/(dashboard)/events/eventInformation/data';
+import { TicketType } from '@/app/(dashboard)/(events)/(eventInformation)/data';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Icon } from '@iconify/react/dist/iconify.js';
@@ -38,7 +38,7 @@ const TicketCard = ({ticketData, curveDesignColor}:TicketProps) => {
 			: "bg-gradient-to-b from-[#0F1A2C] to-[#0C121B]"}
 			`}
 		>	
-		<CardContent className="">
+		<CardContent>
 			<div>
 				<div className='flex flex-col justify-center items-center text-center'>
 					<p className={`text-base sm:text-[1.1rem] font-[600] text-[#f5f5f5] leading-none`}>{ticketData.title}</p>

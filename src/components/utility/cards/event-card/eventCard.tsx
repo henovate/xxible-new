@@ -7,14 +7,8 @@ import like from "../../../../../public/assets/img/like.png";
 import { SwiperSlide } from 'swiper/react';
 
 export interface cardType {
-	id: number
-	image: string,
-	// eventCategory: string,
-	// eventType: string,
-	// eventLocation: string,
-	// eventTime: string,
-	// eventAmount: number | string
-	// eventInterest: string
+	id: number;
+	image: string;
 }
 
 

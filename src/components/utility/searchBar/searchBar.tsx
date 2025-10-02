@@ -47,8 +47,9 @@ const SearchBar = ({
           <div className="w-px h-3 sm:h-4 bg-gray-600 mx-2 sm:mx-3 hidden sm:block"></div>
           <div className={`min-w-0 hidden sm:block ${selectWidth}`}>
             <SelectComponent 
+                arrayItemType="array"
                 label="Location" 
-                selectItems={selectList} 
+                selectArrayItems={selectList} 
                 placeholder="Lagos NG" 
                 className="border-none bg-transparent text-white text-xs sm:text-sm lg:text-base h-auto p-0"
                 selectItemClassName="data-[highlighted]:bg-[#F800E9] data-[highlighted]:font-[600]"

@@ -1,5 +1,9 @@
 import { EventDataType } from "@/components/utility/cards/event-card2/type/eventDataType";
 
+export interface eventItemType {
+  name: string;
+  link: string;
+}
 
 export const eventsData: EventDataType[] = [
   {
@@ -278,12 +282,24 @@ export const categories:string[] = [
   ];
 
   
-export const eventFilters:string[] = [
-  "Upcoming",
-  "Past events",
-  "Popular",
-  "Free Events"
-];
+export const eventFilters:eventItemType[] = [
+  {
+    name: "Upcoming",
+    link: "/eventInformation/upcoming-events/"
+  },
+  {
+    name: "Past events",
+    link: "/eventInformation/past-events/"
+  },
+  {
+    name: "Popular",
+    link: "/eventInformation/popular-events/"
+  },
+  {
+    name: "Free Events",
+    link: "/eventInformation/free-events/"
+  },
+]
 
 
 

@@ -1,12 +1,20 @@
+interface reviewType {
+	reviewersName: string;
+	review: string;
+	reviewTotal: number;
+}
+
+
+
 export interface EventDataType {
 	id: string;
 	title: string;
 	location: string;
 	date: string;
-	time: string;
-	price: number;
-	currency: string;
-	interestedCount: number;
+	time?: string;
+	price?: number;
+	currency?: string;
+	interestedCount?: number;
 	imageUrl: string;
 	imageAlt: string;
 	categories?: string[];
@@ -16,5 +24,8 @@ export interface EventDataType {
 	  logo?: string;
 	}
 	category?: string;
+	reviewTotal?: number;
+	ratings?: number;
+	review?: reviewType;
   }
   
