@@ -50,7 +50,7 @@ const SwipeSlider = ({arrayData, Card, cardHeightClass}:SwiperSliderProps) => {
 	  className={`grid grid-cols-3 w-full ${cardHeightClass}`}
     >
       	{arrayData.map((item, index) => (
-			<SwiperSlide key={index} className='h-full w-full'>
+			<SwiperSlide key={index} className='h-full w-full bg-black'>
 				<Card data={item}/>
 			</SwiperSlide>
 		))}

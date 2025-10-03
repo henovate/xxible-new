@@ -9,6 +9,15 @@ import React from 'react';
 import { imgGallery } from './data';
 import ImgCard from './component/imgCard/imgCard';
 import ReviewCard from '@/components/utility/cards/reviewCard/reviewCard';
+import {
+	Dialog,
+	DialogContent,
+	DialogDescription,
+	DialogHeader,
+	DialogTitle,
+	DialogTrigger,
+  } from "@/components/ui/dialog"
+import DashboardTextAreaComp from '@/app/(dashboard)/components/dashboardTextAreaComp/dashboardTextAreaComp';
 
 const Page = () => {
 
@@ -45,50 +54,50 @@ const Page = () => {
 
 
 
-					<div className='px-[3.5rem] py-7 bg-[#232323] rounded-b-xl flex items-center justify-between'>
+					<div className='gap-4 lg:gap-0 px-5 lg:px-[3.5rem] py-7 bg-[#232323] rounded-b-xl grid grid-cols-2 md:flex items-center justify-between'>
 						<div className="gap-2 flex">
 							<div className="p-2.5 rounded-xl bg-[#353535] w-fit h-fit">
-								<Icon icon="mynaui:users-group" width="24" height="24" className='w-6 h-6 text-[#f5f5f5]'/>
+								<Icon icon="mynaui:users-group" width="24" height="24" className='w-5 h-5 lg:w-6 lg:h-6 text-[#f5f5f5]'/>
 							</div>
 							<div>
-								<p className="font-[700] text-3xl">500+</p>
-								<p className="mt-1.5 font-[400] text-base">Attendess</p>
+								<p className="font-[700] text-2xl lg:text-3xl">500+</p>
+								<p className="mt-1 lg:mt-1.5 font-[400] text-base">Attendess</p>
 							</div>
 						</div>
 
 						<div className="gap-2 flex">
 							<div className="p-2.5 rounded-xl bg-[#353535] w-fit h-fit">
-								<Icon icon="solar:camera-linear" width="24" height="24" className='w-6 h-6 text-[#f5f5f5]'/>
+								<Icon icon="solar:camera-linear" width="24" height="24" className='w-5 h-5 lg:w-6 lg:h-6 text-[#f5f5f5]'/>
 							</div>
 							<div>
-								<p className="font-[700] text-3xl">124</p>
-								<p className="mt-1.5 font-[400] text-base">Media</p>
+								<p className="font-[700] text-2xl lg:text-3xl">124</p>
+								<p className="mt-1 lg:mt-1.5 font-[400] text-base">Media</p>
 							</div>
 						</div>
 
 						<div className="gap-2 flex">
 							<div className="p-2.5 rounded-xl bg-[#353535] w-fit h-fit">
-								<Icon icon="solar:star-linear" width="24" height="24" className='w-6 h-6 text-[#f5f5f5]'/>
+								<Icon icon="solar:star-linear" width="24" height="24" className='w-5 h-5 lg:w-6 lg:h-6 text-[#f5f5f5]'/>
 							</div>
 							<div>
-								<p className="font-[700] text-3xl">4.8</p>
-								<p className="mt-1.5 font-[400] text-base">Rating</p>
+								<p className="font-[700] text-2xl lg:text-3xl">4.8</p>
+								<p className="mt-1 lg:mt-1.5 font-[400] text-base">Rating</p>
 							</div>
 						</div>
 
 						<div className="gap-2 flex">
 							<div className="p-2.5 rounded-xl bg-[#353535] w-fit h-fit">
-								<Icon icon="solar:clock-circle-outline" width="24" height="24" className='w-6 h-6 text-[#f5f5f5]'/>
+								<Icon icon="solar:clock-circle-outline" width="24" height="24" className='w-5 h-5 lg:w-6 lg:h-6 text-[#f5f5f5]'/>
 							</div>
 							<div>
-								<p className="font-[700] text-3xl">8hrs</p>
-								<p className="mt-1.5 font-[400] text-base">Runtime</p>
+								<p className="font-[700] text-2xl lg:text-3xl">8hrs</p>
+								<p className="mt-1 lg:mt-1.5 font-[400] text-base">Runtime</p>
 							</div>
 						</div>
 					</div>
 
 
-					<div className="border border-[#343434] shadow-[0_0_20px_rgba(0,0,0,0.5)] rounded-xl mt-5 py-5 px-6">
+					<div className="border border-[#343434] shadow-[0_0_20px_rgba(0,0,0,0.5)] rounded-xl mt-5 py-6 lg:py-5 px-5 lg:px-6">
 						<div>
 							<p className="font-[600] text-2xl leading-none">About This Event</p>
 							<p className="font-[400] text-base leading-6 text-[#A0A0A0] mt-4">
@@ -97,9 +106,9 @@ const Page = () => {
 								that had everyone dancing until dawn
 							</p>
 
-							<div className='mt-4'>
+							<div className='mt-6 lg:mt-4'>
 								<div className={`flex items-center gap-1.5 text-[#A0A0A0]`}>
-									<MapPin className="w-3 h-3 sm:w-5 sm:h-5 flex-shrink-0" />
+									<MapPin className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
 									<p className={`text-base leading-none`}>Victoria Island, Lagos</p>
 								</div>
 							</div>
@@ -117,9 +126,9 @@ const Page = () => {
 
 
 					<div className="bg-[#1F1F1F] rounded-xl border border-[#343434] shadow-[0_0_20px_rgba(0,0,0,0.5)] py-5 px-6 mt-6">
-						<div className='md:flex items-center justify-between'>
+						<div className='flex items-center justify-between'>
 							<p className='font-[600] text-xl leading-none text-[#f5f5f5]'>Event Media</p>					
-							<div className='flex items-center gap-1 cursor-pointer group border border-[#525151] rounded-lg p-2.5'>
+							<div className='flex items-center gap-1 cursor-pointer group border border-[#525151] rounded-lg p-2.5 w-fit'>
 								<Icon icon="solar:camera-linear" width="24" height="24" className='w-6 h-6 text-[#E9E9E9]'/>
 								<p className='text-base font-[400] text-[#E9E9E9] group-hover:text-[#7c7e7e]'>View all 124</p>
 							</div>
@@ -134,16 +143,16 @@ const Page = () => {
 
 
 
-					<div className="mt-8 border border-[#343434] shadow-[0_0_20px_rgba(0,0,0,0.5)] rounded-xl px-4 py-5 flex items-center justify-between">
+					<div className="mt-8 border border-[#343434] shadow-[0_0_20px_rgba(0,0,0,0.5)] rounded-xl px-4 py-5 lg:flex items-center justify-between">
 						<div className='flex items-center gap-3'>
-							<div style={{backgroundImage: `url(${"https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg"})`}} className="rounded-full h-[4.4rem] w-[4.4rem] bg-cover bg-center bg-no-repeat bg-black"></div>
+							<div style={{backgroundImage: `url("https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg")`}} className="rounded-full h-[4.4rem] w-[4.4rem] bg-cover bg-center bg-no-repeat bg-black flex-shrink-0"></div>
 							<div>
 								<p className='font-[600] text-xl leading-none'>Quilox - Explore nightlife in Lagos</p>
 								<p className='text-[#a0a0a0] text-base font-[500] leading-none mt-2.5'>25 events hosted • 4.9★ rating</p>
 							</div>
 						</div>
 
-						<button className='text-base font-[500] py-3 px-[3.85rem] rounded-xl text-[#898989] flex items-center gap-2 bg-[#f5f5f5] shadow-[0_0_20px_rgba(0,0,0,0.5)] hover:bg-[#F800E8] hover:text-[#f5f5f5] hover:font-[600] transition-colors'>
+						<button className='text-base font-[500] py-3 px-[3.85rem] rounded-xl text-[#898989] flex items-center justify-center lg:justify-start gap-2 bg-[#f5f5f5] shadow-[0_0_20px_rgba(0,0,0,0.5)] hover:bg-[#F800E8] hover:text-[#f5f5f5] hover:font-[600] transition-colors mt-5 lg:mt-0 w-full lg:w-fit'>
 							<Icon icon="heroicons:user-plus" width="24" height="24" className='h-5 w-5' />
 							<span>Follow</span>
 						</button>
@@ -161,9 +170,33 @@ const Page = () => {
 							<Icon icon="ic:round-star-rate" width="24" height="24" className='text-[#FFAD43] h-6 w-6' />
 							<p className="font-[500] text-xl leading-none">4.8</p>
 						</div>
-						<div>
-							<span className="text-[#A0A0A0] font-[400] text-base leading-none">(124 Reviews)</span>
-						</div>
+						
+						<Dialog>
+							<DialogTrigger>
+								<div className='cursor-pointer'>
+									<span className="text-[#A0A0A0] font-[400] text-base leading-none">(124 Reviews)</span>
+								</div>
+							</DialogTrigger>
+							<DialogContent className='max-w-[45.5rem] px-0 sm:rounded-3xl bg-[#191A1A] border-none'>
+								<DialogHeader>
+								<DialogTitle className='border-b border-[#343434]'>
+									<div className='p-7 flex items-center justify-between'>
+										<span className="font-[600] text-xl leading-none text-[#f5f5f5]">Reviews</span>										
+										<div>
+											<span className="text-[#A0A0A0] font-[400] text-base leading-none">(124 Reviews)</span>
+										</div>
+									</div>
+								</DialogTitle>
+								<DialogDescription className='px-7 overflow-y-auto min-w-0'>
+									<div className='h-[60vh] w-full'>
+										{Array.from({length: 6}, (_, i) => (
+											<ReviewCard key={i}/>
+										))}
+									</div>
+								</DialogDescription>
+								</DialogHeader>
+							</DialogContent>
+						</Dialog>
 					</div>
 				</div>
 
@@ -173,9 +206,55 @@ const Page = () => {
 						<p className="text-xl font-[600] text-[#F5F5F5]">Leave a Review</p>
 						<p className="text-sm font-[400] text-[#C8C8C8] mt-1.5">Had an unforgettable night? Let others in on the vibe! Share your experience</p>
 
-						<div className="rounded-full px-7 py-2 bg-[#F800E8] text-[#f5f5f5] mt-8 w-fit shadow-[0_0_15px_rgba(255,0,212,0.6)] hover:scale-105 transition-transform">
-							<p className="text-base font-[600]">Review</p>
-						</div>
+						<Dialog>
+							<DialogTrigger>
+								<div className="rounded-full px-7 py-2 bg-[#F800E8] text-[#f5f5f5] mt-8 w-fit shadow-[0_0_15px_rgba(255,0,212,0.6)] hover:scale-105 transition-transform cursor-pointer">
+									<p className="text-base font-[600]">Review</p>
+								</div>
+							</DialogTrigger>
+							<DialogContent className='max-w-[45.5rem] px-0 sm:rounded-3xl bg-[#191a1a] border-none bg-cover bg-center bg-no-repeat border border-[#343434]' style={{backgroundImage: "url('/assets/img/review.png')"}}>
+								<DialogHeader>
+								<DialogTitle className='border-b border-[#343434] bg-[#191a1a]'>
+									<div className='p-7'>
+										<span className="font-[600] text-xl leading-none text-[#E9E9E9]">Leave a Review</span>										
+									</div>
+								</DialogTitle>
+								<DialogDescription className='px-7 py-16'>
+									<div>
+										<div className='flex flex-col justify-center items-center'>
+											<p className='text-2xl font-[500] text-center'>How was the vibe?</p>
+											<div className="flex items-center mt-5">
+												{Array.from({length:4}, (_, i) => (
+													<Icon key={i} icon="solar:star-bold" width="24" height="24" className='text-[#FFAD43] h-20 w-20' />
+												))}
+												<Icon icon="solar:star-linear" width="24" height="24" className='text-[#9F9F9F] h-20 w-20' />
+											</div>
+										</div>
+										
+
+										<div className='mt-16 px-10'>
+											<form className='w-full'>
+												<DashboardTextAreaComp 
+														label='Share your experience' 
+														placeholder='What did you love? What could be better?' 
+														labelClass='text-base xl:text-base' 
+														textAreaPlaceholderAndTextFontClass='text-base xl:text-base placeholder:text-base xl:placeholder:text-base h-[7rem]'
+														/>
+
+												<div className='flex justify-end mt-2.5 text-[#A0A0A0] text-base'>
+													<p>0/500</p>
+												</div>
+											</form>
+										</div>
+
+										<div className='flex justify-center'>
+											<button className='py-3 px-16 text-[#898989] bg-[#f5f5f5] mt-10 rounded-xl text-base font-[500]'>Post Review</button>
+										</div>										
+									</div>
+								</DialogDescription>
+								</DialogHeader>
+							</DialogContent>
+						</Dialog>
 					</div>
 				</div>
 

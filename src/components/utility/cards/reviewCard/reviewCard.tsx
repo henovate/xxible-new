@@ -1,6 +1,7 @@
 "use client";
 
 import { Icon } from '@iconify/react/dist/iconify.js';
+import Image from 'next/image';
 import React, { useState } from 'react';
 
 const ReviewCard = () => {
@@ -14,7 +15,17 @@ const ReviewCard = () => {
   return (
 	<div className='border-b border-[#343434] px-4 py-3.5'>
 	 	<div className='flex gap-3'>
-			<div style={{backgroundImage: `url("https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg")`}} className="rounded-full h-[3.75rem] w-[3.75rem] bg-cover bg-center bg-no-repeat bg-black"></div>
+			{/* <div style={{backgroundImage: `url("https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg")`}} className="rounded-full h-[3.75rem] w-[3.75rem] bg-cover bg-center bg-no-repeat bg-black"></div> */}
+			<div className="relative rounded-full h-[3.75rem] w-[3.75rem] bg-black overflow-hidden flex-shrink-0">
+				<Image
+					src="https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg"
+					alt="profile-img"
+					fill
+					className="object-cover rounded-full"
+					priority
+				/>
+			</div>
+
 			<div>
 				<div className="flex items-center justify-between">
 					<div className='flex items-center gap-3'>
@@ -36,7 +47,7 @@ const ReviewCard = () => {
 				</div>
 
 
-				<p className='text-[#a0a0a0] text-base font-[500] leading-none mt-2.5'>
+				<p className='text-[#a0a0a0] text-base font-[500] leading-5 mt-2.5'>
 					Amazing vibes! The DJ was incredible and the crowd was so energetic. Can't wait for the next one
 				</p>
 
