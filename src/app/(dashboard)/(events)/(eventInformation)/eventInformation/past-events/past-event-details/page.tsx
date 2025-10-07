@@ -5,7 +5,7 @@ import { Icon } from '@iconify/react/dist/iconify.js';
 import { MapPin } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import React from 'react';
+import React, { useState } from 'react';
 import { imgGallery } from './data';
 import ImgCard from './component/imgCard/imgCard';
 import ReviewCard from '@/components/utility/cards/reviewCard/reviewCard';
@@ -22,9 +22,14 @@ import DashboardTextAreaComp from '@/app/(dashboard)/components/dashboardTextAre
 const Page = () => {
 
 	const router = useRouter();
+	const [selectedStar, setSelectedStar] = useState<boolean>(false);
 
 	const handleGoBack = () => {
 		router.push("/events");
+	}
+
+	const toggleStar = () => {
+		setSelectedStar(prev => !prev)
 	}
 
   	return (
@@ -54,7 +59,7 @@ const Page = () => {
 
 
 
-					<div className='gap-4 lg:gap-0 px-5 lg:px-[3.5rem] py-7 bg-[#232323] rounded-b-xl grid grid-cols-2 md:flex items-center justify-between'>
+					<div className='gap-4 lg:gap-0 px-5 lg:px-[3.5rem] py-7 bg-[#232323] rounded-b-xl grid grid-cols-2 sm:flex items-center justify-between'>
 						<div className="gap-2 flex">
 							<div className="p-2.5 rounded-xl bg-[#353535] w-fit h-fit">
 								<Icon icon="mynaui:users-group" width="24" height="24" className='w-5 h-5 lg:w-6 lg:h-6 text-[#f5f5f5]'/>
