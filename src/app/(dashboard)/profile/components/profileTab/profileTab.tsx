@@ -3,6 +3,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Interested from "../tabPages/interested/interested";
+import MyTickets from "../tabPages/myTickets/myTickets";
 
 const ProfileTab = () => {
 
@@ -33,7 +34,10 @@ const ProfileTab = () => {
 		<TabsContent value="interested">
 			<Interested />
 		</TabsContent>
-		<TabsContent value="myTickets">Change your password here.</TabsContent>
+		<TabsContent value="myTickets">
+			<MyTickets />
+		</TabsContent>
+
 		<TabsContent value="Brand">Change your password here.</TabsContent>
 	</Tabs>
 	)

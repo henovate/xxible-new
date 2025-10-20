@@ -9,6 +9,8 @@ import UpcomingEventCard from "@/components/utility/cards/upcoming-event-card/up
 import FollowClubCard from "@/components/utility/cards/follow-club-card/followClubCard";
 import { eventsData } from "../home/data/events";
 import { clubData } from "../home/data/clubData";
+import { getDefaultClassNames } from "react-day-picker";
+import { cn } from "@/lib/utils";
 
 
 const page = () => {
@@ -111,7 +113,11 @@ const page = () => {
 				mode="single"
 				selected={date}
 				onSelect={setDate}
-				className="rounded-lg border"
+				className="rounded-lg border bg-[#1d1d1f]"
+				classNames={{
+					selected: "bg-[#FF00EA] rounded-lg",
+					today: "bg-[#FF00EA] rounded-lg"
+				}}
 			/>
 
 

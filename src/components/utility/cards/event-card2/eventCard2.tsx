@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Heart, Clock, Users, MapPin, Ticket } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -99,9 +99,18 @@ const EventCard2 = ({ event,
         {/* Event Title and Location */}
         <div>
           <h2 className={`text-lg sm:text-xl lg:text-2xl font-bold xl:text-[22px] xl:leading-[26px] mt-2 ${titleFontSize} ${titleAndCompanyTextColor}`}> {event?.title.length > 24? (`${event.title.substring(0, 24)}...`) : (event.title)} </h2>
-          <div className={`flex items-center gap-1 mt-3 ${cardInfoTextColor}`}>
-            <MapPin className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0 mb-[2px]" />
-            <p className={`cat text-sm leading-[1.25rem] ${locationFontSize}`}>{event?.location}</p>
+          <div className="flex items-center gap-6 mt-3">
+            <div className={`flex items-center gap-1 ${cardInfoTextColor}`}>
+              <MapPin className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0 mb-[2px]" />
+              <p className={`cat text-sm leading-[1.25rem] ${locationFontSize}`}>{event?.location}</p>
+            </div>
+
+            {event?.ratings && event?.review ? (
+            <div className={`flex items-center gap-1 ${cardInfoTextColor}`}>
+              <Icon icon="simple-line-icons:calender" width="1024" height="1024" className="w-3.5 h-3.5" />
+              <p className={`cat text-sm leading-[1.25rem] ${locationFontSize}`}>June 28, 2025</p>
+            </div>
+            ) : null}
           </div>
         </div>
 

@@ -8,6 +8,7 @@ import { clubData } from "./data/clubData";
 import FollowClubCard from "@/components/utility/cards/follow-club-card/followClubCard";
 import NextEventCard from "../components/nextEventCard/nextEventCard";
 import CategoryFilter from "../components/categoryFilter/categoryFilter";
+import { categoryList } from "../data/categoryList";
 
 
 const page = () => {
@@ -54,7 +55,7 @@ const page = () => {
 			</div>
 		
 			<div className="mt-8">
-				<CategoryFilter />
+				<CategoryFilter listItems={categoryList} />
 			</div>
 
 			<div className="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">

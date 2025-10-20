@@ -2,13 +2,23 @@ import { eventsData } from '@/app/(dashboard)/(events)/selectData/selectData'
 import EventCard2 from '@/components/utility/cards/event-card2/eventCard2'
 import React from 'react'
 import NoItemCard from '../../noItemCard/noItemCard'
+import { Icon } from '@iconify/react/dist/iconify.js'
 
 const Interested = () => {
+
+	const message = (
+		<>
+		  Tap the{" "}
+		  <Icon icon="bxs:heart" width="24" height="24" className="w-3 h-3 text-[#FF00EA]" />{" "}
+		  button on events to keep track of them here.
+		</>
+	  )
+
   return (
 	<>
 		{!eventsData || eventsData.length == 0 ?
 		(<div className='flex items-center justify-center mt-16 lg:mt-36'>
-			<NoItemCard /> 
+			<NoItemCard iconName="si:heart-fill" cardDescription={message} iconClasses='text-[#da60cf]' /> 
 		</div>) : (
 	  	<div className="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
 			{eventsData.map((_event, index) => (
