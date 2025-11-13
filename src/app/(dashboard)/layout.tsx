@@ -4,6 +4,7 @@ import Floating_Dock from "./components/floatingDock/floatingDock";
 import Navbar from "./components/navbar/navbar";
 import SideBar from "./components/sideBar/sideBar";
 import "../../../public/styles/main.css"
+import NavigationDock from "./components/navigationDock/navigationDock";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -21,8 +22,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
 
         {/* Floating dock */}
-        <div className="fixed bottom-[-220px] inset-x-0 flex justify-center lg:hidden">
-          <Floating_Dock />
+        <div className="fixed bottom-0 inset-x-0 flex justify-center lg:hidden">
+          {/* <Floating_Dock /> */}
+          <NavigationDock />
         </div>
       </div>
     </div>

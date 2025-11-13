@@ -33,9 +33,9 @@ const EventCard2 = ({ event,
                       cardInfoTextColor="text-[#696B6F]", 
                       imgHeight="h-[21.25rem]", 
                       curveDesignColor="bg-[#EDEDED]",
-                      titleFontSize="2xl:text-2xl 2xl:leading-7",
+                      titleFontSize="lg:text-2xl xl:text-[22px] xl:leading-[26px] 2xl:text-2xl 2xl:leading-7",
                       locationFontSize="2xl:text-base 2xl:leading-[1.25rem]",
-                      eventInfoFontSize="2xl:text-sm 2xl:leading-[1.125rem]",
+                      eventInfoFontSize,
                       cardTag,
                       clickHandler
                     }: EventCardProps) => {
@@ -53,16 +53,16 @@ const EventCard2 = ({ event,
 
   return (
     <Card
-      className={`card3 w-full max-w-full md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-[33.79px] p-5 border-none ${bgClassName}`}
+      className={`card3 w-full max-w-full md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-[1.15rem] p-3 border-none ${bgClassName}`}
     >
       {/* Hero Image Section */}
       <div onClick={() => clickHandler?.(Number(event.id))} className="relative cursor-pointer">
-        <div className={`relative w-full bg-[#000000] rounded-[16.82px] ${imgHeight}`}>
+        <div className={`relative w-full bg-[#000000] rounded-[0.57rem] ${imgHeight}`}>
           <Image
           src={event?.imageUrl || placeholderImg}
           alt={event?.imageAlt}
           fill
-          className="object-cover rounded-[16.82px]"
+          className="object-cover rounded-[0.57rem]"
           priority
           />
         </div>
@@ -81,11 +81,11 @@ const EventCard2 = ({ event,
           />
         </Button>
         ) : cardTag === "latest"? (
-          <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-[#53535354] border border-[#838383] text-[#F5F5F5] py-0.5 px-2.5 text-xs font-[500] rounded-full">
+          <div className="absolute top-2 left-2 bg-[#53535354] border border-[#838383] text-[#F5F5F5] py-0.5 px-2.5 text-[0.5rem] font-[500] rounded-3xl">
                   Latest
           </div>
           ) : cardTag === "eventCategory"? (
-            <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-[#53535354] border border-[#838383] text-[#F5F5F5] py-0.5 px-2.5 text-xs font-[500] rounded-full">
+            <div className="absolute top-2 left-2 bg-[#53535354] border border-[#838383] text-[#F5F5F5] py-0.5 px-2.5 text-[0.5rem] font-[500] rounded-3xl">
                   {event?.category}
             </div>
           ) : (
@@ -95,13 +95,14 @@ const EventCard2 = ({ event,
       </div>
 
 
-      <CardContent className="space-y-4 sm:space-y-5">
+      <CardContent>
+        <div className="space-y-2 px-2">
         {/* Event Title and Location */}
         <div>
-          <h2 className={`text-lg sm:text-xl lg:text-2xl font-bold xl:text-[22px] xl:leading-[26px] mt-2 ${titleFontSize} ${titleAndCompanyTextColor}`}> {event?.title.length > 24? (`${event.title.substring(0, 24)}...`) : (event.title)} </h2>
-          <div className="flex items-center gap-6 mt-3">
+          <h2 className={`text-lg sm:text-xl font-bold mt-2 ${titleFontSize} ${titleAndCompanyTextColor}`}> {event?.title.length > 24? (`${event.title.substring(0, 24)}...`) : (event.title)} </h2>
+          <div className="flex items-center gap-6 mt-2">
             <div className={`flex items-center gap-1 ${cardInfoTextColor}`}>
-              <MapPin className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0 mb-[2px]" />
+              <MapPin className="w-3 h-3 sm:w-4 sm:h-4 lg:w-3 lg:h-3 flex-shrink-0 mb-[2px]" />
               <p className={`cat text-sm leading-[1.25rem] ${locationFontSize}`}>{event?.location}</p>
             </div>
 
@@ -116,24 +117,36 @@ const EventCard2 = ({ event,
 
         {/* Event Details */}
         {event?.interestedCount? (
-        <div className={`flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 text-sm sm:text-[0.75rem] mt-4 font-[600] ${eventInfoFontSize}  ${cardInfoTextColor}`}>
-          <div className="flex items-center gap-1">
-            <Clock className="w-4 h-4 flex-shrink-0" />
-            <span>
-              {event?.date}, {event?.time}
-            </span>
-          </div>
-
-          <div className="flex items-center justify-between sm:justify-end gap-4 sm:mr-7">
+        <div className={`text-xs lg:text-[0.6rem] mt-4 lg:mt-2 font-[600] ${eventInfoFontSize} ${cardInfoTextColor}`}>
+          <div className="flex items-center justify-between pr-[5%]">
             <div className="flex items-center gap-1">
-              <Ticket className="w-4 h-4 mb-1 2xl:mb-0" />
+              <Clock className="w-4 h-4 lg:w-3 lg:h-3 flex-shrink-0" />
+              <span>
+                {event?.date}, {event?.time}
+              </span>
+            </div>
+
+            <div className="flex items-center gap-1">
+              <Ticket className="w-3 h-3" />
               <div>{event?.price && event?.currency && formatPrice(event?.price, event?.currency)}</div>
             </div>
+
             <div className="flex items-center gap-1">
-              <Users className="w-4 h-4 flex-shrink-0" />
+              <Users className="w-3 h-3 flex-shrink-0" />
               <span>{event?.interestedCount} Interested</span>
             </div>
           </div>
+
+          {/* <div className="sm:[display:none] flex items-center justify-between sm:justify-end gap-4 sm:mr-7">
+            <div className="flex items-center gap-1">
+              <Ticket className="w-4 h-4 lg:w-3 lg:h-3 mb-1 2xl:mb-0" />
+              <div>{event?.price && event?.currency && formatPrice(event?.price, event?.currency)}</div>
+            </div>
+            <div className="flex items-center gap-1">
+              <Users className="w-4 h-4 lg:w-3 lg:h-3 flex-shrink-0" />
+              <span>{event?.interestedCount} Interested</span>
+            </div>
+          </div> */}
         </div>
         ) : null}
 
@@ -204,11 +217,11 @@ const EventCard2 = ({ event,
 
 
         {/* Brand Section */}
-        <div className={`relative flex items-center gap-3 pt-3 sm:pt-4 ${event?.categories && "border-t-2 border-dashed border-gray-300"}`}>
-          <div className={`absolute left-0 top-[-14px] rounded-full h-8 w-8 ${curveDesignColor}  ml-[-30px]`}></div>
-          <div className={`absolute right-0 top-[-14px] rounded-full h-8 w-8 ${curveDesignColor} mr-[-30px]`}></div>
-          <div className={`${!event?.categories? "px-2 py-3 border border-[#343434] bg-[#2B2B2B] flex items-center gap-3 rounded-2xl w-full" : "flex items-center gap-3"}`}>
-            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-black rounded-full flex items-center justify-center flex-shrink-0">
+        <div className={`relative flex items-center gap-3 pt-3 sm:pt-2 lg:pt-1 ${event?.categories && "border-t-2 border-dashed border-gray-300"}`}>
+          <div className={`absolute left-0 top-[-14px] rounded-full h-8 w-8 lg:w-5 lg:h-5 ${curveDesignColor}  ml-[-30px] lg:ml-[-27px]`}></div>
+          <div className={`absolute right-0 top-[-14px] rounded-full h-8 w-8 lg:w-5 lg:h-5 ${curveDesignColor} mr-[-30px] lg:mr-[-27px]`}></div>
+          <div className={`${!event?.categories? "px-2 py-3 border border-[#343434] bg-[#2B2B2B] flex items-center gap-3 lg:gap-2 rounded-lg w-full" : "flex items-center gap-3"}`}>
+            <div className="w-8 h-8 sm:w-10 sm:h-10 lg:h-6 lg:w-6 bg-black rounded-full flex items-center justify-center flex-shrink-0">
               {event?.brand.logo ? (
                 <Image
                   src={event?.brand.logo}
@@ -218,16 +231,17 @@ const EventCard2 = ({ event,
                   className="rounded-full"
                 />
               ) : (
-                <span className="text-white text-xs sm:text-sm font-bold">{event?.brand.name.charAt(0)}</span>
+                <span className="text-white text-xs sm:text-sm lg:text-xs font-bold">{event?.brand.name.charAt(0)}</span>
               )}
             </div>
             <div className="min-w-0 flex-1">
               {event?.categories && <p className="text-xs sm:text-sm text-gray-500 mb-1">Brand</p>}
-              <p className={`text-sm sm:text-base leading-tight sm:leading-4 font-medium ${titleAndCompanyTextColor}`}>
+              <p className={`text-sm sm:text-base lg:text-xs leading-tight sm:leading-4 lg:leading-3 font-medium ${titleAndCompanyTextColor}`}>
                 {event?.brand.name} - {event?.brand.description.length > 24? (`${event.brand.description.substring(0, 24)}...`) : (event.brand.description)}
               </p>
             </div>
           </div>
+        </div>
         </div>
       </CardContent>
     </Card>

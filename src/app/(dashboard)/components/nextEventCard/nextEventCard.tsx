@@ -14,7 +14,7 @@ interface NextEventProps {
   cardUse?: string;
 }
 
-const NextEventCard = ({ event, titleClassName="text-xl", cardUse="nextEvent", locationClassName="text-base", timeClassName="text-base", imageClassName="w-24 h-24", iconSizeClassName="w-3 h-3 sm:w-5 sm:h-5" }:NextEventProps) => {
+const NextEventCard = ({ event, titleClassName="text-base", cardUse="nextEvent", locationClassName="text-xs", timeClassName="text-xs", imageClassName="w-20 h-20", iconSizeClassName="w-3 h-3 lg:h-[0.88rem] lg:w-[0.88rem]" }:NextEventProps) => {
   return (
 	<>
     <div className={`flex items-center py-[0.6rem] pl-[0.6rem] pr-[1.8rem] bg-[#232323] shadow-[0_0_20px_rgba(0,0,0,0.5)] border border-[#343434] gap-3 rounded-2xl ${cardUse == "trending" && "w-full"} whitespace-nowrap flex-shrink-0 snap-start`}>

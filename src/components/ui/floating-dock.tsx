@@ -29,6 +29,10 @@ export const FloatingDock = ({
   );
 };
 
+
+
+
+
 const FloatingDockMobile = ({
   items,
   className,
@@ -84,6 +88,12 @@ const FloatingDockMobile = ({
   );
 };
 
+
+
+
+
+
+
 const FloatingDockDesktop = ({
   items,
   className,
@@ -97,7 +107,7 @@ const FloatingDockDesktop = ({
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
       className={cn(
-        "mx-auto flex h-16 items-end gap-4 rounded-2xl bg-gray-50 px-4 pb-3 xl:hidden dark:bg-neutral-900 bottom-0",
+        "mx-auto flex h-16 items-end gap-4 rounded-2xl bg-gray-50 px-4 pb-3 lg:hidden dark:bg-neutral-900 bottom-0",
         className,
       )}
     >

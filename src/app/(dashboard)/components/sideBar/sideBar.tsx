@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { sidebarItems } from "./sidebarItems";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
@@ -26,7 +25,7 @@ const SideBar = () => {
   return (
       <div className="sign-up-cont w-[6.6rem] h-full [display:none] lg:flex flex-col items-center bg-[#202222] border-x-2 border-[#343434]">
         <Link className="flex items-center mt-9" href="/">
-          <div className="h-[1.8rem] w-[2.8rem] 2xl:h-[2.6rem] 2xl:w-[3.5rem]">
+          <div className="h-[1.8rem] w-[2.8rem] lg:h-[2.4rem] lg:w-[3.5rem]  2xl:h-[2.6rem] 2xl:w-[3.5rem]">
             <Image src={brandLogo} alt="brand Logo" className="brand-logo w-full h-full bg-cover"/>
           </div>
         </Link>

@@ -10,6 +10,7 @@ import { nextEventList } from "../components/nextEventCard/next-events";
 import Pagination from "@/components/pagination/pagination";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { categoryList } from "../data/categoryList";
 
 interface EventLayoutProps {
 	children: React.ReactNode;
@@ -32,7 +33,7 @@ const EventLayout = ({children}:EventLayoutProps) => {
 			</div>
 
 			<div className="mt-11 px-4 md:px-5">
-				<CategoryFilter />
+				<CategoryFilter listItems={categoryList}/>
 
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-9">
 					<SelectComponent

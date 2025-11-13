@@ -96,6 +96,18 @@ input:focus {
 	font-size: 16px;
 }
 
+@media screen and (min-width: 1024px) {
+	.data-\[placeholder\]\:text-muted-foreground[data-placeholder] {
+		font-size: 12px;
+	}
+}
+
+@media screen and (min-width: 1536px) {
+	.data-\[placeholder\]\:text-muted-foreground[data-placeholder] {
+		font-size: 16px;
+	}
+}
+
 
 .search-option .border{
 	border-width: 0px;
@@ -596,3 +608,5 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 	transform: translateX(1.5em);
 	outline-color: #181818;
   }
+
+

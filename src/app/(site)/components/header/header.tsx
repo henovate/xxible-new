@@ -109,7 +109,7 @@ const Header = () => {
                                     />
                                 </div>
                                 <div className="w-full">
-                                    <SelectComponent label="Location" selectItems={selectList} placeholder="Lagos NG" className="w-full bg-zinc-800 border-zinc-700 text-white"/>
+                                    <SelectComponent arrayItemType='array' label="Location" selectArrayItems={selectList} placeholder="Lagos NG" className="w-full bg-zinc-800 border-zinc-700 text-white"/>
                                 </div>
                                 <button 
                                     type="submit"
