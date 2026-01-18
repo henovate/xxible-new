@@ -18,6 +18,10 @@ interface SearchBarProps {
   selectWidth?: string;
   searchBtnBgAndTextColor?: string;
   searchInput?: string;
+  inputTextClassName?: string;
+  iconClassName?: string;
+  dividerClassName?: string;
+  selectClassName?: string;
 }
 
 export const selectList = ["Lagos, NG", "Abuja, NG", "Kano, NG", "Ibadan, NG"];
@@ -27,7 +31,11 @@ const SearchBar = ({
   bgColorClass = "bg-black",
   selectWidth = "min-w-[100px] sm:min-w-[120px] lg:min-w-[140px]",
   searchBtnBgAndTextColor = "bg-white text-gray-900 hover:bg-gray-100",
-  searchInput=""
+  searchInput="",
+  inputTextClassName = "text-[#f5f5f5] placeholder-[#f5f5f5]",
+  iconClassName = "text-[#f5f5f5]",
+  dividerClassName = "bg-gray-600",
+  selectClassName = "border-none bg-transparent text-white text-xs sm:text-sm lg:text-xs 2xl:text-base !h-auto !min-h-0 !py-0"
 }: SearchBarProps) => {
   return (
     <>
@@ -37,21 +45,21 @@ const SearchBar = ({
         <form
           className={`flex items-center rounded-full px-2 sm:px-3 lg:px-1 lg:pl-3 py-1.5 sm:py-2 lg:py-1 border-gray-70 border-[2px] border-transparent [border-image-slice:1] ${bgColorClass}`}
         >
-          <Search className="w-3 h-3 sm:w-4 sm:h-4 text-[#f5f5f5] mr-1 sm:mr-3 flex-shrink-0" />
+          <Search className={`w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-3 flex-shrink-0 ${iconClassName}`} />
           <input
             type="text"
             name="search"
             placeholder="Beach Party"
-            className={`flex-1 bg-transparent text-[#f5f5f5] placeholder-[#f5f5f5] outline-none text-xs sm:text-sm lg:text-xs 2xl:text-base min-w-0 mr-1 sm:mr-0 ${searchInput}`}
+            className={`flex-1 bg-transparent outline-none text-xs sm:text-sm lg:text-xs 2xl:text-base min-w-0 mr-1 sm:mr-0 ${inputTextClassName} ${searchInput}`}
           />
-          <div className="w-px h-3 sm:h-4 bg-gray-600 mx-2 sm:mx-3 hidden sm:block"></div>
+          <div className={`w-px h-3 sm:h-4 mx-2 sm:mx-3 hidden sm:block ${dividerClassName}`}></div>
           <div className={`min-w-0 hidden sm:block ${selectWidth}`}>
             <SelectComponent 
                 arrayItemType="array"
                 label="Location" 
                 selectArrayItems={selectList} 
                 placeholder="Lagos NG" 
-                className="border-none bg-transparent text-white text-xs sm:text-sm lg:text-xs 2xl:text-base !h-auto !min-h-0 !py-0"
+                className={selectClassName}
                 selectItemClassName="data-[highlighted]:bg-[#F800E9] data-[highlighted]:font-[600]"
                 />
           </div>

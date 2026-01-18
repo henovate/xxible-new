@@ -14,14 +14,17 @@ interface CategoryListProps {
 const CategoryCardList = ({cards, sliderType}:CategoryListProps) => {
   return (
 	<Swiper
-      spaceBetween={20}
-      slidesPerView={6}
+      spaceBetween={16}
+      slidesPerView={8}
 	  autoplay={{
 		delay: 2500,
 		disableOnInteraction: false,
 	  }}
 	  breakpoints={{
         // when window width is >= 1024px
+        1280: {
+          slidesPerView: 8,
+        },
         1024: {
           slidesPerView: 6,
         },
@@ -35,7 +38,7 @@ const CategoryCardList = ({cards, sliderType}:CategoryListProps) => {
         },
       }}
 	  modules={[Autoplay]}
-	  className="flex justify-between items-center gap-3 w-full h-[300px]"
+      className="flex justify-between items-center gap-3 w-full py-4"
     >
       	{cards?.map((cardData, i) => (
 			<SwiperSlide className={` ${sliderType == 2? "swiper-slide" : null}`}>
