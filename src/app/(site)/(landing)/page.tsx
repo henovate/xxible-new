@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { Globe, Music, Sparkles, Users, Waves, Mic, GlassWater, PartyPopper } from 'lucide-react';
+import { Globe } from 'lucide-react';
 import graphUp from "../../../../public/assets/img/graphUp.png";
 import star from "../../../../public/assets/img/star.png";
 import Image from 'next/image';
@@ -45,7 +45,7 @@ const categoryTiles = [
             <div className='h-full w-full'>
 
               <div className='relative w-full'>
-                <div className='relative h-[28rem] sm:h-[34rem] md:h-[44rem] xl:h-[50rem] 2xl:h-[54rem] w-full overflow-hidden rounded-[32px] md:rounded-[40px] lg:rounded-[48px]'>
+                <div className='relative h-[26rem] sm:h-[32rem] md:h-[42rem] xl:h-[48rem] 2xl:h-[52rem] w-full overflow-hidden'>
                   <div className='absolute inset-0 hidden md:block'>
                     <video className='h-full w-full object-cover' muted autoPlay loop playsInline>
                       <source onLoad={()=> handleLoad()} src='https://videos.pexels.com/video-files/6225458/6225458-hd_1920_1080_30fps.mp4' type='video/mp4' />
@@ -60,48 +60,19 @@ const categoryTiles = [
                       priority
                     />
                   </div>
-                  <div className='absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20'></div>
-                  <div className='relative z-10 flex h-full items-center'>
-                    <div className='px-6 sm:px-10 lg:px-16 w-full max-w-4xl'>
-                      <p className='text-white text-[2.6rem] leading-[3rem] sm:text-[3.4rem] sm:leading-[3.8rem] lg:text-[4.2rem] lg:leading-[4.6rem] font-[700]'>
-                        Find The Hottest <span className='text-[#F800E9]'>Nightlife</span> Events, Vibes, And Meet New People
+                  <div className='absolute inset-0 bg-black/60'></div>
+                  <div className='relative z-10 flex h-full items-end'>
+                    <div className='px-5 sm:px-10 lg:px-16 pb-16 sm:pb-20 lg:pb-24 max-w-3xl'>
+                      <p className='text-white text-[2rem] leading-[2.3rem] sm:text-[2.6rem] sm:leading-[3rem] lg:text-[3.2rem] lg:leading-[3.6rem] font-[600]'>
+                        Find The Hottest Nightlife Events, Vibes, And Meet New People
                       </p>
-                      <p className='mt-4 text-sm sm:text-base lg:text-lg text-stone-200 max-w-2xl'>
-                        Updates on exclusive parties, night clubs, and the coolest crowd — all in one place.
+                      <p className='mt-4 text-sm sm:text-base lg:text-lg text-stone-200'>
+                        Your all-access guide to Lagos nights—discover clubs, beach parties, lounges, and everything in between.
                       </p>
-                      <div className='mt-8 sm:mt-10'>
-                        <SearchBar
-                          widthAndBorderColorClass="max-w-3xl bg-white/70"
-                          bgColorClass="bg-white"
-                          searchBtnBgAndTextColor="bg-[#F800E9] text-white hover:bg-[#d900cb]"
-                          inputTextClassName="text-zinc-700 placeholder:text-zinc-400"
-                          iconClassName="text-zinc-500"
-                          dividerClassName="bg-zinc-300"
-                          selectClassName="border-none bg-transparent text-zinc-600 text-xs sm:text-sm lg:text-xs 2xl:text-base !h-auto !min-h-0 !py-0"
-                        />
-                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-
-              <section className='bg-white -mt-8 sm:-mt-10 lg:-mt-12 relative z-20'>
-                <div className='px-5 lg:px-8 xl:px-16 py-8 sm:py-10'>
-                  <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6'>
-                    {categoryTiles.map((tile) => {
-                      const Icon = tile.icon;
-                      return (
-                        <div key={tile.label} className='flex flex-col items-start gap-3 rounded-2xl border border-zinc-200 bg-white p-4 shadow-[0px_8px_24px_rgba(0,0,0,0.08)]'>
-                          <div className='flex h-12 w-12 items-center justify-center rounded-xl border border-zinc-200 bg-zinc-50 text-zinc-700'>
-                            <Icon className="h-6 w-6" />
-                          </div>
-                          <p className='text-sm sm:text-base font-[600] text-[#212121]'>{tile.label}</p>
-                        </div>
-                      )
-                    })}
-                  </div>
-                </div>
-              </section>
 
 
 
