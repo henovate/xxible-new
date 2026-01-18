@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { Globe } from 'lucide-react';
+import { GlassWater, Globe, Mic, Music, PartyPopper, Sparkles, Users, Waves } from 'lucide-react';
 import graphUp from "../../../../public/assets/img/graphUp.png";
 import star from "../../../../public/assets/img/star.png";
 import Image from 'next/image';
