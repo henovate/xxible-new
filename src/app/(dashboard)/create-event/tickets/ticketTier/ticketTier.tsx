@@ -61,7 +61,9 @@ const TicketTier = ({tierNo, setTierContainer}:TicketTierProps) => {
 					<div className='flex items-center gap-6 mt-6 flex-wrap'>
 						{ticketBadges.map((item, index) => (
 							<Badge key={index} variant={'default'} className='rounded-3xl gap-2 px-2.5 py-1.5 text-sm bg-[#555555] text-[#f5f5f5] hover:text-stone-900 font-[500] whitespace-nowrap cursor-pointer'>
-								<Icon icon={item.badgeIcon} width={20} height={20} className='h-3 w-3 md:h-4 md:w-4'/>
+								{item.badgeIcon && (
+									<Icon icon={item.badgeIcon} width={20} height={20} className='h-3 w-3 md:h-4 md:w-4'/>
+								)}
 								{item.badgeName}
 							</Badge>
 						))}

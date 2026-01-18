@@ -2,10 +2,8 @@
 
 import React from 'react';
 import { Globe } from 'lucide-react';
-import graphUp from "../../../../public/assets/img/graphUp.png";
 import star from "../../../../public/assets/img/star.png";
 import Image from 'next/image';
-import SwiperSlider from '@/components/swiper/swiperSlider';
 import EventCard2 from '@/components/utility/cards/event-card2/eventCard2';
 import { eventsData } from '@/components/utility/cards/event-card2/events';
 import ClubCard from '@/components/utility/cards/club-card/clubCard';
@@ -17,6 +15,7 @@ import EventCard4 from '@/components/utility/cards/event-card4/eventCard4';
 import Marquee from "react-fast-marquee";
 import "../../../../public/styles/main.css"
 import SearchBar from '@/components/utility/searchBar/searchBar';
+import { CategoriesSection } from '@/components/CategoriesSection';
 
 
 
@@ -28,16 +27,6 @@ const handleLoad = () => {
 
 const lastClubItem = clubsData.length;
 const secondtoLastClubItem = clubsData.length - 1
-
-const categoryTiles = [
-  { label: "Nightclubs", icon: PartyPopper },
-  { label: "Lounges", icon: GlassWater },
-  { label: "Beach Parties", icon: Waves },
-  { label: "Live DJs", icon: Music },
-  { label: "VIP Tables", icon: Users },
-  { label: "Open Mic", icon: Mic },
-  { label: "After Parties", icon: Sparkles },
-];
 
   return ( 
       <>
@@ -77,77 +66,20 @@ const categoryTiles = [
 
 
 
-              <div className='sec2 w-full relative bg-[url("/assets/category-background.png")] pt-16 bg-cover bg-center'>
-              {/* hidden elememt for container height */}
-              <div className='pt-8 md:pt-12 pb-20 hide invisible'>
-                  <div className='w-full my-16 px-8'>              
-                    <SwiperSlider cardType={1} />
+              <section className="bg-[#F4F4F5] px-5 sm:px-10 lg:px-16 py-10">
+                <div className="flex items-center justify-between gap-6">
+                  <div>
+                    <p className="text-sm uppercase tracking-[0.2em] text-zinc-500">Categories</p>
+                    <h2 className="mt-3 text-2xl font-semibold text-zinc-900 sm:text-3xl">
+                      Discover the vibe that fits your night
+                    </h2>
                   </div>
-
-
-                  <div className='px-8 md:mt-[20px] xl:mt-[139px] 2xl:mt-[173px]'>
-                    <div className='eventHeading lg:ml-16'>
-                      <div className='flex justify-center sm:justify-start'>
-                        <div className='discover flex items-center py-3 px-5 bg-[#242424]/40 rounded-xl w-fit'>
-                          <div className='h-[13px] w-[13px] lg:h-[15px] lg:w-[15px] mr-1 mt-[2.5px] lg:mb-[3.5px]'>
-                            <Image src={graphUp} alt="right arrow" className="w-full h-full"/>
-                          </div>
-                          <p className='text-[12px] lg:text-[14px] font-[400] uppercase explore text-stone-100 mt-[8px]'>Discover What's Trending in Lagos</p>
-                        </div>
-                      </div>
-                      
-
-                      <div className='topdetails text-center sm:text-start text-[1.5rem] leading-[1.5rem] sm:text-[30px] sm:leading-[35px] xl:text-[48px] xl:leading-[53px] font-[500] mt-4  text-transparent bg-clip-text bg-gradient-to-r from-[#FFFFFF] via-pink-500 to-[#FF00EA] overflow-visible'>
-                        <p>Top 10 Upcoming events in Lagos</p>
-                      </div>
-                    </div>
-                
-
-
-                    <div className='mt-7 lg:mt-[62px] w-full'>
-                      <SwiperSlider cardType={2} />
-                    </div>
-                  </div>
+                  <SearchBar />
                 </div>
-
-
-
-
-                  {/* black Shade */}
-                <div className='absolute inset-0 bg-black/40 z-10'></div>
-
-                  {/* Absolute container */}
-                <div className='absolute inset-0 pt-8 md:pt-12 pb-20 z-20'>
-                  <div className='w-full my-16 px-6 lg:px-8'>              
-                    <SwiperSlider cardType={1} />
-                  </div>
-
-
-                  <div className='px-6 lg:px-8 md:mt-[20px] mt-[100px] xl:mt-[139px] 2xl:mt-[173px]'>
-                    <div className='eventHeading lg:ml-16'>
-                      <div className='flex justify-center sm:justify-start'>
-                        <div className='discover flex items-center py-3 px-5 bg-[#242424]/40 rounded-xl w-fit'>
-                          <div className='h-[13px] w-[13px] lg:h-[15px] lg:w-[15px] mr-1 mt-[2.5px] lg:mb-[3.5px]'>
-                            <Image src={graphUp} alt="right arrow" className="w-full h-full"/>
-                          </div>
-                          <p className='text-[12px] lg:text-[14px] font-[400] uppercase explore text-stone-100 mt-[8px]'>Discover What's Trending in Lagos</p>
-                        </div>
-                      </div>
-                      
-
-                      <div className='topdetails text-center sm:text-start text-[1.5rem] leading-[1.5rem] sm:text-[1.88rem] sm:leading-[2.5rem] xl:text-[48px] xl:leading-[53px] font-[500] mt-4 text-transparent bg-clip-text bg-gradient-to-r from-[#fbd0f7] via-[#FFFFFF] to-[#FF00EA] overflow-visible'>
-                        <p>Top 10 Upcoming events in Lagos</p>
-                      </div>
-                    </div>
-                
-
-
-                    <div className='mt-7 lg:mt-[62px] w-full'>
-                      <SwiperSlider cardType={2} />
-                    </div>
-                  </div>
+                <div className="mt-8">
+                  <CategoriesSection />
                 </div>
-              </div>
+              </section>
 
               
 
