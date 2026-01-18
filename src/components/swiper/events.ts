@@ -1,63 +1,63 @@
 export const events = [
 	{
 	  id: 1,
-	  image: "/assets/categories/lounges.png",
-	  eventType: "Lounge & Bars",
-	  eventCategory: "Chill Hangout"
+	  image: "/assets/categories/nightclubs.png",
+	  eventType: "Nightclubs",
+	  eventCategory: "Late Night Energy"
 	},
 	{
 	  id: 2,
-	  image: "/assets/categories/house-parties.png",
-	  eventType: "Night Club",
-	  eventCategory: "Late Night Vibes"
+	  image: "/assets/categories/lounges.png",
+	  eventType: "Lounges",
+	  eventCategory: "Cocktail Hangouts"
 	},
 	{
 	  id: 3,
-	  image: "/assets/categories/nightclubs.png",
-	  eventType: "Pool Party",
-	  eventCategory: "Outdoor Fun"
+	  image: "/assets/categories/pool-parties.png",
+	  eventType: "Beach Parties",
+	  eventCategory: "Ocean Vibes"
 	},
 	{
 	  id: 4,
-	  image: "/assets/categories/pool-parties.png",
-	  eventType: "House Party",
-	  eventCategory: "Private Bash"
+	  image: "/assets/categories/house-parties.png",
+	  eventType: "After Parties",
+	  eventCategory: "Sunrise Sets"
 	},
 	{
 	  id: 5,
 	  image: "/assets/categories/lounges.png",
-	  eventType: "Game Night",
-	  eventCategory: "Board & Video Games"
+	  eventType: "Rooftop Bars",
+	  eventCategory: "Skyline Views"
 	},
 	{
 	  id: 6,
-	  image: "/assets/categories/house-parties.png",
-	  eventType: "Lounge & Bars",
-	  eventCategory: "Cocktail Evenings"
+	  image: "/assets/categories/nightclubs.png",
+	  eventType: "Afrobeats Nights",
+	  eventCategory: "Dance All Night"
 	},
 	{
 	  id: 7,
 	  image: "/assets/categories/pool-parties.png",
-	  eventType: "Night Club",
-	  eventCategory: "DJ Sessions"
+	  eventType: "Day Parties",
+	  eventCategory: "Sunset Grooves"
 	},
 	{
 	  id: 8,
-	  image: "/assets/categories/nightclubs.png",
-	  eventType: "Live Music",
-	  eventCategory: "Concerts & Gigs"
+	  image: "/assets/categories/house-parties.png",
+	  eventType: "VIP Tables",
+	  eventCategory: "Bottle Service"
 	},
 	{
 	  id: 9,
-	  image: "/assets/categories/lounges.png",
-	  eventType: "Pool Party",
-	  eventCategory: "Daytime Splash"
+	  image: "/assets/categories/nightclubs.png",
+	  eventType: "Live DJ Sets",
+	  eventCategory: "Club Anthems"
 	},
 	{
 	  id: 10,
-	  image: "/assets/categories/house-parties.png",
-	  eventType: "Karaoke Night",
-	  eventCategory: "Sing-Along"
+	  image: "/assets/categories/lounges.png",
+	  eventType: "Open Mic",
+	  eventCategory: "Live Performances"
 	}
   ];
   

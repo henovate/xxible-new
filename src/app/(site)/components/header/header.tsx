@@ -10,9 +10,12 @@ import brandLogo from "../../../../../public/assets/icons/brandLogo.png";
 import "../../../../../public/styles/main.css";
 import SearchBar, { selectList } from '@/components/utility/searchBar/searchBar';
 import SelectComponent from '@/components/selectComp/selectComp';
+import { usePathname } from 'next/navigation';
 
 const Header = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const pathname = usePathname();
+    const isHome = pathname === "/";
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -53,9 +56,11 @@ const Header = () => {
                     </Link>
 
                     {/* Search Bar */}
-                    <div className='mx-1 sm:mx-4 lg:mx-20'>
-                        <SearchBar searchInput='xl:w-96'/>
-                    </div>
+                    {!isHome && (
+                        <div className='mx-1 sm:mx-4 lg:mx-20'>
+                            <SearchBar searchInput='xl:w-96'/>
+                        </div>
+                    )}
 
                     {/* Auth Buttons */}
                     <div className="flex items-center gap-4 flex-shrink-0">
@@ -97,29 +102,31 @@ const Header = () => {
                 {isMobileMenuOpen && (
                     <div className="bg-black border-t border-zinc-700 px-4 py-4">
                         {/* Mobile Search */}
-                        <div className="mb-4">
-                            <form className="space-y-3">
-                                <div className="flex items-center bg-zinc-800 rounded-lg px-3 py-2 border border-zinc-700">
-                                    <Search className="w-4 h-4 text-zinc-400 mr-2" />
-                                    <input 
-                                        type="text" 
-                                        name="search" 
-                                        placeholder="Beach Party"
-                                        className="flex-1 bg-transparent text-white placeholder-zinc-400 outline-none text-sm 2xl:text-base"
-                                    />
-                                </div>
-                                <div className="w-full">
-                                    <SelectComponent arrayItemType='array' label="Location" selectArrayItems={selectList} placeholder="Lagos NG" className="w-full bg-zinc-800 border-zinc-700 text-white"/>
-                                </div>
-                                <button 
-                                    type="submit"
-                                    className="w-full bg-white text-zinc-900 py-2 rounded-lg text-sm font-medium hover:bg-zinc-100 transition-colors flex items-center justify-center gap-2"
-                                >
-                                    <Search className="w-4 h-4" />
-                                    Search
-                                </button>
-                            </form>
-                        </div>
+                        {!isHome && (
+                            <div className="mb-4">
+                                <form className="space-y-3">
+                                    <div className="flex items-center bg-zinc-800 rounded-lg px-3 py-2 border border-zinc-700">
+                                        <Search className="w-4 h-4 text-zinc-400 mr-2" />
+                                        <input 
+                                            type="text" 
+                                            name="search" 
+                                            placeholder="Beach Party"
+                                            className="flex-1 bg-transparent text-white placeholder-zinc-400 outline-none text-sm 2xl:text-base"
+                                        />
+                                    </div>
+                                    <div className="w-full">
+                                        <SelectComponent arrayItemType='array' label="Location" selectArrayItems={selectList} placeholder="Lagos NG" className="w-full bg-zinc-800 border-zinc-700 text-white"/>
+                                    </div>
+                                    <button 
+                                        type="submit"
+                                        className="w-full bg-white text-zinc-900 py-2 rounded-lg text-sm font-medium hover:bg-zinc-100 transition-colors flex items-center justify-center gap-2"
+                                    >
+                                        <Search className="w-4 h-4" />
+                                        Search
+                                    </button>
+                                </form>
+                            </div>
+                        )}
 
                         {/* Mobile Auth */}
                         <div className="space-y-3 pt-3 border-t border-zinc-700">
