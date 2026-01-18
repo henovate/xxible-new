@@ -36,7 +36,7 @@ const secondtoLastClubItem = clubsData.length - 1
             <div className='h-full w-full'>
 
               <div className='relative w-full'>
-                <div className='relative h-[28rem] sm:h-[34rem] md:h-[44rem] xl:h-[50rem] 2xl:h-[54rem] w-full overflow-hidden rounded-[32px] md:rounded-[40px] lg:rounded-[48px]'>
+                <div className='relative h-[26rem] sm:h-[32rem] md:h-[42rem] xl:h-[48rem] 2xl:h-[52rem] w-full overflow-hidden'>
                   <div className='absolute inset-0 hidden md:block'>
                     <video className='h-full w-full object-cover' muted autoPlay loop playsInline>
                       <source onLoad={()=> handleLoad()} src='https://videos.pexels.com/video-files/6225458/6225458-hd_1920_1080_30fps.mp4' type='video/mp4' />
@@ -51,26 +51,15 @@ const secondtoLastClubItem = clubsData.length - 1
                       priority
                     />
                   </div>
-                  <div className='absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20'></div>
-                  <div className='relative z-10 flex h-full items-center'>
-                    <div className='px-6 sm:px-10 lg:px-16 w-full max-w-3xl'>
-                      <p className='text-white text-[2.2rem] leading-[2.6rem] sm:text-[2.9rem] sm:leading-[3.3rem] lg:text-[3.6rem] lg:leading-[4rem] font-[700]'>
-                        Find The Hottest <span className='text-[#F800E9]'>Nightlife</span> Events, Vibes, And Meet New People
+                  <div className='absolute inset-0 bg-black/60'></div>
+                  <div className='relative z-10 flex h-full items-end'>
+                    <div className='px-5 sm:px-10 lg:px-16 pb-16 sm:pb-20 lg:pb-24 max-w-3xl'>
+                      <p className='text-white text-[2rem] leading-[2.3rem] sm:text-[2.6rem] sm:leading-[3rem] lg:text-[3.2rem] lg:leading-[3.6rem] font-[600]'>
+                        Find The Hottest Nightlife Events, Vibes, And Meet New People
                       </p>
-                      <p className='mt-4 text-sm sm:text-base lg:text-lg text-stone-200 max-w-xl'>
-                        Updates on exclusive parties, night clubs, and the coolest crowd — all in one place.
+                      <p className='mt-4 text-sm sm:text-base lg:text-lg text-stone-200'>
+                        Your all-access guide to Lagos nights—discover clubs, beach parties, lounges, and everything in between.
                       </p>
-                      <div className='mt-8 sm:mt-10'>
-                        <SearchBar
-                          widthAndBorderColorClass="max-w-2xl bg-white/40"
-                          bgColorClass="bg-white/95"
-                          searchBtnBgAndTextColor="bg-[#F800E9] text-white hover:bg-[#d900cb]"
-                          inputTextClassName="text-zinc-700 placeholder:text-zinc-400"
-                          iconClassName="text-zinc-500"
-                          dividerClassName="bg-zinc-300"
-                          selectClassName="border-none bg-transparent text-zinc-600 text-xs sm:text-sm lg:text-xs 2xl:text-base !h-auto !min-h-0 !py-0"
-                        />
-                      </div>
                     </div>
                   </div>
                 </div>
