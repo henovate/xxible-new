@@ -1,21 +1,16 @@
 'use client'
 
 import { useState } from 'react';
-import { User, Mail, MapPin } from 'lucide-react';
+import { Eye, EyeOff, User, Mail, Lock, MapPin } from 'lucide-react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import "../../../../public/styles/main.css"
 import brandLogo from "../../../../public/assets/icons/logo2.png";
 import apple from "../../../../public/assets/icons/apple.png";
 import Image from 'next/image';
 import PasswordComp from '../component/password-comp/passwordComp';
 import FormInput from '../component/input-comp/formInput';
-import { useAppData } from '@/context/AppDataContext';
 
 const Page = () => {
-  const router = useRouter();
-  const { signUp } = useAppData();
-  const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -34,18 +29,7 @@ const Page = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    const result = signUp({
-      name: formData.name,
-      email: formData.email,
-      password: formData.password,
-      city: formData.city,
-    });
-    if (!result.ok) {
-      setError(result.error);
-      return;
-    }
-    setError(null);
-    router.push('/home');
+    console.log('Form submitted:', formData)
   }
 
   return (
@@ -113,21 +97,15 @@ const Page = () => {
           </div>
         </div>
 
-        {error ? (
-          <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-2 text-xs text-red-600">
-            {error}
-          </div>
-        ) : null}
-
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-[20px]">
 
           {/* Name Input */}
-          <FormInput icon={User} type='text' name='name' value={formData.name} onChange={handleInputChange} placeholder='Enter your name' required />
+          <FormInput icon={User} type='text' name='name' value={formData.name} onChange={handleInputChange} placeholder='Enter your name' />
           
           {/* Email Input */}
           <div>
-            <FormInput icon={Mail} type='email' name='email' value={formData.email} onChange={handleInputChange} placeholder='Enter your email address' required />
+            <FormInput icon={Mail} type='email' name='email' value={formData.email} onChange={handleInputChange} placeholder='Enter your email address' />
             <p className="text-[10px] 2xl:text-[11px] text-gray-500 mt-1">
               We'll use your email address to send you updates.
             </p>
@@ -143,7 +121,7 @@ const Page = () => {
           
           {/* City Input */}
           <div>
-            <FormInput icon={MapPin} type='text' name='city' value={formData.city} onChange={handleInputChange} placeholder='City' required />
+            <FormInput icon={MapPin} type='text' name='city' value={formData.city} onChange={handleInputChange} placeholder='City' />
             <p className="text-[10px] 2xl:text-[11px] text-gray-500 mt-1">
               Help us find local events where you are.
             </p>

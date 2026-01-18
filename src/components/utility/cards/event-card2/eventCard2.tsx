@@ -116,7 +116,7 @@ const EventCard2 = ({ event,
         </div>
 
         {/* Event Details */}
-        {event?.interestedCount !== undefined ? (
+        {event?.interestedCount? (
         <div className={`text-xs lg:text-[0.6rem] mt-4 lg:mt-2 font-[600] ${eventInfoFontSize} ${cardInfoTextColor}`}>
           <div className="flex items-center justify-between pr-[5%]">
             <div className="flex items-center gap-1">
@@ -128,9 +128,7 @@ const EventCard2 = ({ event,
 
             <div className="flex items-center gap-1">
               <Ticket className="w-3 h-3" />
-              <div>
-                {event?.currency ? formatPrice(event?.price ?? 0, event?.currency) : "Free"}
-              </div>
+              <div>{event?.price && event?.currency && formatPrice(event?.price, event?.currency)}</div>
             </div>
 
             <div className="flex items-center gap-1">
