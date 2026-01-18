@@ -1,24 +1,25 @@
 'use client'
 
 import { useState } from 'react';
-import { Eye, EyeOff, User, Mail, Lock, MapPin } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import "../../../../public/styles/main.css"
 import brandLogo from "../../../../public/assets/icons/logo2.png";
 import apple from "../../../../public/assets/icons/apple.png";
 import Image from 'next/image';
 import FormInput from '../component/input-comp/formInput';
 import PasswordComp from '../component/password-comp/passwordComp';
-// import FormInput from '../component/input-comp/formInput';
+import { useAppData } from '@/context/AppDataContext';
 
 const Page = () => {
-  const [showPassword, setShowPassword] = useState(false)
+  const router = useRouter();
+  const { login } = useAppData();
+  const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
-    name: '',
     email: '',
     password: '',
-    city: '',
-    ageConfirmed: false
+    keepSignedIn: false,
   })
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,7 +32,13 @@ const Page = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
+    const result = login({ email: formData.email, password: formData.password });
+    if (!result.ok) {
+      setError(result.error);
+      return;
+    }
+    setError(null);
+    router.push('/home');
   }
 
   return (
@@ -57,13 +64,17 @@ const Page = () => {
               </p>
           </div>
         </div>
-        
 
 
         {/* Form */}
         <div className='sm:px-4'>
           <form onSubmit={handleSubmit}>
             <div className="space-y-[15px]">
+              {error ? (
+                <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-2 text-xs text-red-600">
+                  {error}
+                </div>
+              ) : null}
               {/* Enter Email */}
                 <FormInput icon={Mail} type='email' name='email' value={formData.email} onChange={handleInputChange} placeholder='Enter your email address' required/>
 
@@ -72,7 +83,7 @@ const Page = () => {
 
               {/* Remain Signed in */}
               <div className='flex justify-between'>
-                <FormInput type='checkbox' name='ageConfirmed' onChange={handleInputChange} label='Keep me Signed in' required/>
+                <FormInput type='checkbox' name='keepSignedIn' checked={formData.keepSignedIn} onChange={handleInputChange} label='Keep me Signed in' />
 
                 <Link href="/auth/reset-password">
                   <p className='text-[#007AFF] text-[14px] items-center'>Forgot Password</p>
@@ -85,7 +96,7 @@ const Page = () => {
               type="submit"
               className="w-full text-[13px] 2xl:text-[15px] bg-gray-900 text-white mt-[28px] py-2 2xl:py-3.5 px-4 rounded-lg font-medium hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 outline-none"
             >
-              Sign up
+              Log in
             </button>
           </form>
 
@@ -137,7 +148,7 @@ const Page = () => {
 		<div className="mt-[52px] text-center">
           <p className="text-[12px] 2xl:text-[13px] text-gray-600">
             Dont have an account?{' '}
-            <Link href="/login" className="text-[#231F20] hover:text-[#595757] font-medium">
+            <Link href="/sign-up" className="text-[#231F20] hover:text-[#595757] font-medium">
               Sign Up
             </Link>
           </p>

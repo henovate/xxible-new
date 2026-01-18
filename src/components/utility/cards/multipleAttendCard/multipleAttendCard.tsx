@@ -4,10 +4,11 @@ import React from "react";
 import { UserProfile } from "../attendantCard/data";
 
 interface MultipleAttendCardProps {
-	data: UserProfile[];
+  data: UserProfile[];
 }
 
-const MultipleAttendCard = ({data}:MultipleAttendCardProps) => {
+const MultipleAttendCard = ({ data }: MultipleAttendCardProps) => {
+  const hiddenCount = Math.max(data.length - 6, 0);
 
   return (
     <div className="bg-[#232323] border border-[#343434] rounded-lg py-10 flex flex-col justify-center items-center">
@@ -24,7 +25,7 @@ const MultipleAttendCard = ({data}:MultipleAttendCardProps) => {
       </div>
 
       {/* "+47 more" */}
-      <p className="text-blue-500 text-lg mt-4 font-medium">+{Number(data.length - 6)} more</p>
+      <p className="text-blue-500 text-lg mt-4 font-medium">+{hiddenCount} more</p>
     </div>
   );
 };
