@@ -16,6 +16,7 @@ import { data } from '@/components/utility/cards/event-card4/data';
 import EventCard4 from '@/components/utility/cards/event-card4/eventCard4';
 import Marquee from "react-fast-marquee";
 import "../../../../public/styles/main.css"
+import SearchBar from '@/components/utility/searchBar/searchBar';
 
 
 
