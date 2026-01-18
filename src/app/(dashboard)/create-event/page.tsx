@@ -5,7 +5,7 @@ import { tabItems } from "./tabItems";
 import EventBasics from "./eventBasics/eventBasics";
 import { useSearchParams } from "next/navigation";
 import DateAndTime from "./dateAndTime/dateAndTime";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import Location from "./location/location";
 import Tickets from "./tickets/tickets";
 import OrganizerInfo from "./organizerInfo/organizerInfo";
@@ -13,16 +13,17 @@ import Publish from "./publish/publish";
 import { Icon } from "@iconify/react/dist/iconify.js";
 
 
-const page = () => {	
+const CreateEventPage = () => {	
 	const searchParams = useSearchParams();
 	const [step, setStep] = useState<number>(1);
-	const nextStep = searchParams.get("page");
+	const nextStep = Number(searchParams.get("page") ?? step);
+	const currentStep = Number.isFinite(nextStep) && nextStep > 0 ? nextStep : step;
 
 	const stagePercentage = (currentStage:number, totalNo:number) => {
 		return (currentStage/totalNo) * 100
 	}
 
-	const stageProgress = Math.round(stagePercentage(Number(nextStep), tabItems.length));
+	const stageProgress = Math.round(stagePercentage(currentStep, tabItems.length));
 
 	const renderPage = (step:number) => {
 
@@ -54,7 +55,7 @@ const page = () => {
 
 		<div className="w-full py-5 md:py-9 px-5 bg-[#232323] border border-[#343434] mt-7 md:mt-[3.45rem] rounded-[0.75rem]">
 			<div className="flex justify-between items-center">
-				<p className="text-base xl:text-2xl text-[#f5f5f5] font-[600]">Step {nextStep} of {tabItems.length}</p>
+				<p className="text-base xl:text-2xl text-[#f5f5f5] font-[600]">Step {currentStep} of {tabItems.length}</p>
 				<p className="text-sm xl:text-xl text-[#A0A0A0] font-[500]">{stageProgress}% complete</p>
 			</div>
 			<Progress value={stageProgress} className="mt-3 md:mt-7 text-[#F800E9]"/>
@@ -65,21 +66,27 @@ const page = () => {
 				<div 
 					key={index} 
 					className={`flex items-center gap-[0.4rem] px-3 py-1 md:py-2 rounded-full text-[0.7rem] lg:text-[0.94rem] font-[500] whitespace-nowrap 
-						${Number(nextStep) - 1 === index? "bg-[#F800E9] text-[#f5f5f5]" : "border border-[#787878] text-[#C2C2C2]"}
-						${Number(nextStep) - 1 > index && "bg-[#102D18] border border-[#33861D]"}
+						${currentStep - 1 === index? "bg-[#F800E9] text-[#f5f5f5]" : "border border-[#787878] text-[#C2C2C2]"}
+						${currentStep - 1 > index && "bg-[#102D18] border border-[#33861D]"}
 						`}>
-					<Icon icon="ic:round-check" width="24" height="24" className={`h-5 w-5 ${Number(nextStep) - 1 > index? "block" : "hidden"} `}/>
+					<Icon icon="ic:round-check" width="24" height="24" className={`h-5 w-5 ${currentStep - 1 > index? "block" : "hidden"} `}/>
 					{item}
 				</div>
 			))}
 		</div>
 
 		<div className="mt-[4.75rem]">
-			{renderPage(Number(nextStep))}
+			{renderPage(currentStep)}
 		</div>
 	  </div>
 	</div>
   )
 }
+
+const page = () => (
+  <Suspense fallback={<div className="px-3 py-3 lg:p-7 xl:px-16 xl:py-11">Loading event setup…</div>}>
+    <CreateEventPage />
+  </Suspense>
+);
 
 export default page
