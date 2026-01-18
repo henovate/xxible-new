@@ -1,7 +1,8 @@
 "use client";
 
 import React from 'react';
-import { Globe } from 'lucide-react';
+import { GlassWater, Globe, Mic, Music, PartyPopper, Sparkles, Users, Waves } from 'lucide-react';
+import graphUp from "../../../../public/assets/img/graphUp.png";
 import star from "../../../../public/assets/img/star.png";
 import Image from 'next/image';
 import EventCard2 from '@/components/utility/cards/event-card2/eventCard2';
@@ -14,6 +15,7 @@ import { data } from '@/components/utility/cards/event-card4/data';
 import EventCard4 from '@/components/utility/cards/event-card4/eventCard4';
 import Marquee from "react-fast-marquee";
 import "../../../../public/styles/main.css"
+import SearchBar from '@/components/utility/searchBar/searchBar';
 import { CategoriesSection } from '@/components/CategoriesSection';
 
 
@@ -66,7 +68,18 @@ const secondtoLastClubItem = clubsData.length - 1
 
 
               <section className="bg-[#F4F4F5] px-5 sm:px-10 lg:px-16 py-10">
-                <CategoriesSection />
+                <div className="flex items-center justify-between gap-6">
+                  <div>
+                    <p className="text-sm uppercase tracking-[0.2em] text-zinc-500">Categories</p>
+                    <h2 className="mt-3 text-2xl font-semibold text-zinc-900 sm:text-3xl">
+                      Discover the vibe that fits your night
+                    </h2>
+                  </div>
+                  <SearchBar />
+                </div>
+                <div className="mt-8">
+                  <CategoriesSection />
+                </div>
               </section>
 
               
