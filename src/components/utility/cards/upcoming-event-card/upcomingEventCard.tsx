@@ -39,16 +39,12 @@ const UpcomingEventCard = ({ event, eventNumber }:UpcomingEventCardProp) => {
 
 				<div className="flex items-center gap-1">
 					<Ticket className="w-3 h-3" />
-					<div>
-						{event.currency
-							? formatPrice(event?.price ?? 0, event?.currency)
-							: "Free"}
-					</div>
+					<div>{event.price && event.currency && formatPrice(event?.price, event?.currency)}</div>
 				</div>
 
 				<div className="flex items-center gap-1">
 					<Icon icon="solar:heart-angle-linear" width="24" height="24" className="w-3 h-3" />
-					<span>{event?.interestedCount ?? 0}</span>
+					<span>{event?.interestedCount}</span>
 				</div>
 			</div>
 		</div>	
