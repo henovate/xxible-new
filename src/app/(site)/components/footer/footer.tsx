@@ -9,31 +9,6 @@ const Footer = () => {
 	<div className='bg-[#131313]'>    
       {/* Footer */}
       <footer className="container text-white">
-        {/* Newsletter Section */}
-        <div>
-          <div className=" mx-auto px-4 sm:px-6 lg:px-8 pb-6 pt-[60px]">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <div className="flex-1">
-                <h3 className="text-[24px] leading-[26px] font-medium lg:w-[60%] 2xl:w-[50%]">
-                  Join Our Newsletter to Keep Up to Date With Us
-                </h3>
-              </div>
-              <div className="flex-shrink-0">
-                <div className="flex rounded-full p-[3px] bg-white overflow-hidden xl:w-[560px] max-w-[560px]">
-                  <input
-                    type="email"
-                    placeholder="Enter Email Address"
-                    className="flex-1 px-4 py-2 text-gray-900 placeholder-gray-500 placeholder:text-[16px] focus:outline-none min-w-0"
-                  />
-                  <button className="bg-[#212121] text-white px-6 py-2 text-[16px] font-medium hover:bg-[#353434] transition-colors rounded-[30px]">
-                    Subscribe
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Main Footer Content */}
         <div className=" mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[50%_1fr_1fr_1fr] gap-8">
