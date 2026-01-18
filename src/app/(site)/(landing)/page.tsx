@@ -29,6 +29,15 @@ const handleLoad = () => {
 const lastClubItem = clubsData.length;
 const secondtoLastClubItem = clubsData.length - 1
 
+const categoryTiles = [
+  { label: "Nightclubs", icon: PartyPopper },
+  { label: "Lounges", icon: GlassWater },
+  { label: "Beach Parties", icon: Waves },
+  { label: "Live DJs", icon: Music },
+  { label: "VIP Tables", icon: Users },
+  { label: "Open Mic", icon: Mic },
+  { label: "After Parties", icon: Sparkles },
+];
 
   return ( 
       <>
