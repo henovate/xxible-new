@@ -1,5 +1,5 @@
 import { eventsData } from '@/app/(dashboard)/(events)/selectData/selectData'
-import EventCard2 from '@/components/utility/cards/event-card2/eventCard2'
+import EventCard2 from '@/components/utility/cards/event-card2/EventCard2'
 import React from 'react'
 import NoItemCard from '../../noItemCard/noItemCard'
 import { Icon } from '@iconify/react/dist/iconify.js'

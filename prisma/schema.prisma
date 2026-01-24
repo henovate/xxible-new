@@ -5,8 +5,7 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client"
-  output   = "../src/generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -17,5 +16,106 @@ model User {
   id        String   @id @default(cuid())
   email     String   @unique
   password  String
+  city      String?
+  role      Role     @default(USER)
   createdAt DateTime @default(now())
+  brands    Brand[]
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model Brand {
+  id          String  @id @default(cuid())
+  name        String
+  description String?
+  logo        String?
+  verified    Boolean @default(false)
+
+  ownerId String
+  owner   User   @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+
+  locations BrandLocation[]
+  events    Event[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model BrandLocation {
+  id      String @id @default(cuid())
+  brandId String
+  brand   Brand  @relation(fields: [brandId], references: [id], onDelete: Cascade)
+
+  name    String
+  address String
+  city    String
+  country String
+
+  latitude  Float?
+  longitude Float?
+
+  // relations
+  events Event[]
+
+  createdAt DateTime @default(now())
+}
+
+model Event {
+  id      String @id @default(cuid())
+  brandId String
+  brand   Brand  @relation(fields: [brandId], references: [id], onDelete: Cascade)
+
+  title       String
+  description String
+  category    String
+
+  startsAt DateTime
+  endsAt   DateTime?
+
+  status EventStatus @default(DRAFT)
+
+  // Cover image
+  imageUrl      String
+  imageAlt      String?
+  imagePublicId String?
+
+  // Gallery (max 3 enforced in API)
+  galleryUrls      String[] @default([])
+  galleryPublicIds String[] @default([])
+
+  locationId String?
+  location   BrandLocation? @relation(fields: [locationId], references: [id])
+
+  locationName    String
+  locationAddress String
+  locationCity    String
+  locationCountry String
+  latitude        Float?
+  longitude       Float?
+
+  ticketTiers TicketTier[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+model TicketTier {
+  id      String @id @default(cuid())
+  eventId String
+  event   Event  @relation(fields: [eventId], references: [id], onDelete: Cascade)
+
+  name          String
+  price         Int // store in kobo/naira base units (0 = Free)
+  quantityLimit Int?
+
+  createdAt DateTime @default(now())
+}
+
+enum EventStatus {
+  DRAFT
+  PUBLISHED
 }

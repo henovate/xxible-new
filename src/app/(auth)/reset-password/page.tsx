@@ -6,7 +6,7 @@ import Link from 'next/link';
 import "../../../../public/styles/main.css"
 import brandLogo from "../../../../public/assets/icons/logo2.png";
 import Image from 'next/image';
-import ShortBtn from '@/components/short-btn/shortBtn';
+import ShortBtn from '@/components/short-btn/ShortBtn';
 import FormInput from '../component/input-comp/formInput';
 
 const Page = () => {

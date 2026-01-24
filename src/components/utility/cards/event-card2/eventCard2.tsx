@@ -2,250 +2,165 @@
 
 import { Heart, Clock, Users, MapPin, Ticket } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { useState } from "react";
-import placeholderImg from  "../../../../../public/assets/events/event3.png";
+import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
+import placeholderImg from "../../../../../public/assets/events/event3.png";
 import { EventDataType } from "./type/eventDataType";
 import "../../../../../public/styles/main.css";
-import { Icon } from "@iconify/react/dist/iconify.js";
-
-  
 
 interface EventCardProps {
   event: EventDataType;
-  bgClassName?: string;
-  titleAndCompanyTextColor?: string;
-  cardInfoTextColor?: string;
-  imgHeight?: string;
-  curveDesignColor?: string;
-  titleFontSize?: string;
-  locationFontSize?: string;
-  eventInfoFontSize?: string;
-  cardTag?: string;
-  clickHandler?: (id:number) => void;
+  cardTag?: "likes" | "latest" | "eventCategory";
 }
 
-const EventCard2 = ({ event, 
-                      bgClassName="bg-white", 
-                      titleAndCompanyTextColor="text-[#212121]", 
-                      cardInfoTextColor="text-[#696B6F]", 
-                      imgHeight="h-[21.25rem]", 
-                      curveDesignColor="bg-[#EDEDED]",
-                      titleFontSize="lg:text-2xl xl:text-[22px] xl:leading-[26px] 2xl:text-2xl 2xl:leading-7",
-                      locationFontSize="2xl:text-base 2xl:leading-[1.25rem]",
-                      eventInfoFontSize,
-                      cardTag,
-                      clickHandler
-                    }: EventCardProps) => {
-  
-  
-  const [isFavorited, setIsFavorited] = useState(false)
+export default function EventCard2({ event, cardTag }: EventCardProps) {
+  const router = useRouter();
+  const [isFavorited, setIsFavorited] = useState(false);
 
-  const handleFavoriteToggle = () => {
-    setIsFavorited(!isFavorited)
-  }
+  const goToEvent = () => {
+    router.push(`/event/${Number(event.id)}`);
+  };
 
-  const formatPrice = (price: number, currency: string) => {
-    return `${currency}${price?.toLocaleString()}`
-  }
+  const formatPrice = (price?: number, currency?: string) => {
+    if (price === 0) return "Free";
+    if (!price || !currency) return "Free";
+    return `${currency}${price.toLocaleString()}`;
+  };
+
+  const title = useMemo(() => {
+    const t = event?.title || "Untitled Event";
+    return t.length > 60 ? `${t.slice(0, 60)}…` : t;
+  }, [event?.title]);
+
+  const brandLine = useMemo(() => {
+    if (!event?.brand?.name) return "";
+    const desc = event?.brand?.description || "";
+    const short = desc.length > 38 ? `${desc.slice(0, 38)}…` : desc;
+    return short ? `${event.brand.name} — ${short}` : event.brand.name;
+  }, [event?.brand?.name, event?.brand?.description]);
+
+  const topLeftPill =
+    cardTag === "latest" ? "Latest" : cardTag === "eventCategory" ? event?.category : null;
 
   return (
-    <Card
-      className={`card3 w-full max-w-full md:max-w-md lg:max-w-lg xl:max-w-xl mx-auto overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-[1.15rem] p-3 border-none ${bgClassName}`}
-    >
-      {/* Hero Image Section */}
-      <div onClick={() => clickHandler?.(Number(event.id))} className="relative cursor-pointer">
-        <div className={`relative w-full bg-[#000000] rounded-[0.57rem] ${imgHeight}`}>
+    <Card className="group w-full overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-lg transition-shadow">
+      {/* Image */}
+      <div onClick={goToEvent} className="relative cursor-pointer">
+        <div className="relative h-[220px] sm:h-[270px] lg:h-[290px] w-full">
           <Image
-          src={event?.imageUrl || placeholderImg}
-          alt={event?.imageAlt}
-          fill
-          className="object-cover rounded-[0.57rem]"
-          priority
+            src={event?.imageUrl || placeholderImg}
+            alt={event?.imageAlt || event?.title || "Event image"}
+            fill
+            className="object-cover"
+            priority
           />
-        </div>
 
-        {cardTag === "likes"? 
-        (<Button
-          variant="ghost"
-          size="icon"
-          onClick={handleFavoriteToggle}
-          className="absolute top-3 right-3 sm:top-4 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 bg-white/90 hover:bg-white rounded-full shadow-md"
-        >
-          <Heart
-            className={`w-4 h-4 sm:w-8 sm:h-8 transition-colors ${
-              isFavorited ? "fill-red-500 text-red-500" : "text-gray-600"
-            }`}
-          />
-        </Button>
-        ) : cardTag === "latest"? (
-          <div className="absolute top-2 left-2 bg-[#53535354] border border-[#838383] text-[#F5F5F5] py-0.5 px-2.5 text-[0.5rem] font-[500] rounded-3xl">
-                  Latest
-          </div>
-          ) : cardTag === "eventCategory"? (
-            <div className="absolute top-2 left-2 bg-[#53535354] border border-[#838383] text-[#F5F5F5] py-0.5 px-2.5 text-[0.5rem] font-[500] rounded-3xl">
-                  {event?.category}
+          {/* subtle overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-black/0 to-transparent" />
+
+          {/* Tag pill */}
+          {topLeftPill && (
+            <div className="absolute top-3 left-3 rounded-full border border-white/20 bg-black/35 px-3 py-1 text-[11px] font-semibold text-white backdrop-blur">
+              {topLeftPill}
             </div>
-          ) : (
-            <></>
-          )
-        }
+          )}
+
+          {/* Like button */}
+          {cardTag === "likes" && (
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={(e) => {
+                e.stopPropagation(); // 🚫 prevent navigation
+                setIsFavorited((s) => !s);
+              }}
+              className="absolute top-3 right-3 h-10 w-10 rounded-full bg-white/90 hover:bg-white shadow-md"
+            >
+              <Heart
+                className={[
+                  "h-5 w-5 transition-colors",
+                  isFavorited ? "fill-red-500 text-red-500" : "text-gray-700",
+                ].join(" ")}
+              />
+            </Button>
+          )}
+        </div>
       </div>
 
+      <CardContent className="p-4 sm:p-5">
+        {/* Title */}
+        <h3 className="text-[17px] sm:text-[18px] lg:text-[20px] font-bold text-gray-900 leading-snug">
+          {title}
+        </h3>
 
-      <CardContent>
-        <div className="space-y-2 px-2">
-        {/* Event Title and Location */}
-        <div>
-          <h2 className={`text-lg sm:text-xl font-bold mt-2 ${titleFontSize} ${titleAndCompanyTextColor}`}> {event?.title.length > 24? (`${event.title.substring(0, 24)}...`) : (event.title)} </h2>
-          <div className="flex items-center gap-6 mt-2">
-            <div className={`flex items-center gap-1 ${cardInfoTextColor}`}>
-              <MapPin className="w-3 h-3 sm:w-4 sm:h-4 lg:w-3 lg:h-3 flex-shrink-0 mb-[2px]" />
-              <p className={`cat text-sm leading-[1.25rem] ${locationFontSize}`}>{event?.location}</p>
-            </div>
-
-            {event?.ratings && event?.review ? (
-            <div className={`flex items-center gap-1 ${cardInfoTextColor}`}>
-              <Icon icon="simple-line-icons:calender" width="1024" height="1024" className="w-3.5 h-3.5" />
-              <p className={`cat text-sm leading-[1.25rem] ${locationFontSize}`}>June 28, 2025</p>
-            </div>
-            ) : null}
-          </div>
+        {/* Address */}
+        <div className="mt-2 flex items-center gap-2 text-gray-700">
+          <MapPin className="h-4 w-4 shrink-0 text-gray-500" />
+          <p className="text-[13px] sm:text-[14px] font-medium line-clamp-1">
+            {event?.location || "Location TBA"}
+          </p>
         </div>
 
-        {/* Event Details */}
-        {event?.interestedCount? (
-        <div className={`text-xs lg:text-[0.6rem] mt-4 lg:mt-2 font-[600] ${eventInfoFontSize} ${cardInfoTextColor}`}>
-          <div className="flex items-center justify-between pr-[5%]">
-            <div className="flex items-center gap-1">
-              <Clock className="w-4 h-4 lg:w-3 lg:h-3 flex-shrink-0" />
-              <span>
-                {event?.date}, {event?.time}
-              </span>
-            </div>
-
-            <div className="flex items-center gap-1">
-              <Ticket className="w-3 h-3" />
-              <div>{event?.price && event?.currency && formatPrice(event?.price, event?.currency)}</div>
-            </div>
-
-            <div className="flex items-center gap-1">
-              <Users className="w-3 h-3 flex-shrink-0" />
-              <span>{event?.interestedCount} Interested</span>
-            </div>
-          </div>
-
-          {/* <div className="sm:[display:none] flex items-center justify-between sm:justify-end gap-4 sm:mr-7">
-            <div className="flex items-center gap-1">
-              <Ticket className="w-4 h-4 lg:w-3 lg:h-3 mb-1 2xl:mb-0" />
-              <div>{event?.price && event?.currency && formatPrice(event?.price, event?.currency)}</div>
-            </div>
-            <div className="flex items-center gap-1">
-              <Users className="w-4 h-4 lg:w-3 lg:h-3 flex-shrink-0" />
-              <span>{event?.interestedCount} Interested</span>
-            </div>
-          </div> */}
-        </div>
-        ) : null}
-
-
-
-        {/* Event Ratings and Review */}
-        {event?.ratings && event?.review ? (
-        <div className="mt-5">
-          <div className="flex items-center justify-between">
-            <div className='flex items-center'>
-              <p className='text-[1.15rem] font-[500] mr-1 text-[#f5f5f5]'>{event.ratings}</p>
-              {Array.from({length:4}, (_, i) => (
-                <Icon key={i} icon="ic:round-star-rate" width="24" height="24" className='text-[#FFAD43] h-6 w-6' />
-              ))}
-              <Icon icon="ic:round-star-half" width="24" height="24" className='text-[#FFAD43] h-6 w-6' />
-            </div>
-
-            <div>
-              <p className="font-[400] text-base leading-none text-[#A0A0A0]">({event.review.reviewTotal} Reviews)</p>
-            </div>
-          </div>
-
-          <div className="mt-3 border border-[#3A3A3A] rounded-xl text-base font-[400] text-[#A0A0A0] leading-5 py-5 px-6">
-            <p className="italic">
-            "{event.review?.review}"
+        {/* Meta */}
+        <div className="mt-4 space-y-3">
+          {/* Date & Time */}
+          <div className="flex items-start gap-2 text-gray-800">
+            <Clock className="h-4 w-4 mt-[2px] shrink-0 text-gray-500" />
+            <p className="text-[13px] sm:text-[14px] font-semibold leading-snug">
+              {event?.date
+                ? `${event.date}${event?.time ? `, ${event.time}` : ""}`
+                : "Date/Time TBA"}
             </p>
-            <p className="leading-none mt-1"> - {event.review?.reviewersName}</p>
           </div>
-        </div>
-        ) : null}
 
-
-
-
-
-
-        {/* Category Tags */}
-        <div className="flex flex-wrap gap-2 font-[500] mt-3">
-          {event.categories &&
-            event?.categories.length > 3 ? (
-              <>
-                {event.categories.slice(0, 3).map((category, index) => (
-                  <Badge
-                    key={index}
-                    variant="secondary"
-                    className="explore rounded-[20px] text-[#898989] bg-[#EDEDED] hover:bg-gray-200 text-xs sm:text-sm 2xl:text-[0.94rem] px-2 py-1 sm:px-3 sm:py-1"
-                  >
-                    {category}
-                  </Badge>
-                ))}
-                <Badge  className="explore rounded-[20px] text-[#898989] bg-[#EDEDED] hover:bg-gray-200 text-xs sm:text-sm 2xl:text-[0.94rem] px-2 py-1 sm:px-3 sm:py-1">
-                  +{event.categories.length - 3} more
-                </Badge>
-              </>
-            ) : (
-              event.categories && event.categories.map((category, index) => (
-                <Badge
-                  key={index}
-                  variant="secondary"
-                  className="explore rounded-[1.25rem] text-[#898989] bg-[#EDEDED] hover:bg-gray-200 text-xs sm:text-sm 2xl:text-[0.94rem] px-2 py-1 sm:px-3 sm:py-1"
-                >
-                  {category}
-                </Badge>
-              ))
-            )
-          }
-        </div>
-
-
-        {/* Brand Section */}
-        <div className={`relative flex items-center gap-3 pt-3 sm:pt-2 lg:pt-1 ${event?.categories && "border-t-2 border-dashed border-gray-300"}`}>
-          <div className={`absolute left-0 top-[-14px] rounded-full h-8 w-8 lg:w-5 lg:h-5 ${curveDesignColor}  ml-[-30px] lg:ml-[-27px]`}></div>
-          <div className={`absolute right-0 top-[-14px] rounded-full h-8 w-8 lg:w-5 lg:h-5 ${curveDesignColor} mr-[-30px] lg:mr-[-27px]`}></div>
-          <div className={`${!event?.categories? "px-2 py-3 border border-[#343434] bg-[#2B2B2B] flex items-center gap-3 lg:gap-2 rounded-lg w-full" : "flex items-center gap-3"}`}>
-            <div className="w-8 h-8 sm:w-10 sm:h-10 lg:h-6 lg:w-6 bg-black rounded-full flex items-center justify-center flex-shrink-0">
-              {event?.brand.logo ? (
-                <Image
-                  src={event?.brand.logo}
-                  alt={`${event?.brand.name} logo`}
-                  width={32}
-                  height={32}
-                  className="rounded-full"
-                />
-              ) : (
-                <span className="text-white text-xs sm:text-sm lg:text-xs font-bold">{event?.brand.name.charAt(0)}</span>
-              )}
+          {/* Price + Attending */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+            <div className="flex items-center gap-2 text-gray-800">
+              <Ticket className="h-4 w-4 shrink-0 text-gray-500" />
+              <p className="text-[13px] sm:text-[14px] font-semibold">
+                {formatPrice(event?.price, event?.currency)}
+              </p>
             </div>
-            <div className="min-w-0 flex-1">
-              {event?.categories && <p className="text-xs sm:text-sm text-gray-500 mb-1">Brand</p>}
-              <p className={`text-sm sm:text-base lg:text-xs leading-tight sm:leading-4 lg:leading-3 font-medium ${titleAndCompanyTextColor}`}>
-                {event?.brand.name} - {event?.brand.description.length > 24? (`${event.brand.description.substring(0, 24)}...`) : (event.brand.description)}
+
+            <div className="flex items-center gap-2 text-gray-800 sm:justify-end">
+              <Users className="h-4 w-4 shrink-0 text-gray-500" />
+              <p className="text-[13px] sm:text-[14px] font-semibold">
+                {typeof event?.attendingCount === "number"
+                  ? `${event.attendingCount} Attending`
+                  : "Attending: —"}
               </p>
             </div>
           </div>
         </div>
-        </div>
+
+        {/* Host */}
+        {brandLine && (
+          <div className="mt-4 pt-4 border-t border-dashed border-gray-200 flex items-center gap-3">
+            <div className="h-10 w-10 rounded-full bg-gray-900 text-white flex items-center justify-center font-bold shrink-0">
+              {event?.brand?.logo ? (
+                <Image
+                  src={event.brand.logo}
+                  alt={`${event.brand.name} logo`}
+                  width={40}
+                  height={40}
+                  className="h-10 w-10 rounded-full object-cover"
+                />
+              ) : (
+                (event?.brand?.name?.[0] || "B").toUpperCase()
+              )}
+            </div>
+
+            <div className="min-w-0">
+              <p className="text-xs text-gray-500">Host</p>
+              <p className="text-sm font-semibold text-gray-900 truncate">
+                {brandLine}
+              </p>
+            </div>
+          </div>
+        )}
       </CardContent>
     </Card>
-  )
+  );
 }
-
-export default EventCard2

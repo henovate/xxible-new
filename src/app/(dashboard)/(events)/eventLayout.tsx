@@ -7,7 +7,7 @@ import { categories, eventFilters, eventsData } from "./selectData/selectData";
 import { selectList } from "@/components/utility/searchBar/searchBar";
 import NextEventCard from "../components/nextEventCard/nextEventCard";
 import { nextEventList } from "../components/nextEventCard/next-events";
-import Pagination from "@/components/pagination/pagination";
+import Pagination from "@/components/pagination/Pagination";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { categoryList } from "../data/categoryList";

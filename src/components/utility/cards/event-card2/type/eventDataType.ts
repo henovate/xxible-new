@@ -14,7 +14,7 @@ export interface EventDataType {
 	time?: string;
 	price?: number;
 	currency?: string;
-	interestedCount?: number;
+	attendingCount?: number;
 	imageUrl: string;
 	imageAlt: string;
 	categories?: string[];

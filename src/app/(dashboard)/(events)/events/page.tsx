@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { eventsData } from '../selectData/selectData';
-import EventCard2 from '@/components/utility/cards/event-card2/eventCard2';
+import EventCard2 from '@/components/utility/cards/event-card2/EventCard2';
 import { useRouter } from 'next/navigation';
 import EventLayout from '../eventLayout';
 
@@ -30,7 +30,7 @@ const Page = () => {
 							eventInfoFontSize="2xl:text-xs 2xl:leading-4"
 							locationFontSize="2xl:text-sm 2xl:leading-[1.1rem]"
 							cardTag="eventCategory"
-							clickHandler={(id:number) => eventPage(id)}
+							// clickHandler={(id:number) => eventPage(id)}
 							/>
 			))}
 		</div>

@@ -1,27 +1,38 @@
-const { PrismaClient } = require("@prisma/client");
-
-const prisma = new PrismaClient();
+const { prisma } = require("./prismaClient");
+const bcrypt = require("bcrypt");
 
 async function main() {
+  const email = "hello@xxible.com";
+  const plainPassword = process.env.ADMIN_PASSWORD; // set in .env
+
+  if (!plainPassword || plainPassword.length < 8) {
+    throw new Error("ADMIN_PASSWORD is missing or too short in .env (min 8 chars).");
+  }
+
+  const hashedPassword = await bcrypt.hash(plainPassword, 10);
+
+
   await prisma.user.upsert({
-    where: { email: "hello@xxible.com" },
-    update: {},
+    where: { email },
+    // If user already exists, update password to the latest hash
+    update: {
+      password: hashedPassword,
+      role: "ADMIN",
+    },
     create: {
-      email: "hello@xxible.com",
-      password: "MyPass123",
+      email,
+      password: hashedPassword,
+      role: "ADMIN",
     },
   });
 
-  const users = await prisma.user.findMany({
-    select: {
-      id: true,
-      email: true,
-      createdAt: true,
-    },
-    orderBy: { createdAt: "desc" },
+  const admin = await prisma.user.findUnique({
+    where: { email },
+    select: { id: true, email: true, role: true, createdAt: true },
   });
 
-  console.log("Seeded users:", users);
+  console.log("✅ Admin seeded/updated:", admin);
+  console.log("🔐 Admin password loaded from ADMIN_PASSWORD env var (not printed).");
 }
 
 main()

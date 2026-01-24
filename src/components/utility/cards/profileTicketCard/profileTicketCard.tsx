@@ -1,5 +1,5 @@
-import { LimitedTimeTag, PopularTag, VipTag } from '@/app/(dashboard)/profile/components/tags/tags';
-import { TicketType } from '@/app/(dashboard)/profile/data';
+import { LimitedTimeTag, PopularTag, VipTag } from '@/app/(dashboard)/profiler/components/tags/tags';
+import { TicketType } from '@/app/(dashboard)/profiler/data';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card'
 import { Icon } from '@iconify/react/dist/iconify.js';
